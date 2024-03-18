@@ -1,0 +1,57 @@
+name: Deploy server over CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+permissions:
+    contents: read
+
+jobs:
+  build:
+    name: Build, push, pull & up
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - name: Login to registry
+          uses: docker/login-action@v3
+          with:
+              registry: ${{ secrets.DOCKER_REGISTRY }}
+              username: ${{ secrets.DOCKER_LOGIN }}
+              password: ${{ secrets.DOCKER_PASSWD }}
+
+        - name: Build and push Docker image
+          uses: docker/build-push-action@v5
+          with:
+              context: .
+              push: true
+              tags: ${{ secrets.DOCKER_REGISTRY }}/welcome-realt:${{ github.ref_name }}
+                      
+        - name: Configure SSH
+          run: |
+              mkdir -p ~/.ssh/
+              echo "$SSH_KEY" > ~/.ssh/staging.key
+              chmod 600 ~/.ssh/staging.key
+              cat >>~/.ssh/config <<END
+              Host staging
+                HostName $SSH_HOST
+                User $SSH_USER
+                Port $SSH_PORT
+                IdentityFile ~/.ssh/staging.key
+                StrictHostKeyChecking no
+              END
+          env:
+              SSH_USER: ${{ secrets.SSH_USER }}
+              SSH_KEY: ${{ secrets.SSH_KEY }}
+              SSH_HOST: ${{ secrets.SSH_HOST }}
+              SSH_PORT: ${{ secrets.SSH_PORT }}
+
+        - name: Update environment
+          run: |
+              ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }}
+              cd /home/realt/docker/welcome/${DOCKER_BRANCH}
+              git pull origin ${{ github.ref_name }}
+              docker compose --file docker-compose.${{ github.ref_name }}.yml pull
+              docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWD }} ${{ secrets.DOCKER_REGISTRY }}
+              docker compose --project-name ${{ github.ref_name }}-welcome --file docker-compose.${{ github.ref_name }}.yml up -d'
