@@ -27,7 +27,7 @@ jobs:
               context: .
               push: true
               tags: ${{ secrets.DOCKER_REGISTRY }}/welcome-realt:${{ github.ref_name }}
-                      
+
         - name: Configure SSH
           run: |
               mkdir -p ~/.ssh/
