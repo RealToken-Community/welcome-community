@@ -2,9 +2,9 @@ name: Deploy server over CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main","preprod" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main","preprod" ]
 permissions:
     contents: read
 
