@@ -1335,12 +1335,12 @@ input, select, textarea {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			margin-bottom: 0;
 			list-style: none;
+			padding: 0;
 		}
 
 			#header nav ul li {
-				padding: 0px;
+				padding: 0;
 				border: 1px solid #ffffff; 
 				border-radius: 7px;
 				margin-bottom: 20px; 
@@ -1360,7 +1360,7 @@ input, select, textarea {
 					align-items: center; 
 					justify-content: center; 
 					width: 100%; /* Modifié de 80% à 100% */
-					height: 90%; 
+					height: 100%; 
 					text-align: center; 
 					text-transform: uppercase;
 					letter-spacing: 0.2rem;
@@ -1379,10 +1379,10 @@ input, select, textarea {
 					text-decoration: none;
 				}
 			
-				#header nav ul li a.presentation { color: #fbb800; font-weight: bold; }
-				#header nav ul li a.development { color: #fbb800; font-weight: bold;}
-				#header nav ul li a.product { color: #214c9d; font-weight: bold;}
-				#header nav ul li a.contact { color: #ffffff; font-weight: bold;}
+				#header nav ul li a.presentation { color: #ffbb00e0; font-weight: 600;}
+				#header nav ul li a.development { color: #ffbb00e0; font-weight: 600;}
+				#header nav ul li a.product { color: #2b75ffcf; font-weight: 600;}
+				#header nav ul li a.contact { color: #ffffff; font-weight: 100;}
 
 		#header nav.use-middle:after {
 			content: '';
