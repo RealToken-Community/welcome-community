@@ -1226,7 +1226,7 @@ input, select, textarea {
 		position: relative;
 		min-height: 100vh;
 		width: 100%;
-		padding: 0;
+		padding: 1rem;
 		z-index: 3;
 	}
 
