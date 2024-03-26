@@ -112,13 +112,13 @@ input, select, textarea {
 /* Type */
 
 	html {
-		font-size: 16pt;
+		font-size: 12pt;
 	}
 
 		@media screen and (max-width: 1680px) {
 
 			html {
-				font-size: 12pt;
+				font-size: 10pt;
 			}
 
 		}
@@ -126,7 +126,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			html {
-				font-size: 11pt;
+				font-size: 10pt;
 			}
 
 		}
@@ -189,11 +189,20 @@ input, select, textarea {
 		margin: 0 0 1rem 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1 {
 		color: #ffffff;
 		font-weight: 600;
 		line-height: 1.5;
-		margin: 1.5rem 0 0.5rem 0;
+		margin-bottom: 2.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.2rem;
+	}
+
+	h2, h3, h4, h5, h6 {
+		color: #ffffff;
+		font-weight: 600;
+		line-height: 1.5;
+		margin: 0.5rem 0 1.5rem 0;
 		text-transform: uppercase;
 		letter-spacing: 0.2rem;
 	}
@@ -1224,10 +1233,11 @@ input, select, textarea {
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		position: relative;
-		min-height: 100vh;
-		width: 100%;
-		padding: 1rem;
+		min-height: auto;
+		width: auto;
+		padding: 0rem;
 		z-index: 3;
+		margin: 1%;
 	}
 
 		#wrapper:before {
@@ -1282,7 +1292,8 @@ input, select, textarea {
 		background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		background-image: -ms-radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
 		background-image: radial-gradient(rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 55%);
-		max-width: 100%;
+		min-height: auto;
+		width: auto;
 		text-align: center;
 	}
 
@@ -1292,14 +1303,14 @@ input, select, textarea {
 			-ms-transition: opacity 0.325s ease-in-out;
 			transition: opacity 0.325s ease-in-out;
 			position: relative;
-			margin-top: 3.5rem;
+			margin-top: 1rem;
 		}
 
 			#header > *:before {
 				content: '';
 				display: block;
 				position: absolute;
-				top: calc(-3.5rem - 1px);
+				top: calc(-1.5rem - 1px);
 				left: calc(50% - 1px);
 				width: 1px;
 				height: calc(1rem + 1px);
@@ -1314,8 +1325,8 @@ input, select, textarea {
 			}
 
 		#header .logo {
-			width: 10rem;
-			height: 10rem;
+			width: 8rem;
+			height: 8rem;
 			display: flex;
 			justify-content: auto;
 			align-items: auto;
@@ -1327,6 +1338,7 @@ input, select, textarea {
 			border-color: #ffffff;
 			border-top-width: 1px;
 			border-bottom-width: 1px;
+			margin-bottom: 1rem;
 			max-width: 90%;
 		}
 
@@ -1403,10 +1415,10 @@ input, select, textarea {
 					text-decoration: none;
 				}
 			
-				#header nav ul li a.presentation { color: #ffbb00e0; font-weight: 600;}
-				#header nav ul li a.development { color: #ffbb00e0; font-weight: 600;}
-				#header nav ul li a.product { color: #2b75ffcf; font-weight: 600;}
-				#header nav ul li a.contact { color: #ffffff; font-weight: 100;}
+				#header nav ul li a.presentation { color: #febf02; font-weight: 600;}
+				#header nav ul li a.development { color: #febf02; font-weight: 600;}
+				#header nav ul li a.product { color: #febf02; font-weight: 600;}
+				#header nav ul li a.contact { color: #ffffff;}
 
 		#header nav.use-middle:after {
 			content: '';
@@ -1467,9 +1479,9 @@ input, select, textarea {
 				}
 
 			#header .logo {
-				width: 4.75rem;
-				height: 4.75rem;
-				line-height: 4.75rem;
+				width: 2.75rem;
+				height: 2.75rem;
+				line-height: 2.75rem;
 			}
 
 				#header .logo .icon:before {
