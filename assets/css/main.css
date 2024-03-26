@@ -152,9 +152,24 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-		border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+		border-bottom: none;
 		text-decoration: none;
 		color: inherit;
+	}
+
+	.z {
+		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+		text-decoration: none;
+		color: inherit;
+		text-align: center;
+		display: block;
+	}
+
+	.z a {
+		border-bottom: none;
 	}
 
 		a:hover {
@@ -171,7 +186,7 @@ input, select, textarea {
 	}
 
 	p {
-		margin: 0 0 2rem 0;
+		margin: 0 0 1rem 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -188,14 +203,23 @@ input, select, textarea {
 			text-decoration: none;
 		}
 
-		h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+		h1.major, h3.major, h4.major, h5.major, h6.major {
 			border-bottom: solid 1px #ffffff;
 			width: -moz-max-content;
 			width: -webkit-max-content;
 			width: -ms-max-content;
 			width: max-content;
 			padding-bottom: 0.5rem;
-			margin: 0 0 2rem 0;
+			margin: 0 0 1rem 0;
+		}
+
+		h2.major {
+			color: #febf02;
+			width: -moz-max-content;
+			width: -webkit-max-content;
+			width: -ms-max-content;
+			width: max-content;
+			margin: 0 auto 1rem auto;
 		}
 
 	h1 {
@@ -1202,7 +1226,7 @@ input, select, textarea {
 		position: relative;
 		min-height: 100vh;
 		width: 100%;
-		padding: 4rem 2rem;
+		padding: 0;
 		z-index: 3;
 	}
 
@@ -1544,9 +1568,9 @@ input, select, textarea {
 			-webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
 			-ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
 			transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
-			padding: 2.5rem 2.5rem 1.5rem 2.5rem ;
+			padding: 1.5rem 1.5rem 1.5rem 1.5rem ;
 			position: relative;
-			width: 40rem;
+			width: 50rem;
 			max-width: 100%;
 			background-color: rgba(27, 31, 34, 0.85);
 			border-radius: 4px;
