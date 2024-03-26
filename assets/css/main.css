@@ -1337,14 +1337,13 @@ input, select, textarea {
 			align-items: center;
 			margin-bottom: 0;
 			list-style: none;
-			padding-left: 0;
 		}
 
 			#header nav ul li {
 				border: 1px solid #ffffff; 
 				border-radius: 7px;
 				margin-bottom: 10px; 
-				width: 300px; 
+				width: 500px; 
 				height: 50px; 
 				display: flex; 
 				justify-content: center; 
@@ -1359,7 +1358,7 @@ input, select, textarea {
 					display: flex; 
 					align-items: center; 
 					justify-content: center; 
-					width: 100%; 
+					width: 95%; 
 					height: 100%; 
 					text-align: center; 
 					text-transform: uppercase;
@@ -1379,7 +1378,6 @@ input, select, textarea {
 			display: block;
 			position: absolute;
 			top: calc(-3.5rem - 1px);
-			left: calc(50% - 1px);
 			width: 1px;
 			height: calc(1rem + 1px);
 		}
