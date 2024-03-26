@@ -1233,11 +1233,11 @@ input, select, textarea {
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		position: relative;
-		min-height: auto;
-		width: auto;
-		padding: 0rem;
+		min-height: 100vh;
+		width: 100%;
+		padding: 1rem;
 		z-index: 3;
-		margin: 1%;
+		margin: auto;
 	}
 
 		#wrapper:before {
