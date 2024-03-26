@@ -1303,7 +1303,7 @@ input, select, textarea {
 			border-color: #ffffff;
 			border-top-width: 1px;
 			border-bottom-width: 1px;
-			max-width: 100%;
+			max-width: 90%;
 		}
 
 			#header .content .inner {
@@ -1342,8 +1342,8 @@ input, select, textarea {
 			#header nav ul li {
 				border: 1px solid #ffffff; 
 				border-radius: 7px;
-				margin-bottom: 10px; 
-				width: 500px; 
+				margin-bottom: 20px; 
+				width: 280px; 
 				height: 50px; 
 				display: flex; 
 				justify-content: center; 
@@ -1358,20 +1358,29 @@ input, select, textarea {
 					display: flex; 
 					align-items: center; 
 					justify-content: center; 
-					width: 95%; 
-					height: 100%; 
+					width: 80%; 
+					height: 90%; 
 					text-align: center; 
 					text-transform: uppercase;
 					letter-spacing: 0.2rem;
 					font-size: 1rem;
-					padding: 0; 
-					box-sizing: border-box; 
+					box-sizing: border-box;
+					text-decoration: none;
 				}
 
-				#header nav ul li a.presentation { color: #fbb800; font-weight: normal; }
-				#header nav ul li a.development { color: #fbb800; font-weight: normal;}
+				#header nav ul li a, #header nav ul li a:visited {
+					text-decoration: none;
+					border-bottom: none;
+				}
+				
+				#header nav ul li a:hover, #header nav ul li a:active, #header nav ul li a:focus {
+					text-decoration: none;
+				}
+			
+				#header nav ul li a.presentation { color: #fbb800; font-weight: bold; }
+				#header nav ul li a.development { color: #fbb800; font-weight: bold;}
 				#header nav ul li a.product { color: #214c9d; font-weight: bold;}
-				#header nav ul li a.contact { color: #ffffff; font-weight: normal;}
+				#header nav ul li a.contact { color: #ffffff; font-weight: bold;}
 
 		#header nav.use-middle:after {
 			content: '';
@@ -1471,12 +1480,12 @@ input, select, textarea {
 				}
 
 					#header nav ul li {
-						border-left: 0;
-						border-top: solid 1px #ffffff;
+						border-left: 1px solid #ffffff; 
+						border-top: 1px solid #ffffff; 
 					}
 
 						#header nav ul li:first-child {
-							border-top: 0;
+							border-top: 1;
 						}
 
 						#header nav ul li a {
