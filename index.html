@@ -253,38 +253,73 @@
 				</article>
 
 				<!-- Contact -->
-					<article id="contact">
-						<h2 class="major">Contact</h2>
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half">
-									<label for="name">Name</label>
-									<input type="text" name="name" id="name" />
-								</div>
-								<div class="field half">
-									<label for="email">Email</label>
-									<input type="text" name="email" id="email" />
-								</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="4"></textarea>
-								</div>
+				<article id="contact">
+					<h2 class="major">Contact</h2>
+					<form id="contact-form" method="post">
+						<div class="fields">
+							<div class="field half">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
 							</div>
-							<ul class="actions">
-								<li><input type="submit" value="Send Message" class="primary" /></li>
-								<li><input type="reset" value="Reset" /></li>
-							</ul>
-						</form>
-						<ul class="icons">
-							<li>
-								<a href="https://github.com/RealT-Community" target="_blank" class="icon brands fa-github">
-									<span class="label">
-										GitHub
-									</span>
-								</a>
-							</li>
+							<div class="field half">
+								<label for="email">Email</label>
+								<input type="text" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="4"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" class="primary" /></li>
+							<li><input type="reset" value="Reset" /></li>
 						</ul>
-					</article>					
+					</form>
+					<ul class="icons">
+						<li>
+							<a href="https://github.com/RealT-Community" target="_blank" class="icon brands fa-github">
+								<span class="label">GitHub</span>
+							</a>
+						</li>
+					</ul>
+				</article>
+				<script>
+				document.getElementById('contact-form').addEventListener('submit', function(event) {
+					event.preventDefault();
+
+					var name = document.getElementById('name').value.trim();
+					var email = document.getElementById('email').value.trim();
+					var message = document.getElementById('message').value.trim();
+
+					if (name === "" || email === "" || message === "") {
+						alert('Veuillez remplir tous les champs.');
+						return;
+					}
+
+					var formData = {
+						name: name,
+						email: email,
+						message: message
+					};
+
+					fetch('https://script.google.com/macros/s/AKfycbzv0SPRP2pKGifxVRLTk7qLyAiu3eWK9HPWuvWWtTW3UXSA31QiC1LeKForC-fpMJTB/exec', {
+						method: 'POST',
+						mode: 'no-cors',
+						body: JSON.stringify(formData),
+						headers: {
+							'Content-Type': 'application/json'
+						}
+					})
+					.then(() => {
+						console.log('Message envoyé');
+						alert('Votre message est en cours d\'envoi.');
+					})
+					.catch((error) => {
+						console.error('Error:', error);
+						alert('Erreur lors de l\'envoi du message.');
+					});
+				});
+				</script>				
 			</div>
 
 			<!-- Footer -->
