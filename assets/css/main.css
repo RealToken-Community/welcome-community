@@ -153,7 +153,7 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		text-decoration:underline;
-		text-decoration-color: #febf02;
+		text-decoration-color: #02bbfe;
 		text-underline-offset: 3px;
 		color: inherit;
 	}
@@ -226,7 +226,7 @@ input, select, textarea {
 		}
 
 		h2.major {
-			color: #febf02;
+			color: #02b2fe;
 			width: -moz-max-content;
 			width: -webkit-max-content;
 			width: -ms-max-content;
@@ -1421,9 +1421,9 @@ input, select, textarea {
 					text-decoration: none;
 				}
 			
-				#header nav ul li a.presentation { color: #febf02; font-weight: 600;}
-				#header nav ul li a.development { color: #febf02; font-weight: 600;}
-				#header nav ul li a.product { color: #febf02; font-weight: 600;}
+				#header nav ul li a.presentation { color: #02aafe; font-weight: 600;}
+				#header nav ul li a.development { color: #02aafe; font-weight: 600;}
+				#header nav ul li a.product { color: #02aafe; font-weight: 600;}
 				#header nav ul li a.contact { color: #ffffff;}
 
 		#header nav.use-middle:after {
@@ -1593,6 +1593,19 @@ input, select, textarea {
 			background-color: rgba(27, 31, 34, 0.85);
 			border-radius: 4px;
 			opacity: 0;
+		}
+
+		article#rules ol li {
+			margin: 15px;
+		}
+	
+		article#rules h3 {
+			color: #02aafe;
+		}
+	
+		article#rules ol li strong {
+			text-decoration: underline;
+			color: #02aafe;
 		}
 
 			#main article.active {
