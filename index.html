@@ -83,19 +83,19 @@
 					<h2 class="major">-Products-</h2>
 
 					<h3>RealToken Official</h3>
-					<li><a href="#product_yam">YAM</a></li>
-					<li><a href="#product_rmm">RMM</a></li>
-					<li><a href="#product_bridge">RealToken Bridge</a></li>
+					<li><a href="#product_yam" class="dashboard-link">YAM</a></li>
+					<li><a href="#product_rmm" class="dashboard-link">RMM</a></li>
+					<li><a href="#product_bridge" class="dashboard-link">RealToken Bridge</a></li>
 
 					<h3>RealToken Community</h3>
-					<li><a href="#product_dashboard">Dashboard</a></li>
-					<li><a href="#product_api">API</a></li>
-					<li><a href="#product_wiki">Wiki</a></li>
-					<li><a href="#product_levinswap">LevinSwap</a></li>
-					<li><a href="#product_batch">Batch-sender</a></li>
+					<li><a href="#product_dashboard" class="dashboard-link">Dashboard</a></li>
+					<li><a href="#product_api" class="dashboard-link">API</a></li>
+					<li><a href="#product_wiki" class="dashboard-link">Wiki</a></li>
+					<li><a href="#product_levinswap" class="dashboard-link">LevinSwap</a></li>
+					<li><a href="#product_batch" class="dashboard-link">Batch-sender</a></li>
 
 					<h3>How to integrate your realtoken community project?</h3>
-					<li><a href="#rules">Rules</a></li>
+					<li><a href="#rules" class="dashboard-link">Rules</a></li>
 
 				</article>
 
@@ -335,41 +335,41 @@
 					</form>
 				</article>
 				<script>
-				document.getElementById('contact-form').addEventListener('submit', function(event) {
-					event.preventDefault();
+					document.getElementById('contact-form').addEventListener('submit', function(event) {
+						event.preventDefault();
 
-					var name = document.getElementById('name').value.trim();
-					var email = document.getElementById('email').value.trim();
-					var message = document.getElementById('message').value.trim();
+						var name = document.getElementById('name').value.trim();
+						var email = document.getElementById('email').value.trim();
+						var message = document.getElementById('message').value.trim();
 
-					if (name === "" || email === "" || message === "") {
-						alert('Please complete all fields.');
-						return;
-					}
-
-					var formData = {
-						name: name,
-						email: email,
-						message: message
-					};
-
-					fetch('https://script.google.com/macros/s/AKfycbx-7KFSSUyhdAGR0aumK9QoyRfpGQ3xmsZ4AzAnrJD8EEm7EAxSHr_Kd0k2Edf8QX-z/exec', {
-						method: 'POST',
-						mode: 'no-cors',
-						body: JSON.stringify(formData),
-						headers: {
-							'Content-Type': 'application/json'
+						if (name === "" || email === "" || message === "") {
+							alert('Please complete all fields.');
+							return;
 						}
-					})
-					.then(() => {
-						console.log('Message envoyé');
-						alert('Your message is being sent.');
-					})
-					.catch((error) => {
-						console.error('Error:', error);
-						alert('Error sending message.');
+
+						var formData = {
+							name: name,
+							email: email,
+							message: message
+						};
+
+						fetch('https://script.google.com/macros/s/AKfycbx-7KFSSUyhdAGR0aumK9QoyRfpGQ3xmsZ4AzAnrJD8EEm7EAxSHr_Kd0k2Edf8QX-z/exec', {
+							method: 'POST',
+							mode: 'no-cors',
+							body: JSON.stringify(formData),
+							headers: {
+								'Content-Type': 'application/json'
+							}
+						})
+						.then(() => {
+							console.log('Message envoyé');
+							alert('Your message is being sent.');
+						})
+						.catch((error) => {
+							console.error('Error:', error);
+							alert('Error sending message.');
+						});
 					});
-				});
 				</script>				
 			</div>
 

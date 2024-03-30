@@ -169,6 +169,10 @@ input, select, textarea {
 		display: block;
 	}
 
+	li .dashboard-link {
+		font-size: 1.2rem;
+	}
+
 	.z a {
 		border-bottom: none;
 		text-decoration:none;
@@ -226,6 +230,15 @@ input, select, textarea {
 		}
 
 		h2.major {
+			color: #02b2fe;
+			width: -moz-max-content;
+			width: -webkit-max-content;
+			width: -ms-max-content;
+			width: max-content;
+			margin: 0 auto 1rem auto;
+		}
+
+		h7.major {
 			color: #02b2fe;
 			width: -moz-max-content;
 			width: -webkit-max-content;
