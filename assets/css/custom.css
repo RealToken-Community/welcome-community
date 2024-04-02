@@ -1,0 +1,129 @@
+/* GENERAL */
+.blue {
+    color: #02aafe;
+}
+
+.no-style {
+    list-style-type: none;
+}
+
+.no-decoration {
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+/* HEADER */
+#header img.logo {
+    width: 100%;
+    height: auto;
+}
+
+#header .logo .icon:before {
+    font-size: 1.75rem;
+}
+
+/* TROMBI */
+.trombi li {
+    display: inline-block;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.trombi img {
+    display: block;
+    margin: 0 auto;
+    width: 90px;
+    height: 90px;
+}
+
+.trombi span.name {
+    display: block;
+    font-weight: bold;
+    color: #02b2fe;
+}
+
+.trombi span.role {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #d48e0c;
+}
+
+/* PRODUCT */
+.product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.product-link {
+    margin-right: 10px;
+}
+
+.product .major {
+    margin: 0;
+    padding-right: 10px;
+}
+
+/* FOOTER */
+#footer .social-links a {
+    text-decoration: none !important;
+    border: none !important;
+}
+
+#footer .social-links  {
+    margin-bottom: 10px;
+}
+
+#footer .social-links a i {
+    font-size: 24px;
+    margin: 5px;
+}
+
+/* PAST CSS */
+li .dashboard-link {
+    font-size: 1.2rem;
+}
+
+h2.major, h7.major {
+    color: #02b2fe;
+    width: -moz-max-content;
+    width: -webkit-max-content;
+    width: -ms-max-content;
+    width: max-content;
+    margin: 0 auto 1rem auto;
+}
+
+#header nav ul li a.link-presentation, #header nav ul li a.link-development, #header nav ul li a.link-product {
+    color: #02aafe;
+    font-weight: 600;
+}
+
+#header nav ul li a.link-contact {
+    color: #ffffff;
+}
+
+article#rules ol li {
+    margin: 15px;
+}
+
+article#rules h3 {
+    color: #02aafe;
+}
+
+article#rules ol li strong {
+    text-decoration: underline;
+    color: #02aafe;
+}
