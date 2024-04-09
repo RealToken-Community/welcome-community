@@ -1399,7 +1399,7 @@ input, select, textarea {
 					font-size: 1rem;
 					box-sizing: border-box;
 					text-decoration: none;
-					padding: 0; /* Assurez-vous qu'il n'y a pas de padding qui réduit la zone cliquable */
+					padding: 0;
 				}
 
 				#header nav ul li a, #header nav ul li a:visited {

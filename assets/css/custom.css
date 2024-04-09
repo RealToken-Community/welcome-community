@@ -35,29 +35,70 @@
 }
 
 /* TROMBI */
+.trombi ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 .trombi li {
-    display: inline-block;
-    text-align: center;
-    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    background-color: #384c7530;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.2);
+}
+
+.trombi .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.trombi .profile-pic {
+    margin-right: 0.1rem;
 }
 
 .trombi img {
-    display: block;
-    margin: 0 auto;
-    width: 90px;
-    height: 90px;
+    border-radius: 50%;
+    height: 2.5rem;
 }
 
-.trombi span.name {
-    display: block;
+.trombi .name {
     font-weight: bold;
-    color: #02b2fe;
+    color: #ffffff;
+    font-size: 1.1rem;
 }
 
-.trombi span.role {
-    font-size: 0.9em;
+.trombi .networks {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.trombi .icon {
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.trombi .description {
+    flex-grow: 1;
+    justify-content: flex-end;
+    display: flex;
+    margin-left: 0.1rem;
+    font-size: 1rem;
+    color: #ffaa00;
+    font-weight: bold;
     font-style: italic;
-    color: #d48e0c;
+    align-items: center;
+}
+
+.trombi .description p {
+    margin: 0;
+    padding: 0.5rem;
 }
 
 /* PRODUCT */
