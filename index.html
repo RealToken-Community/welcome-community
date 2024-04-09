@@ -31,6 +31,7 @@
 						<li><a href="#development" class="link-development">Development</a></li>
 						<li><a href="#product" class="link-product">Product</a></li>
 						<li><a href="#contact" class="link-contact">Contact</a></li>
+						<li><a href="#donate" class="link-donate" style="color: #02bbfe; font-weight: bold;">** Donate **</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -221,6 +222,33 @@
 
 				</article>
 
+				<!-- donate -->
+				<article id="donate" style="text-align: center">
+					<h2 class="major">Donate</h2>
+					<h3>Would you like to reward our work?</h3>
+					<p>We have created a temporary gnosis safe address to allow community contributions to be rewarded!</p>
+					<p>The entire balance of this wallet will be transferred to the DAO's treasury when it is launched.</p>
+					<b>This is our community Gnosis Safe address:</b>
+					<p><a href="https://gnosisscan.io/address/0xec247b0ca0c1c84e3a5e5f55589ae3844e7c259a" target="_blank" style="color: #02bbfe; font-weight: bold; line-height: 2.5;">0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a</a></p>
+					<p>Thank you for your participation and support!</p>
+					<p id="totalFiatBalance" style="font-weight: bold; color: #008907b8;">Current balance: $-.-</p>
+				</article>
+				<script>
+					fetch("https://safe-transaction-gnosis-chain.safe.global/api/v1/safes/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/balances/usd/", {
+						method: 'GET',
+						headers: {
+							'accept': 'application/json',
+							'X-CSRFToken': '0QTECCHoDEKXOXVQpoX3jIapHHjanzcpoJIfcZoMyDjTB00Y3gG9Kt1nob0KbVfi'
+						}
+					})
+					.then(response => response.json())
+					.then(data => {
+						const totalFiatBalance = data.reduce((total, item) => total + parseFloat(item.fiatBalance), 0);
+						document.getElementById("totalFiatBalance").textContent = `Current balance: $${totalFiatBalance.toFixed(2)}`;
+					})
+					.catch(error => console.error('Error fetching the fiat balances:', error));
+				</script>
+			
 				<!-- product -->
 				<article id="product">
 					<h2 class="major">-Products-</h2>
