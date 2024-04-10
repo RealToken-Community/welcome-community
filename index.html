@@ -234,8 +234,7 @@
 					<p id="totalFiatBalance" style="font-weight: bold; color: #008907b8;">Current balance: $-.-</p>
 				</article>
 				<script>
-					fetch('https://wiki.realt.community/safe/', {
-					})
+					fetch('https://wiki.realt.community/safe/')
 					.then(response => response.json())
 					.then(data => {
 						const walletBalance = data.data.attributes.positions_distribution_by_type.wallet;
