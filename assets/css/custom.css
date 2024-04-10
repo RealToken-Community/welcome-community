@@ -168,3 +168,21 @@ article#rules ol li strong {
     text-decoration: underline;
     color: #02aafe;
 }
+
+/* DONATE */
+
+#donate a {
+    color: #02aafe; /* Bleu */
+    font-weight: bold;
+    font-size: 1.25em;
+    text-decoration: underline;
+}
+
+#totalUSDValue {
+    font-weight: bold;
+    color: #008907b8;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
