@@ -235,17 +235,25 @@
 				</article>
 				<script>
 					fetch('https://wiki.realt.community/safe/')
-					.then(response => response.json())
+					.then(response => {
+						console.log("Response received", response);
+						if (!response.ok) {
+							throw new Error(`HTTP error! status: ${response.status}`);
+						} else {
+							return response.json();
+						}
+					})
 					.then(data => {
+						console.log("Data parsed", data);
 						const walletBalance = data.data.attributes.positions_distribution_by_type.wallet;
 						document.getElementById("totalFiatBalance").textContent = `Current balance: $${walletBalance.toFixed(2)}`;
 					})
 					.catch(error => {
-						console.error('Error fetching the wallet balance:', error);
-						document.getElementById("totalFiatBalance").textContent = "Error fetching balance.";
+						console.error('Error occurred:', error.message);
+						document.getElementById("totalFiatBalance").textContent = `Error: ${error.message}`;
 					});
 				</script>
-										  
+														  
 				<!-- product -->
 				<article id="product">
 					<h2 class="major">-Products-</h2>
