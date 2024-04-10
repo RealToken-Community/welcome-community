@@ -232,49 +232,25 @@
 					<p><a href="https://gnosisscan.io/address/0xec247b0ca0c1c84e3a5e5f55589ae3844e7c259a" target="_blank" style="color: #02bbfe; font-weight: bold; line-height: 2.5;">0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a</a></p>
 					<p>Thank you for your participation and support!</p>
 					<p id="totalFiatBalance" style="font-weight: bold; color: #008907b8;">Current balance: $-.-</p>
-					<p id="lastUpdated" style="font-style: italic; font-size: 0.8em;">Last updated: --/--/---- --:-- UTC</p>
 				</article>
 				<script>
-					function formatDate(date) {
-						return date.getUTCFullYear() + "-" +
-							   ("0" + (date.getUTCMonth() + 1)).slice(-2) + "-" +
-							   ("0" + date.getUTCDate()).slice(-2) + " " +
-							   ("0" + date.getUTCHours()).slice(-2) + ":" +
-							   ("0" + date.getUTCMinutes()).slice(-2) + " UTC";
-					}
-				
-					const lastUpdateTime = localStorage.getItem('lastUpdateTime');
-					const now = new Date();
-				
-					if (!lastUpdateTime || now.getTime() - new Date(lastUpdateTime).getTime() > 86400000) { // Mise à jour toutes les 24 heures
-						fetch('https://api.zerion.io/v1/wallets/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/portfolio?currency=usd', {
+					fetch('https://wiki.realt.community/safe/', {
 						method: 'GET',
 						headers: {
-							'accept': 'application/json',
-							'authorization': 'Basic emtfZGV2XzkwZjFjMjg3OGUyMjQzMzRiNThhNTYzNDA4OTY0M2FkOg=='
+							'accept': 'application/json'
 						}
-						})
-						.then(response => response.json())
-						.then(data => {
+					})
+					.then(response => response.json())
+					.then(data => {
 						const walletBalance = data.data.attributes.positions_distribution_by_type.wallet;
 						document.getElementById("totalFiatBalance").textContent = `Current balance: $${walletBalance.toFixed(2)}`;
-						const updateTime = new Date();
-						localStorage.setItem('lastUpdateTime', updateTime.toISOString());
-						localStorage.setItem('totalFiatBalance', walletBalance.toFixed(2));
-						document.getElementById("lastUpdated").textContent = "Last updated: " + formatDate(updateTime);
-						})
-						.catch(error => {
+					})
+					.catch(error => {
 						console.error('Error fetching the wallet balance:', error);
-						document.getElementById("lastUpdated").textContent = "Failed to update balance.";
-						});
-					} else {
-						const lastUpdate = new Date(lastUpdateTime);
-						document.getElementById("lastUpdated").textContent = "Last updated: " + formatDate(lastUpdate);
-						const storedBalance = localStorage.getItem('totalFiatBalance');
-						document.getElementById("totalFiatBalance").textContent = storedBalance ? `Current balance: $${storedBalance}` : 'Current balance: $-.-';
-					}
+						document.getElementById("totalFiatBalance").textContent = "Error fetching balance.";
+					});
 				</script>
-						  
+										  
 				<!-- product -->
 				<article id="product">
 					<h2 class="major">-Products-</h2>
