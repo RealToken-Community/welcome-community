@@ -234,15 +234,20 @@
 					<p id="totalFiatBalance" style="font-weight: bold; color: #008907b8;">Current balance: $-.-</p>
 				</article>
 				<script>
-					fetch('https://wiki.realt.community/safe/')
+					fetch('https://cors-anywhere.herokuapp.com/https://api.zerion.io/v1/wallets/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/portfolio?currency=usd', {
+						method: 'GET',
+						headers: {
+							'accept': 'application/json',
+							'authorization': 'Basic emtfZGV2XzkwZjFjMjg3OGUyMjQzMzRiNThhNTYzNDA4OTY0M2FkOg=='
+						}
+					})
 					.then(response => response.json())
 					.then(data => {
 						const walletBalance = data.data.attributes.positions_distribution_by_type.wallet;
 						document.getElementById("totalFiatBalance").textContent = `Current balance: $${walletBalance.toFixed(2)}`;
 					})
 					.catch(error => {
-						console.error('Error fetching the wallet balance:', error);
-						document.getElementById("totalFiatBalance").textContent = "Error fetching balance.";
+						console.error('Error occurred:', error);
 					});
 				</script>
 										  
