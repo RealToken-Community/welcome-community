@@ -231,29 +231,31 @@
 					<b>This is our community Gnosis Safe address:</b>
 					<p><a href="https://gnosisscan.io/address/0xec247b0ca0c1c84e3a5e5f55589AE3844e7c259a" target="_blank">0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a</a></p>
 					<p>Thank you for your participation and support!</p>
-					<b>Wallet details: <span id="totalUSDValue">$0.00</span></b>
+					<select id="tokenDropdown"></select>
 				</article>
 				<script>
 					fetch('https://safe-transaction-gnosis-chain.safe.global/api/v1/safes/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/balances/usd/?trusted=false&exclude_spam=false')
 					.then(response => response.json())
 					.then(data => {
-						let totalUSDValue = 0;
-						let details = '';
+						let dropdown = document.getElementById("tokenDropdown");
+						dropdown.innerHTML = '<option value="" selected>Wallet balance</option>';
 						data.forEach(item => {
 							const tokenName = item.token ? item.token.name : 'xDai';
 							const balance = Number(item.balance) / Math.pow(10, item.token ? item.token.decimals : 18);
-							totalUSDValue += Number(item.fiatBalance);
-							details += `${tokenName}: ${balance.toFixed(2)} ($${Number(item.fiatBalance).toFixed(2)})\n`;
+							let option = document.createElement('option');
+							option.textContent = `${tokenName}: ${balance.toFixed(2)}`;
+							option.disabled = true;
+							dropdown.appendChild(option);
 						});
-						document.getElementById("totalUSDValue").textContent = `$${totalUSDValue.toFixed(2)}`;
-						document.getElementById("totalUSDValue").setAttribute('title', details.trim());
+						dropdown.addEventListener('change', function() {this.selectedIndex = 0});
 					})
 					.catch(error => {
 						console.error('Error fetching the wallet balance:', error);
-						document.getElementById("totalUSDValue").textContent = 'Failed to update total USD value.';
+						document.getElementById("tokenDropdown").textContent = 'Failed to fetch token balances.';
 					});
+
 				</script>
-																		  
+																					  
 				<!-- product -->
 				<article id="product">
 					<h2 class="major">-Products-</h2>
