@@ -229,29 +229,30 @@
 					<p>We have created a temporary gnosis safe address to allow community contributions to be rewarded!</p>
 					<p>The entire balance of this wallet will be transferred to the DAO's treasury when it is launched.</p>
 					<b>This is our community Gnosis Safe address:</b>
-					<p><a href="https://gnosisscan.io/address/0xec247b0ca0c1c84e3a5e5f55589AE3844e7c259a" target="_blank">0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a</a></p>
+					<p><a href="https://gnosisscan.io/address/0xec247b0ca0c1c84e3a5e5f55589ae3844e7c259a" target="_blank" style="color: #02bbfe; font-weight: bold; line-height: 2.5;">0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a</a></p>
 					<p>Thank you for your participation and support!</p>
-					
-					<b>Wallet details: <span id="totalUSDValue">$0.00</span></b>
+					<p id="totalFiatBalance" style="font-weight: bold; color: #008907b8;">Current balance: $-.-</p>
 				</article>
 				<script>
-					fetch('https://safe-transaction-gnosis-chain.safe.global/api/v1/safes/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/balances/usd/?trusted=false&exclude_spam=false')
-					.then(response => response.json())
+					fetch('https://wiki.realt.community/safe/', {
+						method: 'GET',
+						headers: {
+							'Accept': 'application/json',
+						}
+					})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error(`HTTP error! status: ${response.status}`);
+						}
+						return response.json();
+					})
 					.then(data => {
-						let totalUSDValue = 0;
-						let details = '';
-						data.forEach(item => {
-							const tokenName = item.token ? item.token.name : 'xDai';
-							const balance = Number(item.balance) / Math.pow(10, item.token ? item.token.decimals : 18);
-							totalUSDValue += Number(item.fiatBalance);
-							details += `${tokenName}: ${balance.toFixed(2)} ($${Number(item.fiatBalance).toFixed(2)})\n`;
-						});
-						document.getElementById("totalUSDValue").textContent = `$${totalUSDValue.toFixed(2)}`;
-						document.getElementById("totalUSDValue").setAttribute('title', details.trim());
+						const walletBalance = data.data.attributes.positions_distribution_by_type.wallet;
+						document.getElementById("totalFiatBalance").textContent = `Current balance: $${walletBalance.toFixed(2)}`;
 					})
 					.catch(error => {
-						console.error('Error fetching the wallet balance:', error);
-						document.getElementById("totalUSDValue").textContent = 'Failed to update total USD value.';
+						console.error('Error occurred:', error);
+						document.getElementById("totalFiatBalance").textContent = `Error: ${error.message}`;
 					});
 				</script>
 														  
