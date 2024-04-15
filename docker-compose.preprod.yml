@@ -3,7 +3,7 @@ version: '3'
 services:
   welcome:
     image: nginx
-    container_name: realtoken_welcome
+    container_name: ${DOCKER_BRANCH}-welcome
     volumes:
      - ./:/usr/share/nginx/html
     ports:
@@ -15,8 +15,8 @@ services:
      - NGINX_PORT=80
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.preprod-welcome.rule=Host(`preprod.realt.community`)"
-      - "traefik.http.routers.preprod-welcome.entrypoints=websecure"
+      - "traefik.http.routers.${DOCKER_BRANCH}-welcome.rule=Host(`${DOCKER_BRANCH}.realt.community`)"
+      - "traefik.http.routers.${DOCKER_BRANCH}-welcome.entrypoints=websecure"
     restart: always
 
 networks:

@@ -1,198 +1,176 @@
-/* GENERAL */
-.blue {
-    color: #02aafe;
+.blue,article#rules h3 {
+    color: #02aafe
 }
 
-.no-style {
-    list-style-type: none;
+.no-style,.trombi ul {
+    list-style-type: none
 }
 
 .no-decoration {
-    text-decoration: none;
+    text-decoration: none
 }
 
 .center {
-    text-align: center;
+    text-align: center
 }
 
 .left {
-    text-align: left;
+    text-align: left
 }
 
-.flex-center {
+.flex-center,.trombi .profile-info,.trombi li {
     display: flex;
-    align-items: center;
+    align-items: center
 }
 
-/* HEADER */
 #header img.logo {
     width: 100%;
-    height: auto;
+    height: auto
 }
 
 #header .logo .icon:before {
-    font-size: 1.75rem;
+    font-size: 1.75rem
 }
 
-/* TROMBI */
 .trombi ul {
-    list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0
 }
 
 .trombi li {
-    display: flex;
-    align-items: center;
-    margin-top: 0.2rem;
-    margin-bottom: 0.2rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
     background-color: #384c7530;
-    border-radius: 0.7rem;
-    padding: 0.5rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.2);
+    border-radius: .7rem;
+    padding: .5rem;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.2)
 }
 
 .trombi .profile-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    gap: 1rem
 }
 
 .trombi .profile-pic {
-    margin-right: 0.1rem;
+    margin-right: .1rem
 }
 
 .trombi img {
     border-radius: 50%;
-    height: 2.5rem;
+    height: 2.5rem
 }
 
 .trombi .name {
-    font-weight: bold;
-    color: #ffffff;
-    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.1rem
 }
 
 .trombi .networks {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1rem
 }
 
 .trombi .icon {
     font-size: 1.5rem;
-    text-decoration: none;
+    text-decoration: none
+}
+
+.product,.trombi .description {
+    display: flex;
+    align-items: center
 }
 
 .trombi .description {
     flex-grow: 1;
     justify-content: flex-end;
-    display: flex;
-    margin-left: 0.1rem;
+    margin-left: .1rem;
     font-size: 1rem;
     color: #02b2fe;
-    font-weight: bold;
-    font-style: italic;
-    align-items: center;
+    font-weight: 700;
+    font-style: italic
 }
 
 .trombi .description p {
     margin: 0;
-    padding: 0.5rem;
+    padding: .5rem
 }
 
-/* PRODUCT */
 .product {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    flex-direction: row
 }
 
 .product-link {
-    margin-right: 10px;
+    margin-right: 10px
 }
 
 .product .major {
     margin: 0;
-    padding-right: 10px;
+    padding-right: 10px
 }
 
-/* FOOTER */
 #footer .social-links a {
-    text-decoration: none !important;
-    border: none !important;
+    text-decoration: none!important;
+    border: 0!important
 }
 
-#footer .social-links  {
-    margin-bottom: 10px;
+#footer .social-links {
+    margin-bottom: 10px
 }
 
 #footer .social-links a i {
     font-size: 24px;
-    margin: 5px;
+    margin: 5px
 }
 
-/* PAST CSS */
 li .dashboard-link {
-    font-size: 1.2rem;
+    font-size: 1.2rem
 }
 
-h2.major, h7.major {
+h2.major,h7.major {
     color: #02b2fe;
     width: -moz-max-content;
     width: -webkit-max-content;
     width: -ms-max-content;
     width: max-content;
-    margin: 0 auto 1rem auto;
+    margin: 0 auto 1rem
 }
 
-#header nav ul li a.link-presentation,
-#header nav ul li a.link-development,
-#header nav ul li a.link-product,
-#header nav ul li a.link-donate {
+#header nav ul li a.link-development,#header nav ul li a.link-donate,#header nav ul li a.link-presentation,#header nav ul li a.link-product {
     color: #02aafe;
-    font-weight: 600;
+    font-weight: 600
 }
 
-#header nav ul li a.link-contact {
-    color: #ffffff;
+#header nav ul li a.link-contact,#tokenDropdown option {
+    color: #fff
 }
 
 article#rules ol li {
-    margin: 15px;
-}
-
-article#rules h3 {
-    color: #02aafe;
+    margin: 15px
 }
 
 article#rules ol li strong {
     text-decoration: underline;
-    color: #02aafe;
+    color: #02aafe
 }
 
-/* DONATE */
+#donate a,#tokenDropdown {
+    color: #02aafe;
+    font-weight: 700
+}
 
 #donate a {
-    color: #02aafe;
-    font-weight: bold;
     font-size: 1.25em;
-    text-decoration: underline;
+    text-decoration: underline
 }
 
 #tokenDropdown {
-    color: #02aafe;
-    font-weight: bold;
     background-color: transparent;
     border: 1px solid #02aafe;
-    padding: 0.5rem;
-    margin: 0.5rem;
+    padding: .5rem;
+    margin: .5rem;
     text-align: center;
     display: inline-block;
-    width: 40%;
-}
-
-#tokenDropdown option {
-    color: #ffffff;
+    width: 40%
 }
