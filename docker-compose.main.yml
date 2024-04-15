@@ -3,7 +3,7 @@ version: '3'
 services:
   welcome:
     image: nginx
-    container_name: realtoken_welcome
+    container_name: ${DOCKER_BRANCH}-welcome
     volumes:
      - ./:/usr/share/nginx/html
     ports:
