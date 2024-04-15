@@ -147,7 +147,10 @@ h2.major, h7.major {
     margin: 0 auto 1rem auto;
 }
 
-#header nav ul li a.link-presentation, #header nav ul li a.link-development, #header nav ul li a.link-product {
+#header nav ul li a.link-presentation,
+#header nav ul li a.link-development,
+#header nav ul li a.link-product,
+#header nav ul li a.link-donate {
     color: #02aafe;
     font-weight: 600;
 }
