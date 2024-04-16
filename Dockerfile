@@ -1,3 +1,4 @@
 FROM caddy:2.6.4-alpine
 
-COPY . /usr/share/caddy/
+COPY *.html /usr/share/caddy/
+COPY assets /usr/share/caddy/assets
