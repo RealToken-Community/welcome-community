@@ -2,17 +2,12 @@ version: '3'
 
 services:
   welcome:
-    image: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: ${DOCKER_BRANCH}-welcome
-    volumes:
-     - ./:/usr/share/nginx/html
-    ports:
-     - "8293:80"
     networks:
       - traefik-realt
-    environment:
-     - NGINX_HOST=realt.community
-     - NGINX_PORT=80
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.welcome.rule=Host(`realt.community`) || Host(`www.realt.community`)"
