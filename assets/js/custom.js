@@ -36,9 +36,17 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('https://safe-transaction-gnosis-chain.safe.global/api/v1/safes/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/balances/?trusted=false&exclude_spam=false')
-    .then(response => response.json())
+    console.log('Fetching wallet balance...');
+    fetch('https://safe-transaction-gnosis-chain.safe.global/api/v1/safes/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/balances/?trusted=false&exclude_spam=true')
+    .then(response => {
+        console.log('Response received:', response);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
+        console.log('Data received:', data);
         let dropdown = document.getElementById("tokenDropdown");
         dropdown.innerHTML = '<option value="" selected>Wallet balance</option>';
         data.forEach(item => {
