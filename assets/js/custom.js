@@ -36,7 +36,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('https://safe-transaction-gnosis-chain.safe.global/api/v1/safes/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/balances/usd/?trusted=false&exclude_spam=false')
+    fetch('https://safe-transaction-gnosis-chain.safe.global/api/v1/safes/0xeC247b0Ca0c1c84e3a5e5f55589AE3844e7c259a/balances/?trusted=false&exclude_spam=false')
     .then(response => response.json())
     .then(data => {
         let dropdown = document.getElementById("tokenDropdown");
