@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   welcome:
     image: ${DOCKER_REGISTRY}/welcome:${DOCKER_BRANCH}
