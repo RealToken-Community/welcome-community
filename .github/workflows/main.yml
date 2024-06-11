@@ -24,7 +24,7 @@ jobs:
           with:
               context: .
               push: true
-              tags: ${{ secrets.DOCKER_REGISTRY }}/welcome-realt:${{ github.ref_name }}
+              tags: ${{ secrets.DOCKER_REGISTRY }}/welcome:${{ github.ref_name }}
 
         - name: Configure SSH
           run: |
