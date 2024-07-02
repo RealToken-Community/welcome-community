@@ -174,3 +174,12 @@ article#rules ol li strong {
     display: inline-block;
     width: 60%
 }
+
+.dashboard-link {
+    margin-right: 10px; /* Ajustez cette valeur selon vos besoins */
+    color: #00aaff;
+}
+
+.dashboard-description {
+    margin-left: 10px; /* Ajustez cette valeur selon vos besoins */
+  }
