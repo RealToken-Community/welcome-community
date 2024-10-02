@@ -6,7 +6,7 @@ services:
       - traefik-realt
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${DOCKER_BRANCH}-welcome.rule=Host(`${DOCKER_BRANCH}.realt.community`)"
+      - "traefik.http.routers.${DOCKER_BRANCH}-welcome.rule=Host(`${DOCKER_BRANCH}.realtoken.community`)"
       - "traefik.http.routers.${DOCKER_BRANCH}-welcome.entrypoints=websecure"
     restart: always
 
