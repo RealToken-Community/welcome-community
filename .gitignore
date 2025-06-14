@@ -1,1 +1,21 @@
 .DS_Store
+
+# Environment variables
+.env
+
+# WordPress files
+wp-config/wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backups/
+
+# Database dumps
+*.sql
+*.sql.gz
+
+# Logs
+*.log
+
+# Temporary files
+.tmp/
+temp/
