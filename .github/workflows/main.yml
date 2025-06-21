@@ -46,10 +46,18 @@ jobs:
               SSH_PORT: ${{ secrets.SSH_PORT }}
 
         - name: Update environment
-          run: |
-              ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }} DOCKER_REGISTRY=${{ secrets.DOCKER_REGISTRY }}
+           run: |
+              ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }} \
+                          DOCKER_REGISTRY=${{ secrets.DOCKER_REGISTRY }} \
+                          MYSQL_ROOT_PASSWORD="${{ secrets.MYSQL_ROOT_PASSWORD }}" \
+                          MYSQL_DATABASE="${{ secrets.MYSQL_DATABASE }}" \
+                          MYSQL_USER="${{ secrets.MYSQL_USER }}" \
+                          MYSQL_PASSWORD="${{ secrets.MYSQL_PASSWORD }}" \
+                          REDIS_PASSWORD="${{ secrets.REDIS_PASSWORD }}" \
+                          WORDPRESS_TABLE_PREFIX="${{ secrets.WORDPRESS_TABLE_PREFIX }}"
               cd /var/docker/welcome/${DOCKER_BRANCH}
               git pull origin ${{ github.ref_name }}
               docker compose --file docker-compose-${{ github.ref_name }}.yml pull
               docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWD }} ${DOCKER_REGISTRY}
               docker compose --project-name ${{ github.ref_name }}-welcome --file docker-compose-${{ github.ref_name }}.yml up -d --build'
+
