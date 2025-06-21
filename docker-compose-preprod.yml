@@ -10,7 +10,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - wordpress-network
+      - wordpress
     restart: always
     command: --default-authentication-plugin=mysql_native_password
 
@@ -21,7 +21,7 @@ services:
     volumes:
       - redis_data:/data
     networks:
-      - wordpress-network
+      - wordpress
     restart: always
 
   wordpress:
@@ -43,7 +43,7 @@ services:
     volumes:
       - wordpress_data:/var/www/html
     networks:
-      - wordpress-network
+      - wordpress
       - traefik-realt
     labels:
       - "traefik.enable=true"
@@ -57,7 +57,6 @@ volumes:
   wordpress_data:
 
 networks:
-  wordpress-network:
-    driver: bridge
+  wordpress:
   traefik-realt:
     external: true
