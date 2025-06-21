@@ -46,7 +46,7 @@ jobs:
               SSH_PORT: ${{ secrets.SSH_PORT }}
 
         - name: Update environment
-           run: |
+          run: |
               ssh staging 'export DOCKER_BRANCH=${{ github.ref_name }} \
                           DOCKER_REGISTRY=${{ secrets.DOCKER_REGISTRY }} \
                           MYSQL_ROOT_PASSWORD="${{ secrets.MYSQL_ROOT_PASSWORD }}" \
