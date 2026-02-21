@@ -60,15 +60,9 @@ function parseFrontmatter(content) {
   }
 }
 
-// Slugs canoniques en anglais pour les URL (toujours en anglais)
-// Le contenu est chargé selon la locale (localStorage) via getSlugForLocale
-// Exporté pour la génération du sitemap (scripts/generate-sitemap.js)
-export const englishSlugs = [
-  'realtoken-dao-realt-relationship',
-  'realtoken-dao-objectives',
-  'birth-of-realtoken-dao',
-  'realtoken-dao-scope'
-]
+// Slugs canoniques : définis dans data/blog-slugs.js (sans dépendance) pour le script sitemap
+import { englishSlugs } from '../data/blog-slugs.js'
+export { englishSlugs }
 
 // Correspondance des slugs entre locales (même article, slugs différents selon la langue)
 // Quand on est sur /blog/perimetre-dao-realtoken et qu'on passe en EN, on doit charger realtoken-dao-scope
@@ -80,7 +74,9 @@ const slugEquivalents = {
   'objectif-dao-realtoken': { en: 'realtoken-dao-objectives' },
   'realtoken-dao-objectives': { fr: 'objectif-dao-realtoken' },
   'lien-realt-dao-realtoken': { en: 'realtoken-dao-realt-relationship' },
-  'realtoken-dao-realt-relationship': { fr: 'lien-realt-dao-realtoken' }
+  'realtoken-dao-realt-relationship': { fr: 'lien-realt-dao-realtoken' },
+  'participation-gouvernance-realtoken-dao': { en: 'realtoken-dao-governance-participation' },
+  'realtoken-dao-governance-participation': { fr: 'participation-gouvernance-realtoken-dao' }
 }
 
 /** Retourne le slug à utiliser pour une locale (équivalent du même article dans l'autre langue si besoin) */

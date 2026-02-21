@@ -1,0 +1,16 @@
+# Netlify – RealToken Website (Vite + Vue)
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback : toute URL non trouvée (fichier statique) → index.html
+# Nécessaire pour que les liens directs (ex. /application-hub) fonctionnent
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -82,6 +82,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
+    // Sur /faq, les ancres sont gérées par le composant Faq (openFromHash) après montage
+    if (to.hash && to.path === '/faq') {
+      return { top: 0 }
+    }
     // Ancre explicite dans l’URL (ex: /page#section) → on scroll vers l’élément
     if (to.hash) {
       return { el: to.hash, behavior: 'smooth' }

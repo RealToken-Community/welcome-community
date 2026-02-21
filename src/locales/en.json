@@ -222,11 +222,11 @@
       },
       "q2": {
         "question": "What is the link between RealToken and RealT?",
-        "answer": "RealToken and RealT share a common ecosystem focused on real asset tokenization. RealT focuses on creating and managing tokens (e.g. real estate tokens), while the RealToken DAO enables token holders to participate in governance and vote on key decisions (e.g. new projects, fund allocations)."
+        "answer": "RealToken and RealT belong to the same real-world asset tokenization ecosystem, with distinct roles. RealT focuses on creating and managing the underlying assets (real estate tokens, issuance, compliance). The RealToken DAO focuses on the technological ecosystem and DeFi: tools (RMM, YAM, Bridge), community governance, and decisions on protocols, integrations, and allocations. In short: RealT manages the tokenized assets; the RealToken DAO manages the ecosystem's infrastructure and governance."
       },
       "q3": {
         "question": "How can I participate in the DAO?",
-        "answer": "To participate you need to:\n• Hold governance tokens (e.g. RMM, or a RealToken-specific token).\n• Connect to the voting platform (Tally) with a compatible wallet (MetaMask, WalletConnect, Rabby, etc.).\n• Vote or propose ideas via the forum."
+        "answer": "• Forum: join <a href='https://forum.realtoken.community' target='_blank' rel='noopener noreferrer'>the forum</a> to debate, follow decisions, and propose ideas (no token required). To submit a proposal, discuss your idea on the forum first, then draft a formal proposal.\n• REG: REG (governance token) can be obtained on exchange platforms such as <a href='https://app.1inch.io' target='_blank' rel='noopener noreferrer'>1inch</a> or via <a href='https://yam.realtoken.network' target='_blank' rel='noopener noreferrer'>YAM</a>. REG is also distributed based on participation in partner tokens. Active participation in the ecosystem (development, communication, etc.) can also be rewarded in REG. REG gives you voting power.\n• Tally: on <a href='https://tally.xyz/gov/realtoken-ecosystem-governance' target='_blank' rel='noopener noreferrer'>Tally</a>, connect your wallet to review proposals, vote, or delegate your vote."
       },
       "q4": {
         "question": "What is an RWA (Real World Asset)?",
@@ -242,11 +242,11 @@
       },
       "q7": {
         "question": "How can I propose a project or idea to the DAO?",
-        "answer": "• Join the forum.\n• Write a proposal with: a clear title; a detailed description (objectives, budget, timeline). See the template.\n• Submit the proposal for a vote via Tally."
+        "answer": "• Discuss the idea on <a href='https://t.me/realtokendao_official' target='_blank' rel='noopener noreferrer'>Telegram</a> first to assess relevance and feasibility.\n• Join <a href='https://forum.realtoken.community/' target='_blank' rel='noopener noreferrer'>the forum</a> and write a proposal with: a clear title; a detailed description (objectives, budget, timeline). See <a href='https://forum.realtoken.community/d/2-realtoken-dao-official-guidelines' target='_blank' rel='noopener noreferrer'>the template</a>.\n• Submit the proposal for a vote via <a href='https://tally.xyz/gov/realtoken-ecosystem-governance' target='_blank' rel='noopener noreferrer'>Tally</a>."
       },
       "q8": {
         "question": "Where can I find help or ask questions?",
-        "answer": "Telegram, Forum, FAQ, and by email if available."
+        "answer": "• <a href='https://t.me/realtokendao_official' target='_blank' rel='noopener noreferrer'>Telegram</a>: the community is welcoming; post in the language of your choice and we'll help you.\n• <a href='https://forum.realtoken.community/' target='_blank' rel='noopener noreferrer'>Forum</a>: for more thought-out questions and discussions.\n• By email (<a href='mailto:marketing@realtoken.community'>marketing@realtoken.community</a>): for partnership requests or any other inquiry."
       },
       "q9": {
         "question": "Is the DAO open to crypto beginners?",
@@ -298,6 +298,12 @@
         "domainLabel": "Domain: Free"
       }
     },
+    "communitySection": {
+      "tag": "Resources",
+      "title": "Community initiatives",
+      "disclaimer": "The applications below are third-party projects, not managed or endorsed by the DAO. They are maintained by community members or third parties. Useful to the ecosystem but with no guarantee of ongoing support."
+    },
+    "dashboardRealtokensDesc": "Mobile app, API and RealToken tools.",
     "sections": {
       "rmm": {
         "tag": "RMM",
@@ -328,18 +334,19 @@
         },
         "tools": [
           { "title": "YAM Transaction Report Generator", "description": "Generate a PDF of all your transactions over a given period.", "href": "https://yam-report.realtoken.community/", "managedBy": "dao" },
-          { "title": "YAM Offer by ID", "description": "Alternative to main YAM to buy an offer directly by ID.", "href": "https://yam.joed.site/", "managedBy": "community" },
-          { "title": "Bot Telegram – YAM Sale Notify Bot", "description": "Get notified when one of your offers published on YAM is sold.", "href": "https://t.me/yam_sale_notify_bot", "managedBy": "community" }
+          { "title": "YAM Offer Viewer by ID", "description": "Alternative to main YAM to buy an offer directly by ID. Version managed by the DAO (code on RealToken Community GitHub).", "href": "https://offer-view.yam.realtoken.community/", "managedBy": "dao" },
+          { "title": "Bot Telegram – YAM Sale Notify Bot", "description": "Get notified when one of your offers published on YAM is sold. Managed by the DAO.", "href": "https://t.me/yam_sale_notify_bot", "managedBy": "dao" }
         ]
       },
       "realtokens": {
         "tag": "Realtokens",
         "title": "Realtokens",
         "tools": [
-          { "title": "RealToken Asset Tracker", "description": "Mobile app to track your RealToken assets.", "href": "https://mobile.realtoken.community/", "managedBy": "community" },
+          { "title": "Bridge", "description": "Transfer RealTokens between chains (L2, etc.).", "href": "https://bridge.realtoken.network/", "managedBy": "realt" },
+          { "title": "RealToken Asset Tracker", "description": "Mobile app to track your RealToken assets. Hosted on the DAO's GitHub (realtoken_apps), managed by the DAO (currently low maintenance).", "href": "https://mobile.realtoken.community/", "managedBy": "dao" },
           { "title": "Shareholder Vote – Assets", "description": "Vote on RealToken assets (shareholder votes).", "href": "https://vote.realtoken.network/assets", "managedBy": "realt" },
           { "title": "RealToken API", "description": "API documentation and endpoints for RealToken data.", "href": "https://api.realtoken.community/", "managedBy": "dao" },
-          { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications of changes on a RealToken (rent, token price, etc.).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "community" },
+          { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications of changes on a RealToken (rent, token price, etc.). Managed by the DAO (code on RealToken Community GitHub).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "dao" },
           { "title": "Pitsbi", "description": "RealT dashboard and analytics.", "href": "https://realt.pitsbi.io", "managedBy": "community" },
           { "title": "Cryptalloc RealtLab", "description": "Portfolio and RealToken tools.", "href": "https://www.cryptalloc.com/realtlab/", "managedBy": "community" },
           { "title": "RealT Rent Tracker", "description": "Track rent payments for your RealTokens.", "href": "https://ehpst.duckdns.org/realt_rent_tracker/", "managedBy": "community" },
@@ -357,6 +364,7 @@
           "managedBy": "dao"
         },
         "tools": [
+          { "title": "DAO Documentation", "description": "Wiki to better understand the DAO and its organization.", "href": "https://wiki.realtoken.community/", "managedBy": "dao" },
           { "title": "RealToken Wallet", "description": "Wallet to hold and manage your REG and RealTokens.", "href": "https://wallet.realtoken.network/", "managedBy": "daoRealt" },
           { "title": "Dune DAO Dashboard", "description": "RealToken DAO analytics and metrics.", "href": "https://dune.com/teugos/realtoken-dao-dashboard", "managedBy": "community" },
           { "title": "Incentive Vault", "description": "DAO incentive program and vault.", "href": "https://vote.realtoken.network/dao/incentive", "managedBy": "dao" }

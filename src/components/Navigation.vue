@@ -137,7 +137,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LanguageSelector from './LanguageSelector.vue'
 import logoImg from '@/assets/logo-v3-orange.png'
@@ -159,11 +159,8 @@ const menuItems = computed(() => [
     id: 'applications',
     labelKey: 'nav.menu.applications',
     children: [
-      { labelKey: 'nav.menu.applicationsRmm', href: 'https://rmm.realtoken.network/', external: true },
       { labelKey: 'nav.menu.applicationsYam', href: 'https://yam.realtoken.network', external: true },
-      { labelKey: 'nav.menu.applicationsBridge', href: 'https://bridge.realtoken.network/', external: true },
-      { labelKey: 'nav.menu.applicationsDashboard', href: 'https://dashboard.realtoken.community/', external: true },
-      { labelKey: 'nav.menu.applicationsWallet', href: 'https://wallet.realtoken.network/', external: true }
+      { labelKey: 'nav.menu.applicationsRmm', href: 'https://rmm.realtoken.network/', external: true }
     ],
     routerChildren: [
       { labelKey: 'nav.menu.resourcesLiensUtiles', to: '/application-hub' }
@@ -217,8 +214,19 @@ const closeOnEscape = (e) => {
 }
 
 const closeOnResize = () => {
-  if (window.innerWidth >= 769) menuOpen.value = false
+  if (window.innerWidth >= 1401) menuOpen.value = false
 }
+
+// Bloquer le scroll du body quand le menu mobile est ouvert (évite la barre de scroll en double)
+watch(menuOpen, (open) => {
+  if (open) {
+    document.body.style.overflow = 'hidden'
+    document.body.style.touchAction = 'none'
+  } else {
+    document.body.style.overflow = ''
+    document.body.style.touchAction = ''
+  }
+})
 
 onMounted(() => {
   window.addEventListener('keydown', closeOnEscape)
@@ -228,6 +236,8 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('keydown', closeOnEscape)
   window.removeEventListener('resize', closeOnResize)
+  document.body.style.overflow = ''
+  document.body.style.touchAction = ''
 })
 </script>
 
@@ -252,6 +262,7 @@ onUnmounted(() => {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  min-width: 0;
 }
 
 .logo {
@@ -285,13 +296,17 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 32px;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .nav-links {
   display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.8);
+  min-width: 0;
 }
 
 .nav-item {
@@ -311,6 +326,7 @@ onUnmounted(() => {
   cursor: pointer;
   border-radius: 8px;
   transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-trigger:hover,
@@ -384,6 +400,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .primary {
@@ -457,7 +474,7 @@ a.primary {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Menu mobile */
+/* Menu mobile : scroll uniquement dans le panneau, pas de scroll sur le body */
 .nav-mobile {
   position: fixed;
   top: var(--nav-height);
@@ -469,6 +486,8 @@ a.primary {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-mobile-inner {
@@ -549,7 +568,8 @@ a.primary {
   opacity: 0;
 }
 
-@media (max-width: 900px) {
+/* Menu hamburger dès 1400px pour éviter que Ressources / EN-FR / Contact se superposent */
+@media (max-width: 1400px) {
   .hamburger {
     display: flex;
   }
@@ -559,6 +579,7 @@ a.primary {
   }
 }
 
+/* Barre plus compacte sur petites largeurs */
 @media (max-width: 768px) {
   .top-nav {
     padding-left: 16px;
@@ -578,7 +599,13 @@ a.primary {
   }
 }
 
-@media (min-width: 901px) {
+@media (max-width: 480px) {
+  .logo > div span {
+    max-width: 90px;
+  }
+}
+
+@media (min-width: 1401px) {
   .nav-mobile {
     display: none !important;
   }

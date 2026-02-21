@@ -13,6 +13,7 @@
         <div
           v-for="(key, index) in faqItemKeys"
           :key="key"
+          :id="faqAnchors[key]"
           class="faq-item"
           :class="{ open: openIndex === index }"
         >
@@ -39,9 +40,9 @@
           >
             <div class="faq-answer">
               <template v-for="(block, i) in answerBlocks(key)" :key="i">
-                <p v-if="block.type === 'p'" class="faq-answer-p">{{ block.text }}</p>
+                <p v-if="block.type === 'p'" class="faq-answer-p" v-html="block.text"></p>
                 <ul v-else-if="block.type === 'ul'" class="faq-answer-list">
-                  <li v-for="(item, j) in block.items" :key="j">{{ item }}</li>
+                  <li v-for="(item, j) in block.items" :key="j" v-html="item"></li>
                 </ul>
               </template>
             </div>
@@ -53,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -70,11 +71,66 @@ const faqItemKeys = ref([
   'q9'
 ])
 
+/** Ancres en anglais pour l’URL (/faq#slug) — partage et cohérence */
+const faqAnchors = {
+  q1: 'what-is-realtoken-dao',
+  q2: 'realt-realtoken-link',
+  q3: 'how-to-participate-dao',
+  q4: 'what-is-rwa',
+  q5: 'how-decisions-made-dao',
+  q6: 'risks-rwa-dao',
+  q7: 'propose-project-idea',
+  q8: 'help-questions',
+  q9: 'dao-beginners'
+}
+
 const openIndex = ref(null)
 
-function toggle(index) {
-  openIndex.value = openIndex.value === index ? null : index
+/** Ouvre la question correspondant au hash et scroll vers elle (lien reçu avec ancre) */
+function openFromHash() {
+  try {
+    const hash = typeof window !== 'undefined' ? window.location.hash.slice(1) : ''
+    if (!hash) return
+    const key = Object.keys(faqAnchors).find((k) => faqAnchors[k] === hash)
+    if (!key) return
+    const index = faqItemKeys.value.indexOf(key)
+    if (index === -1) return
+    openIndex.value = index
+    nextTick(() => {
+      const el = document.getElementById(hash)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
+  } catch (_) {
+    // ne pas propager d’erreur pour éviter de casser le reste de l’app
+  }
 }
+
+function toggle(index) {
+  const isClosing = openIndex.value === index
+  openIndex.value = isClosing ? null : index
+  try {
+    const key = faqItemKeys.value[index]
+    const slug = key ? faqAnchors[key] : null
+    if (slug) {
+      const newHash = isClosing ? '' : '#' + slug
+      const url = window.location.pathname + window.location.search + newHash
+      window.history.replaceState(null, '', url)
+    }
+  } catch (_) {
+    // ne pas propager d’erreur
+  }
+}
+
+onMounted(() => {
+  openFromHash()
+  window.addEventListener('popstate', openFromHash)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('popstate', openFromHash)
+})
 
 const BULLET = '•'
 
@@ -174,6 +230,8 @@ h1 {
   border-radius: 12px;
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  /* Quand on arrive via un lien avec ancre, le scroll laisse de la place sous la nav fixe (72px) */
+  scroll-margin-top: 88px;
 }
 
 .faq-item:hover {
@@ -285,6 +343,14 @@ h1 {
 
 .faq-answer-list li::marker {
   color: var(--color-orange);
+}
+
+.faq-answer :deep(a) {
+  color: var(--color-orange);
+  text-decoration: underline;
+}
+.faq-answer :deep(a:hover) {
+  text-decoration: none;
 }
 
 .faq-answer > *:last-child {

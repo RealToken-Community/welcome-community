@@ -6,7 +6,7 @@ dev-build:
 	$(COMPOSE) build
 
 dev-run:
-	$(COMPOSE) up
+	npm run sitemap && $(COMPOSE) up
 
 dev-kill:
 	$(COMPOSE) down
