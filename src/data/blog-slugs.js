@@ -8,5 +8,6 @@ export const englishSlugs = [
   'realtoken-dao-objectives',
   'birth-of-realtoken-dao',
   'realtoken-dao-scope',
-  'realtoken-dao-governance-participation'
+  'realtoken-dao-governance-participation',
+  'future-rwa-community-roadmap-diversification'
 ]
