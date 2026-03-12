@@ -76,7 +76,9 @@ const slugEquivalents = {
   'lien-realt-dao-realtoken': { en: 'realtoken-dao-realt-relationship' },
   'realtoken-dao-realt-relationship': { fr: 'lien-realt-dao-realtoken' },
   'participation-gouvernance-realtoken-dao': { en: 'realtoken-dao-governance-participation' },
-  'realtoken-dao-governance-participation': { fr: 'participation-gouvernance-realtoken-dao' }
+  'realtoken-dao-governance-participation': { fr: 'participation-gouvernance-realtoken-dao' },
+  'avenir-rwa-diversification-communautaire': { en: 'future-rwa-community-roadmap-diversification' },
+  'future-rwa-community-roadmap-diversification': { fr: 'avenir-rwa-diversification-communautaire' }
 }
 
 /** Retourne le slug à utiliser pour une locale (équivalent du même article dans l'autre langue si besoin) */
