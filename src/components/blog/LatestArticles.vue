@@ -80,6 +80,24 @@ onMounted(async () => {
   line-height: 1.65;
 }
 
+/* Vignettes = ratio 1376×768 comme sur /blog (ArticleCard) — renforcé ici pour la home fond clair. */
+.blog-preview :deep(.article-image) {
+  width: 100%;
+  aspect-ratio: 1376 / 768;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-preview :deep(.article-image img) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .blog-preview :deep(.article-card) {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);

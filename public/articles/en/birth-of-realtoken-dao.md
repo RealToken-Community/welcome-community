@@ -4,7 +4,7 @@ date: "2024-02-01"
 description: "The story behind the origins and creation of the RealToken DAO, a decentralized organization dedicated to real-world asset tokenization"
 tags: ["dao", "history", "governance", "ecosystem"]
 author: "RealToken Team"
-imageHeader: "realtoken-dao-birth.jpg"
+imageHeader: "realtoken-dao-birth.png"
 ---
 
 # The Birth of the RealToken DAO
