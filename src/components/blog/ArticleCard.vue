@@ -64,17 +64,22 @@ const formatDate = (dateString) => {
   border-color: rgba(255, 140, 66, 0.3);
 }
 
+/* Zone vignette = même ratio que les visuels de référence 1376×768 (évite crop arbitraire 200px). */
 .article-image {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 1376 / 768;
   overflow: hidden;
   background: rgba(10, 31, 68, 0.5);
+  position: relative;
 }
 
 .article-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .article-content {
