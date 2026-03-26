@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { getEnglishSlug } from './utils/blog.js'
+import i18n from './i18n'
 import Home from './views/Home.vue'
 import Blog from './views/Blog.vue'
 import BlogPost from './views/BlogPost.vue'
@@ -15,17 +16,23 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'RealToken DAO',
+      description: 'Decentralized ecosystem for tokenized real-world assets.'
+    }
   },
   {
     path: '/blog',
     name: 'Blog',
-    component: Blog
+    component: Blog,
+    meta: { titleKey: 'blog.pageTitle', descriptionKey: 'blog.pageDescription' }
   },
   {
     path: '/blog/:slug',
     name: 'BlogPost',
     component: BlogPost,
+    meta: { titleKey: 'blog.pageTitle', descriptionKey: 'blog.pageDescription' },
     beforeEnter(to, _from, next) {
       const englishSlug = getEnglishSlug(to.params.slug)
       if (englishSlug !== to.params.slug) {
@@ -38,37 +45,44 @@ const routes = [
   {
     path: '/faq',
     name: 'Faq',
-    component: Faq
+    component: Faq,
+    meta: { titleKey: 'faq.pageTitle', descriptionKey: 'faq.pageDescription' }
   },
   {
     path: '/committee',
     name: 'Comite',
-    component: Comite
+    component: Comite,
+    meta: { titleKey: 'comite.pageTitle', descriptionKey: 'comite.pageDescription' }
   },
   {
     path: '/application-hub',
     name: 'LiensUtiles',
-    component: LiensUtiles
+    component: LiensUtiles,
+    meta: { titleKey: 'liensUtiles.pageTitle', descriptionKey: 'liensUtiles.pageDescription' }
   },
   {
     path: '/reg',
     name: 'Reg',
-    component: Reg
+    component: Reg,
+    meta: { titleKey: 'reg.pageTitle', descriptionKey: 'reg.pageDescription' }
   },
   {
     path: '/partners',
     name: 'Partenaires',
-    component: Partenaires
+    component: Partenaires,
+    meta: { titleKey: 'partenaires.pageTitle', descriptionKey: 'partenaires.pageDescription' }
   },
   {
     path: '/privacy',
     name: 'Confidentialite',
-    component: Confidentialite
+    component: Confidentialite,
+    meta: { titleKey: 'confidentialite.pageTitle', descriptionKey: 'confidentialite.pageDescription' }
   },
   {
     path: '/legal-notice',
     name: 'MentionsLegales',
-    component: MentionsLegales
+    component: MentionsLegales,
+    meta: { titleKey: 'mentions.pageTitle', descriptionKey: 'mentions.pageDescription' }
   },
   // Redirects: anciennes URLs FR → URLs anglaises (SEO, bookmarks)
   { path: '/comite', redirect: '/committee' },
@@ -97,6 +111,42 @@ const router = createRouter({
     // Par défaut : toujours en haut de la page
     return { top: 0 }
   }
+})
+
+const DEFAULT_TITLE = 'RealToken DAO'
+const DEFAULT_DESCRIPTION = 'Decentralized ecosystem for tokenized real-world assets.'
+
+function resolveMetaValue(to, key, defaultValue) {
+  const routeWithMeta = [...to.matched].reverse().find((r) => r.meta && (r.meta[key] || r.meta[`${key}Key`]))
+  if (!routeWithMeta) return defaultValue
+
+  const rawValue = routeWithMeta.meta[key]
+  if (typeof rawValue === 'string' && rawValue.trim()) return rawValue
+
+  const i18nKey = routeWithMeta.meta[`${key}Key`]
+  if (typeof i18nKey === 'string' && i18nKey.trim()) {
+    const translated = i18n.global.t(i18nKey)
+    return translated && translated !== i18nKey ? translated : defaultValue
+  }
+
+  return defaultValue
+}
+
+function upsertMetaDescription(content) {
+  let descriptionTag = document.querySelector('meta[name="description"]')
+  if (!descriptionTag) {
+    descriptionTag = document.createElement('meta')
+    descriptionTag.setAttribute('name', 'description')
+    document.head.appendChild(descriptionTag)
+  }
+  descriptionTag.setAttribute('content', content)
+}
+
+router.afterEach((to) => {
+  const pageTitle = resolveMetaValue(to, 'title', DEFAULT_TITLE)
+  const pageDescription = resolveMetaValue(to, 'description', DEFAULT_DESCRIPTION)
+  document.title = pageTitle === DEFAULT_TITLE ? DEFAULT_TITLE : `${pageTitle} | ${DEFAULT_TITLE}`
+  upsertMetaDescription(pageDescription)
 })
 
 export default router

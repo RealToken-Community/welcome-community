@@ -41,14 +41,40 @@ const route = useRoute()
 const router = useRouter()
 const { locale } = useI18n()
 const article = ref(null)
+const DEFAULT_TITLE = 'RealToken Blog | RealToken DAO'
+const DEFAULT_DESCRIPTION = 'Explore all our articles on real estate tokenization, decentralized governance and the RealToken ecosystem.'
+
+function upsertMetaDescription(content) {
+  let descriptionTag = document.querySelector('meta[name="description"]')
+  if (!descriptionTag) {
+    descriptionTag = document.createElement('meta')
+    descriptionTag.setAttribute('name', 'description')
+    document.head.appendChild(descriptionTag)
+  }
+  descriptionTag.setAttribute('content', content)
+}
+
+function updateSeoHead(post) {
+  if (!post) {
+    document.title = DEFAULT_TITLE
+    upsertMetaDescription(DEFAULT_DESCRIPTION)
+    return
+  }
+  const title = post.title?.trim() ? `${post.title} | RealToken DAO` : DEFAULT_TITLE
+  const description = post.description?.trim() ? post.description : DEFAULT_DESCRIPTION
+  document.title = title
+  upsertMetaDescription(description)
+}
 
 const fetchArticle = async () => {
   const slug = route.params.slug
   article.value = await loadArticle(slug, locale.value)
+  updateSeoHead(article.value)
 }
 
 onMounted(fetchArticle)
 watch([() => route.params.slug, locale], fetchArticle)
+watch(article, updateSeoHead)
 
 const formatDate = (dateString) => {
   if (!dateString) return ''
