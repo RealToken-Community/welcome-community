@@ -1,0 +1,16 @@
+services:
+  welcome:
+    image: ${DOCKER_REGISTRY}/welcome:${DOCKER_BRANCH}
+    container_name: ${DOCKER_BRANCH}-welcome
+    networks:
+      - traefik-realt
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.welcome.rule=Host(`realtoken.community`) || Host(`www.realtoken.community`)"
+      - "traefik.http.routers.welcome.entrypoints=websecure"
+    restart: always
+
+networks:
+  traefik-realt:
+    external: true
+

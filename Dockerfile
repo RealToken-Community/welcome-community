@@ -1,12 +1,13 @@
-FROM wordpress:6-php8.1-apache
+FROM node:20-alpine
 
-# Install Redis PHP extension
-RUN pecl install redis && docker-php-ext-enable redis
+WORKDIR /app
 
-# Install additional useful extensions
-RUN docker-php-ext-install opcache
+COPY package*.json ./
+RUN npm install
 
-# Configure opcache
-RUN echo "opcache.enable=1" >> /usr/local/etc/php/conf.d/opcache.ini && \
-    echo "opcache.memory_consumption=128" >> /usr/local/etc/php/conf.d/opcache.ini && \
-    echo "opcache.max_accelerated_files=4000" >> /usr/local/etc/php/conf.d/opcache.ini
+COPY . .
+
+EXPOSE 5173
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+
