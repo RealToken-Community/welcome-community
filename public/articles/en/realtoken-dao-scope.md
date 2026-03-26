@@ -22,7 +22,7 @@ The DAO's scope defines the areas in which it can act, make decisions, and alloc
 The DAO is responsible for the overall management of the RealToken ecosystem, including:
 
 - **New Partner Integration**: Validation and integration of new real-world asset tokens
-- **Tool Development**: Maintenance and improvement of RMM (RealToken Market Maker) and YAM (Your Asset Manager)
+- **Tool Development**: Maintenance and improvement of RMM (RealToken Money Market) and YAM (You And Me)
 - **Standards and Protocols**: Definition of technical standards for real-world asset tokenization
 
 ### 2. Decentralized Governance

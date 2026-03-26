@@ -13,7 +13,7 @@ The RealToken DAO and RealT are often mentioned together — and for good reason
 
 ## An ecosystem born with RealT
 
-**RealT** is at the origin of the RealToken ecosystem: real estate tokenization, the creation of tools (RMM — RealToken Market Maker, YAM — Your Asset Manager), and the building of a community around tokenized real-world assets (RWA). The RealToken DAO, for its part, was created to give this community a **decentralized governance** framework: to propose, vote, and steer the evolution of the ecosystem without depending on a single entity.
+**RealT** is at the origin of the RealToken ecosystem: real estate tokenization, the creation of tools (RMM — RealToken Money Market, YAM — You And Me), and the building of a community around tokenized real-world assets (RWA). The RealToken DAO, for its part, was created to give this community a **decentralized governance** framework: to propose, vote, and steer the evolution of the ecosystem without depending on a single entity.
 
 In short: RealT created and develops the technical and operational building blocks; the DAO embodies community governance over this ecosystem.
 
