@@ -70,7 +70,7 @@ const formatDate = (dateString) => {
 }
 
 .post-content {
-  max-width: 800px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 48px min(8vw, 120px) 96px;
 }
@@ -133,7 +133,8 @@ const formatDate = (dateString) => {
 }
 
 .post-body {
-  font-size: 1.1rem;
+  max-width: 920px;
+  font-size: 1.05rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -147,9 +148,13 @@ const formatDate = (dateString) => {
 }
 
 .post-body :deep(h2) {
-  font-size: 2rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-orange);
+  margin-top: 32px;
+  margin-bottom: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 0.5em;
+  padding-bottom: 8px;
 }
 
 .post-body :deep(p) {
@@ -167,12 +172,31 @@ const formatDate = (dateString) => {
 
 .post-body :deep(ul),
 .post-body :deep(ol) {
-  margin: 1.5em 0;
-  padding-left: 2em;
+  margin: 0 0 0 20px;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .post-body :deep(li) {
-  margin-bottom: 0.5em;
+  margin-bottom: 8px;
+}
+
+.post-body :deep(ul li)::marker,
+.post-body :deep(ol li)::marker {
+  color: var(--color-orange);
+}
+
+@media (min-width: 1200px) {
+  .post-content {
+    max-width: 1100px;
+  }
+
+  .post-body {
+    max-width: 980px;
+    font-size: 1.1rem;
+  }
 }
 
 .post-body :deep(code) {
