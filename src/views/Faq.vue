@@ -54,10 +54,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const faqItemKeys = ref([
   'q1',
@@ -125,10 +125,12 @@ function toggle(index) {
 
 onMounted(() => {
   openFromHash()
+  upsertFaqSchemaScript()
   window.addEventListener('popstate', openFromHash)
 })
 
 onUnmounted(() => {
+  removeFaqSchemaScript()
   window.removeEventListener('popstate', openFromHash)
 })
 
@@ -160,6 +162,59 @@ function answerBlocks(key) {
   flushList()
   return blocks
 }
+
+/** Remove HTML tags and normalize spaces for JSON-LD content. */
+function toPlainText(input) {
+  return input
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/** Build FAQPage JSON-LD data from current i18n FAQ content. */
+function buildFaqSchema() {
+  const entities = faqItemKeys.value.map((key) => {
+    const question = t(`faq.items.${key}.question`)
+    const answer = toPlainText(t(`faq.items.${key}.answer`))
+    return {
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: answer
+      }
+    }
+  })
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: entities
+  }
+}
+
+/** Upsert FAQ schema.org JSON-LD script in document head. */
+function upsertFaqSchemaScript() {
+  const scriptId = 'faq-schema-org'
+  let script = document.getElementById(scriptId)
+  if (!script) {
+    script = document.createElement('script')
+    script.id = scriptId
+    script.type = 'application/ld+json'
+    document.head.appendChild(script)
+  }
+  script.textContent = JSON.stringify(buildFaqSchema())
+}
+
+/** Remove FAQ schema script when leaving page. */
+function removeFaqSchemaScript() {
+  const existing = document.getElementById('faq-schema-org')
+  if (existing) existing.remove()
+}
+
+watch(locale, () => {
+  upsertFaqSchemaScript()
+})
 </script>
 
 <style scoped>
