@@ -8,6 +8,9 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.welcome.rule=Host(`realtoken.community`) || Host(`www.realtoken.community`)"
       - "traefik.http.routers.welcome.entrypoints=websecure"
+      # CSP: prevent XSS attacks
+      - "traefik.http.routers.welcome.middlewares=welcome-security@docker"
+      - "traefik.http.middlewares.welcome-security.headers.contentSecurityPolicy=default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
     restart: always
 
 networks:
