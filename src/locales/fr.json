@@ -10,7 +10,7 @@
       "applicationsRmm": "RMM",
       "applicationsYam": "YAM",
       "applicationsBridge": "Bridge",
-      "applicationsDashboard": "Dashboard",
+      "applicationsDashboard": "Realtoken Dashboard",
       "applicationsWallet": "RealToken Wallet",
       "projetsRwa": "Projets RWA",
       "projetsRwaRealt": "RealT",
@@ -138,10 +138,10 @@
   "stats": {
     "tag": "Preuves",
     "title": "Des indicateurs vérifiables, en temps réel.",
-    "assets": "Actifs sous gestion",
+    "assets": "Valeur totale des actifs partenaires dans l'écosystème",
     "members": "Membres de l'écosystème",
     "regMarketcap": "Marketcap REG",
-    "votes": "Nombre de votes",
+    "votes": "Nombre de votes sur Tally",
     "comingSoon": "À venir",
     "inProgress": "En cours"
   },
@@ -246,7 +246,7 @@
       },
       "q8": {
         "question": "Où trouver de l'aide ou poser des questions ?",
-        "answer": "• <a href='https://t.me/realtokendao_official' target='_blank' rel='noopener noreferrer'>Telegram</a> : la communauté est bienveillante ; postez dans la langue de votre choix, nous vous aiderons.\n• <a href='https://forum.realtoken.community/' target='_blank' rel='noopener noreferrer'>Forum</a> : pour des interrogations et questionnements un peu plus réfléchis.\n• Par mail (<a href='mailto:marketing@realtoken.community'>marketing@realtoken.community</a>) : pour toute demande de partenariat ou autre question."
+        "answer": "• <a href='https://t.me/realtokendao_official' target='_blank' rel='noopener noreferrer'>Telegram</a> : la communauté est bienveillante ; postez dans la langue de votre choix, nous vous aiderons.\n• <a href='https://forum.realtoken.community/' target='_blank' rel='noopener noreferrer'>Forum</a> : pour des interrogations et questionnements un peu plus réfléchis.\n• Par mail (<a href='mailto:marketing{'@'}realtoken.community'>marketing{'@'}realtoken.community</a>) : pour toute demande de partenariat ou autre question."
       },
       "q9": {
         "question": "La DAO est-elle ouverte aux débutants en crypto ?",
@@ -334,19 +334,20 @@
         },
         "tools": [
           { "title": "YAM Transaction Report Generator", "description": "Permet de générer un PDF de toutes ses transactions sur une période donnée.", "href": "https://yam-report.realtoken.community/", "managedBy": "dao" },
-          { "title": "YAM Offer Viewer by ID", "description": "Alternative au YAM principal permettant d'acheter une offre directement à partir de son ID. Version gérée par la DAO (code sur GitHub RealToken Community).", "href": "https://offer-view.yam.realtoken.community/", "managedBy": "dao" },
-          { "title": "Bot Telegram – YAM Sale Notify Bot", "description": "Permet de recevoir une notification chaque fois qu'une de vos offres publiées sur le YAM est achetée. Géré par la DAO.", "href": "https://t.me/yam_sale_notify_bot", "managedBy": "dao" }
+          { "title": "YAM Offer Viewer by ID", "description": "Alternative au YAM principal permettant d'acheter une offre directement à partir de son ID.", "href": "https://offer-view.yam.realtoken.community/", "managedBy": "dao" },
+          { "title": "Bot Telegram – YAM Sale Notify Bot", "description": "Permet de recevoir une notification chaque fois qu'une de vos offres publiées sur le YAM est achetée.", "href": "https://t.me/yam_sale_notify_bot", "managedBy": "dao" }
         ]
       },
       "realtokens": {
         "tag": "Realtokens",
         "title": "Realtokens",
         "tools": [
-          { "title": "Bridge", "description": "Permet de transférer des RealTokens entre des chaînes (L2, etc.).", "href": "https://bridge.realtoken.network/", "managedBy": "realt" },
-          { "title": "RealToken Asset Tracker", "description": "Application mobile pour suivre vos actifs RealToken. Hébergée sur le GitHub de la DAO (realtoken_apps), gérée par la DAO (peu maintenue actuellement).", "href": "https://mobile.realtoken.community/", "managedBy": "dao" },
+          { "title": "Bridge", "description": "Permet de transférer des RealTokens/REG entre des chaînes (L2, etc.).", "href": "https://bridge.realtoken.network/", "managedBy": "realt" },
+          { "title": "Realtoken Dashboard", "description": "Tableau de bord RealToken : vue d'ensemble des actifs et de l'écosystème.", "href": "https://dashboard.realtoken.community/", "managedBy": "dao" },
+          { "title": "RealToken Asset Tracker", "description": "Application mobile pour suivre vos actifs RealToken.", "href": "https://mobile.realtoken.community/", "managedBy": "dao" },
           { "title": "Shareholder Vote – Assets", "description": "Application de vote sur les assets RealToken (votes actionnaires).", "href": "https://vote.realtoken.network/assets", "managedBy": "realt" },
           { "title": "RealToken API", "description": "Documentation et endpoints de l'API RealToken.", "href": "https://api.realtoken.community/", "managedBy": "dao" },
-          { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications des changements sur un RealToken (loyer, prix du token, etc.). Géré par la DAO (code sur GitHub RealToken Community).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "dao" },
+          { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications des changements sur un RealToken (loyer, prix du token, etc.).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "dao" },
           { "title": "Pitsbi", "description": "Dashboard et analytics RealT.", "href": "https://realt.pitsbi.io", "managedBy": "community" },
           { "title": "Cryptalloc RealtLab", "description": "Portfolio et outils RealToken.", "href": "https://www.cryptalloc.com/realtlab/", "managedBy": "community" },
           { "title": "RealT Rent Tracker", "description": "Suivi des loyers de vos RealTokens.", "href": "https://ehpst.duckdns.org/realt_rent_tracker/", "managedBy": "community" },
@@ -407,7 +408,7 @@
     "pageDescription": "Informations légales relatives à l'éditeur du site et avertissements concernant les services DAO et tokenisés.",
     "s1Title": "Éditeur du site (LCEN)",
     "s1Intro": "Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), sont indiqués ci-dessous les éléments d'identification de l'éditeur et de l'hébergeur du site.",
-    "s1List": "Dénomination ou nom : RealToken DAO (organisation décentralisée)\nAdresse postale : Îles Vierges britanniques\nCourriel : marketing@realtoken.community\nDirecteur de la publication : comité marketing de la DAO",
+    "s1List": "Dénomination ou nom : RealToken DAO (organisation décentralisée)\nAdresse postale : Îles Vierges britanniques\nCourriel : marketing{'@'}realtoken.community\nDirecteur de la publication : comité marketing de la DAO",
     "s2Title": "Hébergeur",
     "s2Content": "Le site est hébergé par [nom de l'hébergeur], [adresse]. Pour toute question relative à l'hébergement, veuillez contacter l'hébergeur ou l'éditeur du site.",
     "s3Title": "Avertissements et risques",

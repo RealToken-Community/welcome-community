@@ -160,7 +160,8 @@ const menuItems = computed(() => [
     labelKey: 'nav.menu.applications',
     children: [
       { labelKey: 'nav.menu.applicationsYam', href: 'https://yam.realtoken.network', external: true },
-      { labelKey: 'nav.menu.applicationsRmm', href: 'https://rmm.realtoken.network/', external: true }
+      { labelKey: 'nav.menu.applicationsRmm', href: 'https://rmm.realtoken.network/', external: true },
+      { labelKey: 'nav.menu.applicationsDashboard', href: 'https://dashboard.realtoken.community/', external: true }
     ],
     routerChildren: [
       { labelKey: 'nav.menu.resourcesLiensUtiles', to: '/application-hub' }

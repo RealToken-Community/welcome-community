@@ -1,9 +1,32 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import LatestArticles from '../components/blog/LatestArticles.vue'
 
 const { t } = useI18n()
+
+const COINGECKO_REG_ID = 'realtoken-ecosystem-governance'
+const regMarketCapUsd = ref(null)
+
+function formatCompact(value) {
+  if (value == null || typeof value !== 'number') return null
+  if (value >= 1e9) return (value / 1e9).toFixed(2) + ' B'
+  if (value >= 1e6) return (value / 1e6).toFixed(2) + ' M'
+  if (value >= 1e3) return (value / 1e3).toFixed(2) + ' K'
+  return value.toLocaleString()
+}
+
+onMounted(async () => {
+  try {
+    const res = await fetch(
+      `https://api.coingecko.com/api/v3/coins/${COINGECKO_REG_ID}?localization=false&tickers=false&community_data=false&developer_data=false`
+    )
+    if (!res.ok) return
+    const data = await res.json()
+    const cap = data.market_data?.market_cap?.usd
+    if (typeof cap === 'number') regMarketCapUsd.value = cap
+  } catch (_) {}
+})
 
 const aboutFeatures = computed(() => [
   {
@@ -99,12 +122,15 @@ const steps = computed(() => [
   }
 ])
 
-const stats = computed(() => [
-  { label: t('stats.assets'), value: '$128M' },
-  { label: t('stats.members'), value: '18 200+' },
-  { label: t('stats.regMarketcap'), value: t('stats.comingSoon') },
-  { label: t('stats.votes'), value: t('stats.inProgress') }
-])
+const stats = computed(() => {
+  const regCap = regMarketCapUsd.value != null ? formatCompact(regMarketCapUsd.value) + ' USD' : t('stats.comingSoon')
+  return [
+    { label: t('stats.assets'), value: '$128M' },
+    { label: t('stats.members'), value: '6 200+' },
+    { label: t('stats.regMarketcap'), value: regCap },
+    { label: t('stats.votes'), value: '38' }
+  ]
+})
 </script>
 
 <template>
