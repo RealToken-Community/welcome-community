@@ -1,62 +1,15 @@
 services:
-  mysql:
-    image: mysql:8.0
-    container_name: ${DOCKER_BRANCH}-welcome_mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    volumes:
-      - mysql_data:/var/lib/mysql
+  welcome:
+    image: ${DOCKER_REGISTRY}/welcome:${DOCKER_BRANCH}
+    container_name: ${DOCKER_BRANCH}-welcome
     networks:
-      - wordpress
-    restart: always
-    command: --default-authentication-plugin=mysql_native_password
-
-  redis:
-    image: redis:7-alpine
-    container_name: ${DOCKER_BRANCH}-welcome_redis
-    command: redis-server --requirepass ${REDIS_PASSWORD}
-    volumes:
-      - redis_data:/data
-    networks:
-      - wordpress
-    restart: always
-
-  wordpress:
-    image: ${DOCKER_REGISTRY}/wordpress:${DOCKER_BRANCH}
-    container_name: ${DOCKER_BRANCH}-welcome_wordpress
-    depends_on:
-      - mysql
-      - redis
-    environment:
-      WORDPRESS_DB_HOST: mysql:3306
-      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
-      WORDPRESS_DB_USER: ${MYSQL_USER}
-      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
-      WORDPRESS_CONFIG_EXTRA: |
-        define('WP_REDIS_HOST', 'redis');
-        define('WP_REDIS_PORT', 6379);
-        define('WP_REDIS_PASSWORD', '${REDIS_PASSWORD}');
-        define('WP_CACHE', true);
-    volumes:
-      - wordpress_data:/var/www/html
-    networks:
-      - wordpress
       - traefik-realt
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${DOCKER_BRANCH}-welcome_wordpress.rule=Host(`${DOCKER_BRANCH}.realtoken.community`)"
-      - "traefik.http.routers.${DOCKER_BRANCH}-welcome_wordpress.entrypoints=websecure"
+      - "traefik.http.routers.${DOCKER_BRANCH}-welcome.rule=Host(`${DOCKER_BRANCH}.realtoken.community`)"
+      - "traefik.http.routers.${DOCKER_BRANCH}-welcome.entrypoints=websecure"
     restart: always
 
-volumes:
-  mysql_data:
-  redis_data:
-  wordpress_data:
-
 networks:
-  wordpress:
   traefik-realt:
     external: true

@@ -1,12 +1,32 @@
-FROM wordpress:6-php8.1-apache
+FROM node:20-alpine AS build
 
-# Install Redis PHP extension
-RUN pecl install redis && docker-php-ext-enable redis
+WORKDIR /app
 
-# Install additional useful extensions
-RUN docker-php-ext-install opcache
+# Install deps
+COPY package*.json ./
 
-# Configure opcache
-RUN echo "opcache.enable=1" >> /usr/local/etc/php/conf.d/opcache.ini && \
-    echo "opcache.memory_consumption=128" >> /usr/local/etc/php/conf.d/opcache.ini && \
-    echo "opcache.max_accelerated_files=4000" >> /usr/local/etc/php/conf.d/opcache.ini
+RUN npm ci
+
+# Build app
+COPY . .
+RUN npm run build
+
+# Runtime
+FROM nginx:1.27-alpine
+
+# SPA fallback for Vue Router history mode
+RUN printf '%s\n' \
+'server {' \
+'  listen 80;' \
+'  server_name _;' \
+'  root /usr/share/nginx/html;' \
+'  index index.html;' \
+'  location / {' \
+'    try_files $uri $uri/ /index.html;' \
+'  }' \
+'}' > /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

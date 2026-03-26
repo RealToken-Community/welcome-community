@@ -1,0 +1,18 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    # available in 5174 external port
+    ports:
+      - "5174:5173"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    environment:
+      - VITE_HOST=0.0.0.0
+    command: npm run dev -- --host 0.0.0.0
+
+volumes:
+  node_modules:
+
