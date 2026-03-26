@@ -38,7 +38,7 @@
               <li><a href="https://rmm.realtoken.network/" target="_blank" rel="noopener noreferrer">RMM</a></li>
               <li><a href="https://yam.realtoken.network" target="_blank" rel="noopener noreferrer">YAM</a></li>
               <li><a href="https://bridge.realtoken.network/" target="_blank" rel="noopener noreferrer">{{ $t('nav.menu.applicationsBridge') }}</a></li>
-              <li><a href="https://dashboard.realtoken.community/" target="_blank" rel="noopener noreferrer">Dashboard</a></li>
+              <li><a href="https://dashboard.realtoken.community/" target="_blank" rel="noopener noreferrer">{{ $t('nav.menu.applicationsDashboard') }}</a></li>
               <li><router-link to="/application-hub">{{ $t('nav.menu.resourcesLiensUtiles') }}</router-link></li>
             </ul>
           </div>

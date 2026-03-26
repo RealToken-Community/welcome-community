@@ -1,6 +1,6 @@
 <template>
   <div class="app-hub-page">
-    <header class="hero">
+    <header class="hero hero--compact">
       <div class="hero-content">
         <p class="tag">{{ $t('liensUtiles.tag') }}</p>
         <h1>{{ $t('liensUtiles.pageTitle') }}</h1>
@@ -8,108 +8,119 @@
       </div>
     </header>
 
-    <template v-for="(section, index) in sections" :key="section?.title">
-      <section
-        v-if="section"
-        :class="['section', 'section-inner-wrap', sectionClass(index)]"
-      >
-        <div class="section-inner">
-          <div class="section-heading compact">
-            <p class="tag">{{ section.tag }}</p>
-            <h2>{{ section.title }}</h2>
-          </div>
+    <!-- Une seule section : onglets + contenu avec transition -->
+    <section class="hub-one-section">
+      <div class="hub-one-inner">
+        <nav class="hub-tabs" role="tablist" aria-label="Catégories d'applications">
+          <button
+            v-for="tab in tabs"
+            :key="tab.id"
+            type="button"
+            role="tab"
+            :aria-selected="activeTab === tab.id"
+            :aria-controls="'panel-' + tab.id"
+            :id="'tab-' + tab.id"
+            :class="['hub-tab', { 'hub-tab--active': activeTab === tab.id }]"
+            @click="activeTab = tab.id"
+          >
+            {{ tab.label }}
+          </button>
+        </nav>
 
-          <!-- Section with main app (RMM, YAM, REG): main card left, tools right -->
-          <div v-if="section.main" class="hub-row">
-            <div class="hub-main-card">
-              <div class="hub-main-icon" aria-hidden="true"></div>
-              <h3>{{ section.main.title }}</h3>
-              <p>{{ section.main.description }}</p>
-              <div class="hub-main-footer">
+        <div class="hub-panel-wrap">
+          <Transition name="tab-fade" mode="out-in">
+            <div
+              v-if="activeTab === 'community'"
+              :id="'panel-community'"
+              key="community"
+              role="tabpanel"
+              :aria-labelledby="'tab-community'"
+              class="hub-panel hub-panel--community"
+            >
+              <p class="hub-panel-disclaimer">{{ $t('liensUtiles.communitySection.disclaimer') }}</p>
+              <div class="hub-panel-grid">
                 <a
-                  :href="section.main.href"
+                  v-for="(tool, i) in communityTools"
+                  :key="i"
+                  :href="tool.href"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="app-link"
+                  class="hub-tool-card hub-tool-card--community"
                 >
-                  {{ section.main.linkText }}
-                  <span class="app-link-arrow" aria-hidden="true">→</span>
+                  <span class="hub-tool-title">{{ tool.title }}</span>
+                  <p class="hub-tool-desc">{{ tool.description }}</p>
+                  <div class="hub-tool-footer">
+                    <span class="hub-tool-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 19h2v-7H3v2h2v5zm2 0h10v-2H7v2zm0-4h10v-2H7v2zm0-6h10V7H7v2z"/></svg></span>
+                    <span class="hub-managed-badge hub-managed-badge--community">{{ $t('liensUtiles.managedBy.community') }}</span>
+                  </div>
                 </a>
-                <span v-if="section.main.managedBy" class="hub-managed-badge hub-managed-badge--below">{{ $t('liensUtiles.managedBy.' + section.main.managedBy) }}</span>
               </div>
             </div>
-            <div class="hub-tools">
-              <a
-                v-for="(tool, i) in section.tools"
-                :key="i"
-                :href="tool.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="hub-tool-card"
-              >
-                <span class="hub-tool-title">{{ tool.title }}</span>
-                <p class="hub-tool-desc">{{ tool.description }}</p>
-                <div class="hub-tool-footer">
-                  <span class="hub-tool-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                      <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 19h2v-7H3v2h2v5zm2 0h10v-2H7v2zm0-4h10v-2H7v2zm0-6h10V7H7v2z"/>
-                    </svg>
-                  </span>
-                  <span v-if="tool.managedBy" class="hub-managed-badge">{{ $t('liensUtiles.managedBy.' + tool.managedBy) }}</span>
-                </div>
-              </a>
-            </div>
-          </div>
 
-          <!-- Section without main (Realtokens): tools grid only -->
-          <div v-else class="hub-tools hub-tools--grid">
-            <a
-              v-for="(tool, i) in section.tools"
-              :key="i"
-              :href="tool.href"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="hub-tool-card"
+            <div
+              v-else
+              :id="'panel-' + activeTab"
+              :key="activeTab"
+              role="tabpanel"
+              :aria-labelledby="'tab-' + activeTab"
+              class="hub-panel"
             >
-              <span class="hub-tool-title">{{ tool.title }}</span>
-              <p class="hub-tool-desc">{{ tool.description }}</p>
-              <div class="hub-tool-footer">
-                <span class="hub-tool-icon" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                    <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 19h2v-7H3v2h2v5zm2 0h10v-2H7v2zm0-4h10v-2H7v2zm0-6h10V7H7v2z"/>
-                  </svg>
-                </span>
-                <span v-if="tool.managedBy" class="hub-managed-badge">{{ $t('liensUtiles.managedBy.' + tool.managedBy) }}</span>
-              </div>
-            </a>
-          </div>
+              <template v-if="activeSection">
+                <!-- Carte principale (RMM, YAM, REG) -->
+                <div v-if="activeSection.main" class="hub-panel-main">
+                  <a
+                    :href="activeSection.main.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hub-main-card hub-main-card--link"
+                  >
+                    <div class="hub-main-icon" aria-hidden="true"></div>
+                    <h3>{{ activeSection.main.title }}</h3>
+                    <p>{{ activeSection.main.description }}</p>
+                    <span class="hub-managed-badge">{{ $t('liensUtiles.managedBy.' + activeSection.main.managedBy) }}</span>
+                    <span class="app-link">{{ activeSection.main.linkText }} →</span>
+                  </a>
+                </div>
+                <!-- Grille d'outils -->
+                <div class="hub-panel-grid">
+                  <a
+                    v-for="(tool, i) in activeSection.tools"
+                    :key="i"
+                    :href="tool.href"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hub-tool-card"
+                  >
+                    <span class="hub-tool-title">{{ tool.title }}</span>
+                    <p class="hub-tool-desc">{{ tool.description }}</p>
+                    <div class="hub-tool-footer">
+                      <span class="hub-tool-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 19h2v-7H3v2h2v5zm2 0h10v-2H7v2zm0-4h10v-2H7v2zm0-6h10V7H7v2z"/></svg></span>
+                      <span v-if="tool.managedBy" class="hub-managed-badge">{{ $t('liensUtiles.managedBy.' + tool.managedBy) }}</span>
+                    </div>
+                  </a>
+                </div>
+              </template>
+            </div>
+          </Transition>
         </div>
-      </section>
-    </template>
 
-    <!-- Section "Qui gère ces applications ?" (comme Rôle et périmètre) -->
-    <section id="who-manages" class="section section-inner-wrap section-legend">
-      <div class="section-inner">
-        <div class="section-heading compact">
-          <p class="tag">{{ $t('liensUtiles.whoManages.tag') }}</p>
-          <h2>{{ $t('liensUtiles.whoManages.title') }}</h2>
-        </div>
-        <div class="legend-cards">
-          <article class="legend-card">
-            <h3>{{ $t('liensUtiles.whoManages.dao.title') }}</h3>
-            <p class="legend-card-desc" v-html="$t('liensUtiles.whoManages.dao.description')"></p>
-            <span class="legend-card-domain">{{ $t('liensUtiles.whoManages.dao.domainLabel') }}</span>
-          </article>
-          <article class="legend-card">
-            <h3>{{ $t('liensUtiles.whoManages.realt.title') }}</h3>
-            <p>{{ $t('liensUtiles.whoManages.realt.description') }}</p>
-            <span class="legend-card-domain">{{ $t('liensUtiles.whoManages.realt.domainLabel') }}</span>
-          </article>
-          <article class="legend-card">
-            <h3>{{ $t('liensUtiles.whoManages.community.title') }}</h3>
-            <p>{{ $t('liensUtiles.whoManages.community.description') }}</p>
-            <span class="legend-card-domain">{{ $t('liensUtiles.whoManages.community.domainLabel') }}</span>
-          </article>
+        <!-- Qui gère : compact dans la même section -->
+        <div class="hub-legend">
+          <p class="hub-legend-title">{{ $t('liensUtiles.whoManages.title') }}</p>
+          <div class="hub-legend-cards">
+            <article class="hub-legend-card">
+              <h4>{{ $t('liensUtiles.whoManages.dao.title') }}</h4>
+              <p class="hub-legend-desc" v-html="$t('liensUtiles.whoManages.dao.description')"></p>
+            </article>
+            <article class="hub-legend-card">
+              <h4>{{ $t('liensUtiles.whoManages.realt.title') }}</h4>
+              <p>{{ $t('liensUtiles.whoManages.realt.description') }}</p>
+            </article>
+            <article class="hub-legend-card">
+              <h4>{{ $t('liensUtiles.whoManages.community.title') }}</h4>
+              <p>{{ $t('liensUtiles.whoManages.community.description') }}</p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -117,26 +128,54 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { tm, locale } = useI18n()
+const { tm } = useI18n()
 const SECTION_IDS = ['rmm', 'yam', 'realtokens', 'reg']
 
-const sections = computed(() => {
-  const _ = locale.value
-  return SECTION_IDS.map((id) => tm(`liensUtiles.sections.${id}`)).filter(Boolean)
+const activeTab = ref('rmm')
+
+const sectionsWithId = computed(() => {
+  return SECTION_IDS.map((id) => {
+    const data = tm(`liensUtiles.sections.${id}`)
+    return data && data.title ? { id, ...data } : null
+  }).filter(Boolean)
 })
 
-function sectionClass(index) {
-  return index % 2 === 0 ? 'section-navy' : 'section-light'
-}
+const sectionsDaoOnly = computed(() => {
+  return sectionsWithId.value.map((section) => ({
+    ...section,
+    tools: (section.tools || []).filter((t) => t.managedBy !== 'community')
+  }))
+})
+
+const communityTools = computed(() => {
+  return sectionsWithId.value.flatMap((section) =>
+    (section.tools || []).filter((t) => t.managedBy === 'community')
+  )
+})
+
+const tabs = computed(() => {
+  const list = sectionsDaoOnly.value.map((s) => ({
+    id: s.id,
+    label: s.title
+  }))
+  list.push({ id: 'community', label: tm('liensUtiles.communitySection.title') })
+  return list
+})
+
+const activeSection = computed(() => {
+  if (activeTab.value === 'community') return null
+  return sectionsDaoOnly.value.find((s) => s.id === activeTab.value) || null
+})
 </script>
 
 <style scoped>
 .app-hub-page {
   color: #f8fbff;
   background: linear-gradient(135deg, rgba(10, 31, 68, 0.98), rgba(5, 15, 36, 0.95));
+  min-height: 100vh;
 }
 
 .hero {
@@ -146,6 +185,10 @@ function sectionClass(index) {
     linear-gradient(rgba(10, 31, 68, 0.88), rgba(10, 31, 68, 0.95)),
     url('https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?auto=format&fit=crop&w=1600&q=80')
       center/cover;
+}
+
+.hero--compact {
+  padding: 32px min(8vw, 120px) 40px;
 }
 
 .hero-content {
@@ -172,381 +215,325 @@ function sectionClass(index) {
 }
 
 .hero h1 {
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
   line-height: 1.1;
-  margin: 24px 0;
+  margin: 16px 0 8px;
   color: #fff;
 }
 
-.lead {
-  font-size: 1.1rem;
+.hero--compact .lead {
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.82);
   margin: 0;
 }
 
-/* Full-width sections (same as Home) */
-.section-inner-wrap {
-  width: 100%;
-  max-width: none;
-  padding: 80px min(8vw, 120px) 100px;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.section-navy {
+/* Une seule section : onglets + contenu */
+.hub-one-section {
   background: var(--color-navy);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 min(8vw, 120px) 48px;
 }
 
-.section-light {
-  background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-/* Section "Qui gère" : fond gris, 3 cartes comme Rôle et périmètre (home) */
-.section-legend {
-  background: #242424;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.section-legend .section-heading h2 {
-  color: #fff;
-}
-
-.section-legend .section-heading .tag {
-  color: var(--color-orange);
-}
-
-.legend-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 0;
-}
-
-.legend-card {
-  display: flex;
-  flex-direction: column;
-  padding: 28px 26px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.legend-card:hover {
-  border-color: rgba(255, 140, 66, 0.4);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.legend-card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 10px;
-  letter-spacing: 0.01em;
-  color: #fff;
-}
-
-.legend-card p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  flex: 1;
-}
-
-.legend-card-domain {
-  display: block;
-  margin-top: auto;
-  padding-top: 16px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--color-orange);
-  text-align: left;
-}
-
-.legend-card-desc :deep(a) {
-  color: var(--color-orange);
-  text-decoration: underline;
-  transition: color 0.2s ease;
-}
-
-.legend-card-desc :deep(a:hover) {
-  color: var(--color-orange-light);
-}
-
-@media (max-width: 900px) {
-  .legend-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-.section-inner {
+.hub-one-inner {
   max-width: 1120px;
   margin: 0 auto;
 }
 
-.section-heading {
-  text-align: center;
-  max-width: 520px;
-  margin: 0 auto 48px;
+/* Barre d’onglets */
+.hub-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 24px 0 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 0;
 }
 
-.section-heading .tag {
-  justify-content: center;
+.hub-tab {
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.section-heading .tag::before {
-  display: none;
-}
-
-.section-heading h2 {
-  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
-  font-weight: 600;
-  margin: 12px 0 0;
-  letter-spacing: -0.02em;
-}
-
-.section-navy .section-heading h2 {
+.hub-tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 140, 66, 0.4);
   color: #fff;
 }
 
-.section-light .section-heading h2 {
-  color: #242424;
+.hub-tab--active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-navy, #0a1f44);
 }
 
-/* Main card (cercle jaune / orange sur fond gris) */
-.hub-row {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 40px;
-  align-items: start;
+/* Panneau avec transition */
+.hub-panel-wrap {
+  min-height: 320px;
+  padding: 28px 0 32px;
 }
 
-.hub-main-card {
-  padding: 32px 28px;
-  border-radius: 16px;
+.hub-panel {
+  overflow-y: auto;
+  max-height: min(60vh, 520px);
+  padding-right: 8px;
+}
+
+.hub-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hub-panel::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+.hub-panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 140, 66, 0.4);
+  border-radius: 4px;
+}
+
+/* Transition entre onglets */
+.tab-fade-enter-active,
+.tab-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.tab-fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.tab-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.hub-panel-disclaimer {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 20px;
+  line-height: 1.55;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border-left: 3px solid var(--color-orange);
+}
+
+.hub-panel--community .hub-panel-disclaimer {
+  background: rgba(180, 75, 70, 0.08);
+  border-left-color: rgba(180, 75, 70, 0.5);
+}
+
+.hub-panel-main {
+  margin-bottom: 24px;
+}
+
+.hub-main-card--link {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  gap: 12px;
+  padding: 24px 22px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.section-light .hub-main-card {
-  background: #fafafa;
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-.hub-main-card:hover {
+.hub-main-card--link:hover {
   border-color: rgba(255, 140, 66, 0.5);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.section-light .hub-main-card:hover {
-  border-color: rgba(255, 140, 66, 0.35);
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+.hub-main-card--link .app-link {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-orange);
 }
 
 .hub-main-icon {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: var(--color-orange);
   flex-shrink: 0;
   box-shadow: 0 4px 16px rgba(255, 140, 66, 0.4);
 }
 
-.hub-main-card h3 {
-  font-size: 1.25rem;
+.hub-main-card--link h3 {
+  font-size: 1.15rem;
   font-weight: 600;
   margin: 0;
   color: #fff;
 }
 
-.section-light .hub-main-card h3 {
-  color: #242424;
-}
-
-.hub-main-card p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.section-light .hub-main-card p {
-  color: #5c5c5c;
-}
-
-.app-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.hub-main-card--link p {
   font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-orange);
-  margin-top: 8px;
-  transition: gap 0.2s ease, color 0.2s ease;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.app-link:hover {
-  color: var(--color-orange-light);
-  gap: 10px;
-}
-
-.app-link-arrow {
-  font-size: 1.1em;
-  line-height: 1;
-}
-
-.hub-main-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.hub-main-footer .app-link {
-  margin-top: 0;
-}
-
-.hub-main-footer .hub-managed-badge--below {
-  margin-top: 0;
-}
-
-.hub-managed-badge {
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  white-space: nowrap;
-}
-
-.section-light .hub-managed-badge {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.hub-tool-footer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding-top: 4px;
-}
-
-/* Tools list */
-.hub-tools {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.hub-tools--grid {
+.hub-panel-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
 }
 
 .hub-tool-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 20px 22px;
-  border-radius: 14px;
+  gap: 10px;
+  padding: 18px 20px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, color 0.2s ease;
-}
-
-.section-light .hub-tool-card {
-  background: #fafafa;
-  border-color: rgba(0, 0, 0, 0.08);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .hub-tool-card:hover {
   border-color: rgba(255, 140, 66, 0.4);
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
-  color: var(--color-orange);
-}
-
-.section-light .hub-tool-card:hover {
-  border-color: rgba(255, 140, 66, 0.35);
-  background: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  color: var(--color-orange);
-}
-
-.section-light .hub-tool-card:hover .hub-tool-title {
-  color: var(--color-orange);
 }
 
 .hub-tool-title {
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  min-width: 0;
-  width: 100%;
-}
-
-.section-light .hub-tool-title {
-  color: #242424;
-}
-
-.hub-tool-card:hover .hub-tool-title {
-  color: inherit;
+  color: #fff;
 }
 
 .hub-tool-desc {
-  font-size: 0.88rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.45;
   margin: 0;
-  width: 100%;
-  min-width: 0;
   color: rgba(255, 255, 255, 0.75);
 }
 
-.section-light .hub-tool-desc {
-  color: #5c5c5c;
+.hub-tool-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 .hub-tool-icon {
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
   background: rgba(255, 140, 66, 0.15);
   color: var(--color-orange);
-  transition: background 0.2s ease;
 }
 
 .hub-tool-card:hover .hub-tool-icon {
   background: rgba(255, 140, 66, 0.25);
 }
 
+.hub-managed-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Initiative hors DAO : fond rouge très léger pour les distinguer dans le thème */
+.hub-tool-card--community {
+  background: rgba(180, 75, 70, 0.06);
+  border-color: rgba(180, 75, 70, 0.18);
+}
+
+.hub-tool-card--community:hover {
+  background: rgba(180, 75, 70, 0.1);
+  border-color: rgba(180, 75, 70, 0.28);
+}
+
+.hub-managed-badge--community {
+  color: rgba(220, 140, 135, 0.95);
+}
+
+.hub-legend-desc :deep(a) {
+  color: var(--color-orange);
+  text-decoration: underline;
+}
+
+/* Bloc « Qui gère » compact */
+.hub-legend {
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+}
+
+.hub-legend-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 16px;
+  letter-spacing: 0.02em;
+}
+
+.hub-legend-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.hub-legend-card {
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.hub-legend-card h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.hub-legend-card p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
 @media (max-width: 900px) {
-  .hub-row {
+  .hub-legend-cards {
     grid-template-columns: 1fr;
   }
 
-  .hub-tools--grid {
+  .hub-tabs {
+    gap: 6px;
+  }
+
+  .hub-tab {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+
+  .hub-panel-grid {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
   .hero,
-  .section-inner-wrap {
+  .hub-one-section {
     padding-left: min(6vw, 24px);
     padding-right: min(6vw, 24px);
   }
