@@ -1,0 +1,84 @@
+// ============================================
+// CHARTE GRAPHIQUE REALTKEN WEBSITE
+// ============================================
+
+// --- COULEURS ---
+$color-navy: #0a1f44;
+$color-navy-dark: #050f24;
+$color-orange: #ff8c42;
+$color-orange-light: #ffb97a;
+$color-cream: #f6f3ef;
+$color-muted: rgba(255, 255, 255, 0.75);
+$color-border: rgba(255, 255, 255, 0.12);
+$color-text: #e8edf7;
+$color-white: #ffffff;
+
+// Variables CSS pour compatibilité
+:root {
+  --color-navy: #{$color-navy};
+  --color-navy-dark: #{$color-navy-dark};
+  --color-orange: #{$color-orange};
+  --color-orange-light: #{$color-orange-light};
+  --color-cream: #{$color-cream};
+  --color-muted: #{$color-muted};
+  --color-border: #{$color-border};
+  --color-text: #{$color-text};
+  --color-white: #{$color-white};
+}
+
+// --- POLICES ---
+$font-family-primary: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-family-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+// Poids de police
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// --- TAILLES DE POLICE ---
+// Base
+$font-size-base: 16px;
+
+// Tailles de texte
+$font-size-xs: 0.75rem;      // 12px
+$font-size-sm: 0.85rem;      // 13.6px
+$font-size-base-rem: 0.95rem; // 15.2px
+$font-size-md: 1rem;         // 16px
+$font-size-lg: 1.1rem;        // 17.6px
+$font-size-xl: 1.2rem;        // 19.2px
+
+// Tailles de titres
+$font-size-h1: clamp(2.8rem, 5vw, 4.5rem);  // Responsive: 44.8px - 72px
+$font-size-h2: clamp(2rem, 3vw, 3rem);      // Responsive: 32px - 48px
+$font-size-h3: 1.2rem;                       // 19.2px
+$font-size-h4: 1rem;                         // 16px
+
+// Tailles spéciales
+$font-size-display: 2.5rem;   // 40px
+$font-size-stat: 2rem;        // 32px
+
+// --- ESPACEMENTS ---
+$section-gap: 120px;
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$spacing-xxxl: 64px;
+
+// --- AUTRES ---
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 24px;
+$border-radius-full: 999px;
+
+$letter-spacing-tight: 0.04em;
+$letter-spacing-normal: 0.08em;
+$letter-spacing-wide: 0.2em;
+
+$line-height-base: 1.6;
+$line-height-tight: 1.4;
+$line-height-loose: 1.8;
+
