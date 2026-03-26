@@ -1,16 +1,15 @@
-COMPOSE=docker compose
+COMPOSE_DEV=docker compose -f docker-compose-dev.yml
 
 .PHONY: dev-build dev-run dev-kill dev-logs
 
 dev-build:
-	$(COMPOSE) build
+	$(COMPOSE_DEV) build
 
 dev-run:
-	npm run sitemap && $(COMPOSE) up
+	npm run sitemap && $(COMPOSE_DEV) up
 
 dev-kill:
-	$(COMPOSE) down
+	$(COMPOSE_DEV) down
 
 dev-logs:
-	$(COMPOSE) logs -f
-
+	$(COMPOSE_DEV) logs -f

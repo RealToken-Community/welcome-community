@@ -2,6 +2,7 @@ services:
   web:
     build:
       context: .
+      dockerfile: Dockerfile.dev
     # available in 5174 external port
     ports:
       - "5174:5173"
