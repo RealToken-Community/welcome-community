@@ -15,7 +15,7 @@ The RealToken DAO belongs to those who participate in it. But how do you go from
 
 REG (RealToken Ecosystem Governance) is the DAO’s governance token. Holding REG means holding voting power on the direction of the ecosystem.
 
-- **Via YAM**: The YAM (Your Asset Manager) platform lets you buy and trade REG directly with other community members.
+- **Via YAM**: The YAM (You And Me) platform lets you buy and trade REG directly with other community members.
 - **Via contribution**: Active contributions to the ecosystem — development, communication, community building — can be rewarded in REG by DAO decision.
 
 The more REG you hold, the greater your weight in collective decisions.

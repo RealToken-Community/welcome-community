@@ -8,6 +8,14 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.welcome.rule=Host(`realtoken.community`) || Host(`www.realtoken.community`)"
       - "traefik.http.routers.welcome.entrypoints=websecure"
+      # Security options
+      - "traefik.http.routers.welcome.middlewares=welcome-security@docker"
+      - "traefik.http.middlewares.welcome-security.headers.contentSecurityPolicy=default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+      - "traefik.http.middlewares.welcome-security.headers.permissionsPolicy=accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+      - "traefik.http.middlewares.welcome-security.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.welcome-security.headers.referrerPolicy=strict-origin-when-cross-origin"
+      - "traefik.http.middlewares.welcome-security.headers.stsSeconds=31536000"
+      - "traefik.http.middlewares.welcome-security.headers.stsIncludeSubdomains=true"
     restart: always
 
 networks:

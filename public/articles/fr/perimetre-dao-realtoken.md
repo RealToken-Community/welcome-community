@@ -22,7 +22,7 @@ Le périmètre de la DAO définit les domaines dans lesquels elle peut agir, pre
 La DAO est responsable de la gestion globale de l'écosystème RealToken, incluant :
 
 - **Intégration de nouveaux partenaires** : Validation et intégration de nouveaux tokens d'actifs réels
-- **Développement des outils** : Maintenance et amélioration de RMM (RealToken Market Maker) et YAM (Your Asset Manager)
+- **Développement des outils** : Maintenance et amélioration de RMM (RealToken Money Market) et YAM (You And Me)
 - **Standards et protocoles** : Définition des standards techniques pour la tokenisation d'actifs réels
 
 ### 2. Gouvernance décentralisée

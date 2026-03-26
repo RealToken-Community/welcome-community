@@ -16,7 +16,7 @@ The RealToken DAO does not simply manage an ecosystem — it pursues a clear vis
 Our primary objective is to **democratize access to real-world assets** (RWA). In practice, this means:
 
 - **Accessibility**: enabling more people to participate in the tokenization of real estate and other tangible assets, without excessive barriers
-- **Liquidity**: facilitating the purchase, sale, and exchange of tokens representing real assets, through tools such as RMM (RealToken Market Maker) and YAM (Your Asset Manager)
+- **Liquidity**: facilitating the purchase, sale, and exchange of tokens representing real assets, through tools such as RMM (RealToken Money Market) and YAM (You And Me)
 - **Transparency**: ensuring that rules, data, and decisions are understandable and verifiable by all
 
 In short, we aim for an ecosystem where ownership of real-world assets can be shared, traded, and governed in a decentralized way.
