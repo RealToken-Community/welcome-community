@@ -11,14 +11,14 @@
         </div>
         <h1 class="post-title">{{ article.title }}</h1>
         <p class="post-description">{{ article.description }}</p>
-        <div class="post-tags" v-if="article.tags && article.tags.length">
-          <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
-        </div>
       </div>
 
       <div class="post-body" v-html="article.content"></div>
 
       <div class="post-footer">
+        <div class="post-tags" v-if="article.tags && article.tags.length">
+          <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
+        </div>
         <router-link to="/ressource/blog" class="back-link">
           ← {{ $t('blog.backToBlog') }}
         </router-link>
@@ -151,6 +151,7 @@ const formatDate = (dateString) => {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .tag {
