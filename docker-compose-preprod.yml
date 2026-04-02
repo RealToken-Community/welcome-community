@@ -8,15 +8,6 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.${DOCKER_BRANCH}-welcome.rule=Host(`${DOCKER_BRANCH}.realtoken.community`)"
       - "traefik.http.routers.${DOCKER_BRANCH}-welcome.entrypoints=websecure"
-      # Security options
-      - "traefik.http.routers.${DOCKER_BRANCH}-welcome.middlewares=${DOCKER_BRANCH}-welcome-security@docker"
-      - "traefik.http.middlewares.${DOCKER_BRANCH}-welcome-security.headers.contentSecurityPolicy=default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
-      - "traefik.http.middlewares.${DOCKER_BRANCH}-welcome-security.headers.permissionsPolicy=accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
-      - "traefik.http.middlewares.${DOCKER_BRANCH}-welcome-security.headers.contentTypeNosniff=true"
-      - "traefik.http.middlewares.${DOCKER_BRANCH}-welcome-security.headers.referrerPolicy=strict-origin-when-cross-origin"
-      - "traefik.http.middlewares.${DOCKER_BRANCH}-welcome-security.headers.stsSeconds=31536000"
-      - "traefik.http.middlewares.${DOCKER_BRANCH}-welcome-security.headers.stsIncludeSubdomains=true"
-      - "traefik.http.services.${DOCKER_BRANCH}-welcome.loadbalancer.server.port=80"
     restart: always
 
 networks:
