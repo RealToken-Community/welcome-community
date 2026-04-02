@@ -3,7 +3,7 @@ title: "The Future of RWA: A Community-Driven Roadmap for Diversification"
 date: "2026-03-12"
 description: "How the RealToken DAO community is exploring RWA diversification—research-first criteria, asset types on the radar, and technical foundations for RMM growth."
 tags: ["rwa", "dao", "governance", "diversification", "rmm"]
-author: "RealToken Team"
+author: "Realtoken DAO Team"
 imageHeader: "future-rwa-roadmap-diversification.png"
 ---
 

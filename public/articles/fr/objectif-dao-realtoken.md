@@ -3,7 +3,7 @@ title: "Quel est notre objectif ?"
 date: "2024-04-01"
 description: "Découvrez les objectifs et la vision de la RealToken DAO : démocratiser les actifs réels, renforcer la gouvernance et développer l'écosystème RWA"
 tags: ["dao", "objectif", "vision", "écosystème", "gouvernance"]
-author: "Équipe RealToken"
+author: "Equipe Realtoken DAO"
 imageHeader: "realtoken-dao-objectif.png"
 ---
 
