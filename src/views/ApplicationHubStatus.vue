@@ -13,9 +13,10 @@
         <p v-if="checkedAt" class="checked-at">
           {{ $t('appStatus.checkedAt') }}: {{ checkedAtFormatted }}
         </p>
-        <p class="summary">
-          {{ $t('appStatus.summary', { ok: okCount, ko: koCount, total: rows.length }) }}
-        </p>
+        <div class="summary">
+          <span class="summary-item summary-item-ok"><span aria-hidden="true">✓</span> {{ okCount }}</span>
+          <span class="summary-item summary-item-ko"><span aria-hidden="true">✕</span> {{ koCount }}</span>
+        </div>
       </div>
 
       <div v-if="loading" class="state">{{ $t('appStatus.loading') }}</div>
@@ -38,7 +39,8 @@
               <td>
                 <span class="pill-wrap" :data-tooltip="buildStatusTooltip(row)">
                   <span :class="['pill', row.displayOk ? 'ok' : 'ko']">
-                    {{ row.displayOk ? 'OK' : 'KO' }}
+                    <span class="status-icon" aria-hidden="true">{{ row.displayOk ? '✓' : '✕' }}</span>
+                    <span class="sr-only">{{ row.displayOk ? 'OK' : 'KO' }}</span>
                   </span>
                 </span>
               </td>
@@ -148,6 +150,10 @@ h1 { margin: 14px 0 10px; }
 .lead { opacity: .85; }
 .status-section { max-width: 1200px; margin: 0 auto; padding: 0 min(8vw,120px) 72px; }
 .status-toolbar { display:flex; justify-content:space-between; gap:12px; margin-bottom:14px; font-size:.9rem; opacity:.9; flex-wrap: wrap; }
+.summary { display:flex; gap:10px; align-items:center; }
+.summary-item { display:inline-flex; align-items:center; gap:6px; font-weight:700; border-radius:999px; padding:4px 10px; }
+.summary-item-ok { background: rgba(34,197,94,.2); color:#86efac; }
+.summary-item-ko { background: rgba(239,68,68,.2); color:#fca5a5; }
 .table-wrap { overflow:auto; border:1px solid rgba(255,255,255,.12); border-radius:12px; }
 .status-table { width:100%; border-collapse: collapse; min-width: 640px; background: rgba(255,255,255,.03); }
 .status-table th, .status-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; vertical-align: top; }
@@ -156,6 +162,18 @@ h1 { margin: 14px 0 10px; }
 .pill { display:inline-block; padding:4px 10px; border-radius:999px; font-size:.75rem; font-weight:700; }
 .pill.ok { background: rgba(34,197,94,.2); color:#86efac; }
 .pill.ko { background: rgba(239,68,68,.2); color:#fca5a5; }
+.status-icon { font-size: 0.9rem; line-height: 1; display: inline-block; min-width: 0.9rem; text-align: center; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .pill-wrap::after {
   content: attr(data-tooltip);
   position: absolute;
