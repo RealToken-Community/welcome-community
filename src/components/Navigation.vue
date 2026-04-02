@@ -164,7 +164,7 @@ const menuItems = computed(() => [
       { labelKey: 'nav.menu.applicationsDashboard', href: 'https://dashboard.realtoken.community/', external: true }
     ],
     routerChildren: [
-      { labelKey: 'nav.menu.resourcesLiensUtiles', to: '/application-hub' }
+      { labelKey: 'nav.menu.resourcesLiensUtiles', to: '/applications/application-hub' }
     ]
   },
   {
@@ -183,8 +183,8 @@ const menuItems = computed(() => [
       { labelKey: 'nav.menu.governanceTally', href: 'https://www.tally.xyz/gov/realtoken-ecosystem-governance', external: true }
     ],
     routerChildren: [
-      { labelKey: 'nav.menu.governanceReg', to: '/reg' },
-      { labelKey: 'nav.menu.governanceComites', to: '/committee' }
+      { labelKey: 'nav.menu.governanceReg', to: '/governance/reg' },
+      { labelKey: 'nav.menu.governanceComites', to: '/governance/committee' }
     ]
   },
   {
@@ -194,8 +194,8 @@ const menuItems = computed(() => [
       { labelKey: 'nav.menu.resourcesWiki', href: wikiUrl.value, external: true }
     ],
     routerChildren: [
-      { labelKey: 'nav.menu.resourcesBlog', to: '/blog' },
-      { labelKey: 'nav.menu.resourcesFaq', to: '/faq' }
+      { labelKey: 'nav.menu.resourcesBlog', to: '/ressource/blog' },
+      { labelKey: 'nav.menu.resourcesFaq', to: '/ressource/faq' }
     ]
   }
 ])

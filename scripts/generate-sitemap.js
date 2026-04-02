@@ -22,11 +22,11 @@ const baseUrl = (process.env.SITEMAP_BASE_URL || process.env.VITE_SITE_URL || 'h
 // Routes statiques (URLs en anglais)
 const staticRoutes = [
   { path: '', priority: '1.0', changefreq: 'weekly' },
-  { path: 'blog', priority: '0.9', changefreq: 'weekly' },
-  { path: 'faq', priority: '0.8', changefreq: 'monthly' },
-  { path: 'committee', priority: '0.8', changefreq: 'monthly' },
-  { path: 'application-hub', priority: '0.8', changefreq: 'monthly' },
-  { path: 'reg', priority: '0.8', changefreq: 'monthly' },
+  { path: 'ressource/blog', priority: '0.9', changefreq: 'weekly' },
+  { path: 'ressource/faq', priority: '0.8', changefreq: 'monthly' },
+  { path: 'governance/committee', priority: '0.8', changefreq: 'monthly' },
+  { path: 'applications/application-hub', priority: '0.8', changefreq: 'monthly' },
+  { path: 'governance/reg', priority: '0.8', changefreq: 'monthly' },
   { path: 'partners', priority: '0.7', changefreq: 'monthly' },
   { path: 'privacy', priority: '0.5', changefreq: 'yearly' },
   { path: 'legal-notice', priority: '0.5', changefreq: 'yearly' }
@@ -64,7 +64,7 @@ for (const r of staticRoutes) {
 for (const slug of englishSlugs) {
   const mdPath = join(articlesDir, `${slug}.md`)
   const lastmod = extractDateFromFrontmatter(mdPath)
-  xml += urlNode(`blog/${slug}`, lastmod, '0.7', 'monthly')
+  xml += urlNode(`ressource/blog/${slug}`, lastmod, '0.7', 'monthly')
 }
 
 xml += '</urlset>\n'

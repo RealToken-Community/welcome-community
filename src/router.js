@@ -23,45 +23,45 @@ const routes = [
     }
   },
   {
-    path: '/blog',
+    path: '/ressource/blog',
     name: 'Blog',
     component: Blog,
     meta: { titleKey: 'blog.pageTitle', descriptionKey: 'blog.pageDescription' }
   },
   {
-    path: '/blog/:slug',
+    path: '/ressource/blog/:slug',
     name: 'BlogPost',
     component: BlogPost,
     meta: { titleKey: 'blog.pageTitle', descriptionKey: 'blog.pageDescription' },
     beforeEnter(to, _from, next) {
       const englishSlug = getEnglishSlug(to.params.slug)
       if (englishSlug !== to.params.slug) {
-        next({ path: `/blog/${englishSlug}`, replace: true })
+        next({ path: `/ressource/blog/${englishSlug}`, replace: true })
       } else {
         next()
       }
     }
   },
   {
-    path: '/faq',
+    path: '/ressource/faq',
     name: 'Faq',
     component: Faq,
     meta: { titleKey: 'faq.pageTitle', descriptionKey: 'faq.pageDescription' }
   },
   {
-    path: '/committee',
+    path: '/governance/committee',
     name: 'Comite',
     component: Comite,
     meta: { titleKey: 'comite.pageTitle', descriptionKey: 'comite.pageDescription' }
   },
   {
-    path: '/application-hub',
+    path: '/applications/application-hub',
     name: 'LiensUtiles',
     component: LiensUtiles,
     meta: { titleKey: 'liensUtiles.pageTitle', descriptionKey: 'liensUtiles.pageDescription' }
   },
   {
-    path: '/reg',
+    path: '/governance/reg',
     name: 'Reg',
     component: Reg,
     meta: { titleKey: 'reg.pageTitle', descriptionKey: 'reg.pageDescription' }
@@ -85,8 +85,14 @@ const routes = [
     meta: { titleKey: 'mentions.pageTitle', descriptionKey: 'mentions.pageDescription' }
   },
   // Redirects: anciennes URLs FR → URLs anglaises (SEO, bookmarks)
-  { path: '/comite', redirect: '/committee' },
-  { path: '/liens-utiles', redirect: '/application-hub' },
+  { path: '/comite', redirect: '/governance/committee' },
+  { path: '/committee', redirect: '/governance/committee' },
+  { path: '/liens-utiles', redirect: '/applications/application-hub' },
+  { path: '/application-hub', redirect: '/applications/application-hub' },
+  { path: '/reg', redirect: '/governance/reg' },
+  { path: '/blog', redirect: '/ressource/blog' },
+  { path: '/blog/:slug', redirect: (to) => `/ressource/blog/${to.params.slug}` },
+  { path: '/faq', redirect: '/ressource/faq' },
   { path: '/devenir-partenaire', redirect: '/partners' },
   { path: '/confidentialite', redirect: '/privacy' },
   { path: '/mentions-legales', redirect: '/legal-notice' }
@@ -96,8 +102,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // Sur /faq, les ancres sont gérées par le composant Faq (openFromHash) après montage
-    if (to.hash && to.path === '/faq') {
+    // Sur /ressource/faq, les ancres sont gérées par le composant Faq (openFromHash) après montage
+    if (to.hash && to.path === '/ressource/faq') {
       return { top: 0 }
     }
     // Ancre explicite dans l’URL (ex: /page#section) → on scroll vers l’élément

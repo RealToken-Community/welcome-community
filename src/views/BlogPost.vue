@@ -19,7 +19,7 @@
       <div class="post-body" v-html="article.content"></div>
 
       <div class="post-footer">
-        <router-link to="/blog" class="back-link">
+        <router-link to="/ressource/blog" class="back-link">
           ← {{ $t('blog.backToBlog') }}
         </router-link>
       </div>
