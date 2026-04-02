@@ -205,14 +205,17 @@ h1 { margin: 14px 0 10px; }
   .status-table thead,
   .status-table tbody,
   .status-table td { display: block; width: 100%; }
+  .status-table td:nth-child(1),
+  .status-table td:nth-child(2),
+  .status-table td:nth-child(3) {
+    width: 100%;
+  }
   .status-table thead { display: none; }
   .status-table .status-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      "title status"
-      "url status";
-    align-items: start;
+    grid-template-areas: "title status";
+    align-items: center;
     gap: 8px 12px;
     border: 1px solid rgba(255,255,255,.14);
     border-radius: 12px;
@@ -225,7 +228,14 @@ h1 { margin: 14px 0 10px; }
     padding: 0;
     text-align: left !important;
   }
-  .status-table .td-title { grid-area: title; font-weight: 700; color: #fff; }
+  .status-table .td-title {
+    grid-area: title;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .status-table .td-url { grid-area: url; }
   .status-table .td-status {
     grid-area: status;
