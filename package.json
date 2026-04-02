@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.js && vite build",
+    "build": "node scripts/generate-sitemap.js && node scripts/check-app-links.js && vite build",
     "preview": "vite preview",
-    "sitemap": "node scripts/generate-sitemap.js"
+    "sitemap": "node scripts/generate-sitemap.js",
+    "check:app-links": "node scripts/check-app-links.js"
   },
   "dependencies": {
     "markdown-it": "^14.1.0",

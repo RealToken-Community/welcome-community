@@ -3,7 +3,7 @@ title: "Quel est notre lien avec RealT ?"
 date: "2024-05-01"
 description: "Comprendre la relation entre la RealToken DAO et RealT : un écosystème partagé, une gouvernance décentralisée et une collaboration au service des actifs réels"
 tags: ["dao", "realt", "écosystème", "gouvernance", "partenariat"]
-author: "Équipe RealToken"
+author: "Equipe Realtoken DAO"
 imageHeader: "realtoken-link-realt.png"
 ---
 

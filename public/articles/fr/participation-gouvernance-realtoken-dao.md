@@ -3,7 +3,7 @@ title: "Comment participer à la gouvernance de la RealToken DAO ?"
 date: "2026-02-20"
 description: "Guide pratique pour devenir un membre actif de la RealToken DAO : obtenir des REG, rejoindre le forum, voter sur Tally et soumettre vos premières propositions"
 tags: ["dao", "gouvernance", "reg", "participation", "guide"]
-author: "Équipe RealToken"
+author: "Equipe Realtoken DAO"
 imageHeader: "realtoken-gouv.png"
 ---
 

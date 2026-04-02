@@ -258,6 +258,7 @@
     "tag": "Gouvernance",
     "pageTitle": "Le REG",
     "pageDescription": "RealToken Ecosystem Governance (REG) est le token de gouvernance de l'écosystème RealToken. Découvrez les informations principales et téléchargez le whitepaper.",
+    "staticDescription": "Le REG (RealToken Ecosystem Governance) est le token de gouvernance de l'écosystème RealToken, créé par RealT.co.",
     "loading": "Chargement des données REG…",
     "error": "Impossible de charger les données depuis CoinGecko.",
     "price": "Prix",
@@ -269,7 +270,7 @@
     "downloadWhitepaper": "Télécharger le whitepaper (PDF)"
   },
   "liensUtiles": {
-    "tag": "Ressources",
+    "tag": "Applications",
     "pageTitle": "Application Hub",
     "pageDescription": "Applications, documentations et ressources de l'écosystème RealToken.",
     "openApp": "Ouvrir l'app",
@@ -303,6 +304,10 @@
       "title": "Initiatives communautaires",
       "disclaimer": "Les applications ci-dessous sont des projets tiers, non gérés ni validés par la DAO. Elles sont maintenues par des membres de la communauté ou des tiers. Utiles à l'écosystème mais sans garantie de suivi."
     },
+    "statusNote": {
+      "prefix": "Les liens affichés ici sont uniquement des liens valides et accessibles. Voir le détail sur la page",
+      "linkLabel": "status"
+    },
     "dashboardRealtokensDesc": "Application mobile, API et outils RealToken.",
     "sections": {
       "rmm": {
@@ -319,7 +324,8 @@
           { "title": "Rent to Repay", "description": "Permet d'automatiser le remboursement de sa dette lors de la réception des loyers.", "href": "https://github.com/RealToken-Community/DEVCONTEST-rent2repay", "managedBy": "dao" },
           { "title": "RMM Analytics – Gain or Loss", "description": "Permet d'analyser les intérêts perçus ou payés par un wallet sur le RMM.", "href": "https://analytics.rmm.realtoken.community/", "managedBy": "dao" },
           { "title": "Bot Telegram – Notification de liquidité RMM", "description": "Permet de recevoir une notification lorsqu'il y a de la liquidité disponible sur le RMM.", "href": "https://t.me/rmm_available_liquidity", "managedBy": "community" },
-          { "title": "Dashboard Dune RMM", "description": "Tableaux de bord et analytics RMM sur Dune.", "href": "https://dune.com/sigri44/realtoken-rmm", "managedBy": "community" }
+          { "title": "Dashboard Dune RMM", "description": "Tableaux de bord et analytics RMM sur Dune.", "href": "https://dune.com/sigri44/realtoken-rmm", "managedBy": "community" },
+          { "title": "Scappa", "description": "Trouver les meilleures offres pour rembourser ou sortir du RMM.", "href": "https://scappa.battistu.com/", "managedBy": "community" }
         ]
       },
       "yam": {
@@ -347,6 +353,7 @@
           { "title": "RealToken Asset Tracker", "description": "Application mobile pour suivre vos actifs RealToken.", "href": "https://mobile.realtoken.community/", "managedBy": "dao" },
           { "title": "Shareholder Vote – Assets", "description": "Application de vote sur les assets RealToken (votes actionnaires).", "href": "https://vote.realtoken.network/assets", "managedBy": "realt" },
           { "title": "RealToken API", "description": "Documentation et endpoints de l'API RealToken.", "href": "https://api.realtoken.community/", "managedBy": "dao" },
+          { "title": "RealToken Transfer", "description": "Transfert de tokens de wallet à wallet.", "href": "https://transfer.realtoken.community/", "managedBy": "dao" },
           { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications des changements sur un RealToken (loyer, prix du token, etc.).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "dao" },
           { "title": "Pitsbi", "description": "Dashboard et analytics RealT.", "href": "https://realt.pitsbi.io", "managedBy": "community" },
           { "title": "Cryptalloc RealtLab", "description": "Portfolio et outils RealToken.", "href": "https://www.cryptalloc.com/realtlab/", "managedBy": "community" },
@@ -408,12 +415,34 @@
     "pageDescription": "Informations légales relatives à l'éditeur du site et avertissements concernant les services DAO et tokenisés.",
     "s1Title": "Éditeur du site (LCEN)",
     "s1Intro": "Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), sont indiqués ci-dessous les éléments d'identification de l'éditeur et de l'hébergeur du site.",
-    "s1List": "Dénomination ou nom : RealToken DAO (organisation décentralisée)\nAdresse postale : Îles Vierges britanniques\nCourriel : marketing{'@'}realtoken.community\nDirecteur de la publication : comité marketing de la DAO",
+    "s1List": "Dénomination ou nom : RealToken DAO (organisation décentralisée)\nCourriel : marketing{'@'}realtoken.community\nDirecteur de la publication : comité marketing de la DAO",
     "s2Title": "Hébergeur",
     "s2Content": "Le site est hébergé par OVH. OVH SAS est une filiale de la société OVH Groupe SA, société immatriculée au RCS de Lille sous le numéro 537 407 926, sise 2, rue Kellermann, 59100 Roubaix. Pour toute question relative à l'hébergement, veuillez contacter l'hébergeur ou l'éditeur du site.",
     "s3Title": "Avertissements et risques",
     "s3List": "Les tokens et actifs tokenisés (notamment dans le cadre de RealT ou de l'écosystème RealToken) ne constituent pas un investissement garanti ; leur valeur peut fluctuer.\nLes contenus du site ne constituent pas un conseil en investissement ni un conseil financier, juridique ou fiscal.\nEn raison de la nature décentralisée d'une DAO, la responsabilité peut être limitée et répartie entre les participants ; les décisions sont prises de manière collective et on-chain.\nPour les aspects financiers et tokenisés (vente, achat, détention de tokens), des obligations fiscales et, le cas échéant, des règles de l'AMF (Autorité des marchés financiers) peuvent s'appliquer ; il appartient à chaque utilisateur de se renseigner et de se conformer à la réglementation en vigueur.",
     "s3Disclaimer": "Les informations de cette page sont tenues à jour dans la mesure du possible. Pour toute question relative aux mentions légales, vous pouvez nous contacter à l'adresse indiquée dans la section éditeur."
+  },
+  "notFound": {
+    "pageTitle": "Page introuvable",
+    "pageDescription": "La page demandée n'existe pas ou a été déplacée.",
+    "title": "Cette page n'existe pas",
+    "description": "L'URL demandée n'est pas disponible. Vous pouvez revenir a l'accueil ou utiliser le menu pour continuer votre navigation.",
+    "goHome": "Retour a l'accueil"
+  },
+  "appStatus": {
+    "tag": "Applications",
+    "pageTitle": "Statut des applications",
+    "pageDescription": "Etat de disponibilite des URLs de l'Application Hub avec code HTTP et erreurs.",
+    "checkedAt": "Derniere verification",
+    "loading": "Chargement du rapport de statut...",
+    "summary": "OK: {ok} | KO: {ko} | Total: {total}",
+    "columns": {
+      "title": "Application",
+      "url": "URL",
+      "status": "Etat",
+      "http": "Code HTTP",
+      "error": "Erreur"
+    }
   },
   "footer": {
     "tagline": "Écosystème décentralisé d'actifs réels tokenisés.",
@@ -427,7 +456,7 @@
     "faq": "FAQ",
     "privacy": "Confidentialité",
     "terms": "Mentions légales",
-    "copyright": "© 2024 RealToken DAO. Tous droits réservés.",
+    "copyright": "© 2026 RealToken DAO. Tous droits réservés.",
     "followUs": "Suivez-nous"
   }
 }

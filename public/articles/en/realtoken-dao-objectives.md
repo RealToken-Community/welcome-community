@@ -3,7 +3,7 @@ title: "What is our objective?"
 date: "2024-04-01"
 description: "Discover the objectives and vision of the RealToken DAO: democratizing real-world assets, strengthening governance, and developing the RWA ecosystem"
 tags: ["dao", "objective", "vision", "ecosystem", "governance"]
-author: "RealToken Team"
+author: "Realtoken DAO Team"
 imageHeader: "realtoken-dao-objectif.png"
 ---
 

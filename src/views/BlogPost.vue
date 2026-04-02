@@ -11,15 +11,15 @@
         </div>
         <h1 class="post-title">{{ article.title }}</h1>
         <p class="post-description">{{ article.description }}</p>
-        <div class="post-tags" v-if="article.tags && article.tags.length">
-          <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
-        </div>
       </div>
 
       <div class="post-body" v-html="article.content"></div>
 
       <div class="post-footer">
-        <router-link to="/blog" class="back-link">
+        <div class="post-tags" v-if="article.tags && article.tags.length">
+          <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
+        </div>
+        <router-link to="/ressource/blog" class="back-link">
           ← {{ $t('blog.backToBlog') }}
         </router-link>
       </div>
@@ -69,6 +69,10 @@ function updateSeoHead(post) {
 const fetchArticle = async () => {
   const slug = route.params.slug
   article.value = await loadArticle(slug, locale.value)
+  if (!article.value) {
+    router.replace('/not-found')
+    return
+  }
   updateSeoHead(article.value)
 }
 
@@ -147,6 +151,7 @@ const formatDate = (dateString) => {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .tag {
@@ -163,6 +168,7 @@ const formatDate = (dateString) => {
   font-size: 1.05rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
+  text-align: justify;
 }
 
 .post-body :deep(h1),

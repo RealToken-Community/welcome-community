@@ -3,7 +3,7 @@ title: "La naissance de la DAO RealToken"
 date: "2024-02-01"
 description: "Retour sur les origines et la création de la RealToken DAO, une organisation décentralisée dédiée à la tokenisation d'actifs réels"
 tags: ["dao", "histoire", "gouvernance", "écosystème"]
-author: "Équipe RealToken"
+author: "Equipe Realtoken DAO"
 imageHeader: "realtoken-dao-birth.png"
 ---
 

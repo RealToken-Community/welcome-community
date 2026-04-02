@@ -14,7 +14,7 @@
         />
       </div>
       <div class="blog-cta" v-if="articles.length">
-        <router-link to="/blog" class="primary outline">
+        <router-link to="/ressource/blog" class="primary outline">
           {{ $t('blog.viewAll') }}
         </router-link>
       </div>
