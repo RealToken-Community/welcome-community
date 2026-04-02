@@ -27,7 +27,6 @@
               <th>{{ $t('appStatus.columns.title') }}</th>
               <th>{{ $t('appStatus.columns.url') }}</th>
               <th>{{ $t('appStatus.columns.status') }}</th>
-              <th>{{ $t('appStatus.columns.http') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -37,11 +36,12 @@
                 <a :href="row.url" target="_blank" rel="noopener noreferrer">{{ row.url }}</a>
               </td>
               <td>
-                <span :class="['pill', row.displayOk ? 'ok' : 'ko']">
-                  {{ row.displayOk ? 'OK' : 'KO' }}
+                <span class="pill-wrap" :data-tooltip="buildStatusTooltip(row)">
+                  <span :class="['pill', row.displayOk ? 'ok' : 'ko']">
+                    {{ row.displayOk ? 'OK' : 'KO' }}
+                  </span>
                 </span>
               </td>
-              <td :class="{ 'http-soft-allowed': row.softAllowed && row.status === 403 }">{{ row.status ?? '—' }}</td>
             </tr>
           </tbody>
         </table>
@@ -111,6 +111,14 @@ function formatCheckedAt(value) {
   }).format(date)
 }
 
+/**
+ * Build tooltip text displayed on status badge hover.
+ */
+function buildStatusTooltip(row) {
+  if (row.status == null) return 'HTTP: timeout'
+  return `HTTP: ${row.status}`
+}
+
 async function loadReport() {
   // Load the latest link-check report generated during build.
   loading.value = true
@@ -141,13 +149,32 @@ h1 { margin: 14px 0 10px; }
 .status-section { max-width: 1200px; margin: 0 auto; padding: 0 min(8vw,120px) 72px; }
 .status-toolbar { display:flex; justify-content:space-between; gap:12px; margin-bottom:14px; font-size:.9rem; opacity:.9; flex-wrap: wrap; }
 .table-wrap { overflow:auto; border:1px solid rgba(255,255,255,.12); border-radius:12px; }
-.status-table { width:100%; border-collapse: collapse; min-width: 760px; background: rgba(255,255,255,.03); }
+.status-table { width:100%; border-collapse: collapse; min-width: 640px; background: rgba(255,255,255,.03); }
 .status-table th, .status-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; vertical-align: top; }
 .status-table a { color: var(--color-orange); }
-.http-soft-allowed { color:#86efac; font-weight:700; }
+.pill-wrap { position: relative; display: inline-block; }
 .pill { display:inline-block; padding:4px 10px; border-radius:999px; font-size:.75rem; font-weight:700; }
 .pill.ok { background: rgba(34,197,94,.2); color:#86efac; }
 .pill.ko { background: rgba(239,68,68,.2); color:#fca5a5; }
+.pill-wrap::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.95);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 10;
+}
+.pill-wrap:hover::after { opacity: 1; }
 .state { padding: 16px; border:1px solid rgba(255,255,255,.12); border-radius:10px; }
 .state.error { border-color: rgba(239,68,68,.4); color:#fecaca; }
 </style>
