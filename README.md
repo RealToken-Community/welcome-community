@@ -16,22 +16,22 @@ make dev-build   # Build
 make dev-run     # Run on port 5173
 make dev-kill    # Stop container
 make dev-logs    # Show container logs
-
-make cron-install # Install daily app-links check cron (00:00 server time)
-make cron-status  # Read the current user's crontab (for ./scripts/manage-app-links-cron.sh status)
-make cron-remove  # Remove app-links check cron
 ```
 
 ### Sitemap (SEO)
 
 The sitemap is generated automatically:
 
-- **On each build** : `npm run build` runs `scripts/generate-sitemap.js` then Vite, so `public/sitemap.xml` is up to date with all static routes and blog posts (from `src/utils/blog.js`).
-- **On demand** : `npm run sitemap` regenerates only the sitemap.
+- **On each build** : `npm run build` runs `scripts/generate-sitemap.js` then `scripts/check-app-links.js`, then Vite. `public/sitemap.xml` and `public/app-links-status.json` match the last build/deploy (Application Hub status page uses this file).
+- **On demand** : `npm run sitemap` regenerates only the sitemap; `npm run check:app-links` regenerates only the link status JSON.
 
 To set the site base URL for production (e.g. `https://realtoken.community`), use either `SITEMAP_BASE_URL` or `VITE_SITE_URL` when building:
 
 ```sh
 SITEMAP_BASE_URL=https://realtoken.community npm run build
 ```
+
+### Application-hub check list URL 
+
+Each url is check on build 
 
