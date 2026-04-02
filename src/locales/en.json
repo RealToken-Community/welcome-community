@@ -304,6 +304,10 @@
       "title": "Community initiatives",
       "disclaimer": "The applications below are third-party projects, not managed or endorsed by the DAO. They are maintained by community members or third parties. Useful to the ecosystem but with no guarantee of ongoing support."
     },
+    "statusNote": {
+      "prefix": "Visible links are only valid and reachable links. See details on the",
+      "linkLabel": "status page"
+    },
     "dashboardRealtokensDesc": "Mobile app, API and RealToken tools.",
     "sections": {
       "rmm": {
@@ -348,6 +352,7 @@
           { "title": "RealToken Asset Tracker", "description": "Mobile app to track your RealToken assets.", "href": "https://mobile.realtoken.community/", "managedBy": "dao" },
           { "title": "Shareholder Vote – Assets", "description": "Vote on RealToken assets (shareholder votes).", "href": "https://vote.realtoken.network/assets", "managedBy": "realt" },
           { "title": "RealToken API", "description": "API documentation and endpoints for RealToken data.", "href": "https://api.realtoken.community/", "managedBy": "dao" },
+          { "title": "RealToken Transfer", "description": "Transfer tokens from one wallet to another.", "href": "https://transfer.realtoken.community/", "managedBy": "dao" },
           { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications of changes on a RealToken (rent, token price, etc.).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "dao" },
           { "title": "Pitsbi", "description": "RealT dashboard and analytics.", "href": "https://realt.pitsbi.io", "managedBy": "community" },
           { "title": "Cryptalloc RealtLab", "description": "Portfolio and RealToken tools.", "href": "https://www.cryptalloc.com/realtlab/", "managedBy": "community" },
@@ -422,6 +427,21 @@
     "title": "This page does not exist",
     "description": "The requested URL is not available. You can go back to the homepage or use the menu to continue browsing.",
     "goHome": "Back to homepage"
+  },
+  "appStatus": {
+    "tag": "Applications",
+    "pageTitle": "Applications status",
+    "pageDescription": "Availability report for Application Hub URLs with HTTP code and error details.",
+    "checkedAt": "Last check",
+    "loading": "Loading status report...",
+    "summary": "OK: {ok} | KO: {ko} | Total: {total}",
+    "columns": {
+      "title": "Application",
+      "url": "URL",
+      "status": "Status",
+      "http": "HTTP code",
+      "error": "Error"
+    }
   },
   "footer": {
     "tagline": "Decentralized ecosystem for tokenized real-world assets.",

@@ -1,0 +1,231 @@
+{
+  "checkedAt": "2026-04-02T11:34:46.604Z",
+  "total": 25,
+  "links": [
+    {
+      "url": "https://rmm.realtoken.network/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://github.com/RealToken-Community/DEVCONTEST-rent2repay",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://analytics.rmm.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://t.me/rmm_available_liquidity",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://dune.com/sigri44/realtoken-rmm",
+      "ok": false,
+      "visible": true,
+      "softAllowed": true,
+      "status": 403,
+      "method": "GET",
+      "error": null
+    },
+    {
+      "url": "https://yam.realtoken.network",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://yam-report.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://offer-view.yam.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://t.me/yam_sale_notify_bot",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://bridge.realtoken.network/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://dashboard.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://mobile.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://vote.realtoken.network/assets",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://api.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "GET",
+      "error": null
+    },
+    {
+      "url": "https://transfer.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://t.me/RealToken_Alerts_Bot",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://realt.pitsbi.io",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://www.cryptalloc.com/realtlab/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://ehpst.duckdns.org/realt_rent_tracker/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://community-realt.gitbook.io/tuto-community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://claim.realtoken.network/reg",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://wiki.realtoken.community/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://wallet.realtoken.network/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    },
+    {
+      "url": "https://dune.com/teugos/realtoken-dao-dashboard",
+      "ok": false,
+      "visible": true,
+      "softAllowed": true,
+      "status": 403,
+      "method": "GET",
+      "error": null
+    },
+    {
+      "url": "https://vote.realtoken.network/dao/incentive",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
+      "error": null
+    }
+  ]
+}

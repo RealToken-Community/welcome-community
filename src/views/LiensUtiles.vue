@@ -121,6 +121,12 @@
               <p>{{ $t('liensUtiles.whoManages.community.description') }}</p>
             </article>
           </div>
+          <p class="hub-legend-note">
+            {{ $t('liensUtiles.statusNote.prefix') }}
+            <router-link to="/applications/application-hub/status" class="hub-legend-note-link">
+              {{ $t('liensUtiles.statusNote.linkLabel') }}
+            </router-link>
+          </p>
         </div>
       </div>
     </section>
@@ -128,13 +134,14 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { tm } = useI18n()
 const SECTION_IDS = ['rmm', 'yam', 'realtokens', 'reg']
 
 const activeTab = ref('rmm')
+const linkStatus = ref({})
 
 const sectionsWithId = computed(() => {
   return SECTION_IDS.map((id) => {
@@ -146,13 +153,14 @@ const sectionsWithId = computed(() => {
 const sectionsDaoOnly = computed(() => {
   return sectionsWithId.value.map((section) => ({
     ...section,
-    tools: (section.tools || []).filter((t) => t.managedBy !== 'community')
+    main: section.main && isLinkAvailable(section.main.href) ? section.main : null,
+    tools: (section.tools || []).filter((t) => t.managedBy !== 'community' && isLinkAvailable(t.href))
   }))
 })
 
 const communityTools = computed(() => {
   return sectionsWithId.value.flatMap((section) =>
-    (section.tools || []).filter((t) => t.managedBy === 'community')
+    (section.tools || []).filter((t) => t.managedBy === 'community' && isLinkAvailable(t.href))
   )
 })
 
@@ -168,6 +176,38 @@ const tabs = computed(() => {
 const activeSection = computed(() => {
   if (activeTab.value === 'community') return null
   return sectionsDaoOnly.value.find((s) => s.id === activeTab.value) || null
+})
+
+function isLinkAvailable(href) {
+  if (!href) return false
+  const report = linkStatus.value
+  // Backward compatibility: old format { [url]: boolean }
+  if (report && typeof report === 'object' && !Array.isArray(report) && !report.links) {
+    const known = report[href]
+    return known !== false
+  }
+  // New format: { links: [{ url, ok, status, error }] }
+  const item = (report.links || []).find((x) => x.url === href)
+  if (!item) return true
+  if (typeof item.visible === 'boolean') return item.visible
+  return item.ok !== false
+}
+
+async function loadAppLinksStatus() {
+  try {
+    const res = await fetch('/app-links-status.json', { cache: 'no-store' })
+    if (!res.ok) return
+    const json = await res.json()
+    if (json && typeof json === 'object') {
+      linkStatus.value = json
+    }
+  } catch (error) {
+    console.warn('Unable to load app-links-status.json:', error)
+  }
+}
+
+onMounted(() => {
+  loadAppLinksStatus()
 })
 </script>
 
@@ -510,6 +550,17 @@ const activeSection = computed(() => {
   line-height: 1.5;
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
+}
+
+.hub-legend-note {
+  margin: 16px 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.hub-legend-note-link {
+  color: var(--color-orange);
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {

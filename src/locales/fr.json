@@ -304,6 +304,10 @@
       "title": "Initiatives communautaires",
       "disclaimer": "Les applications ci-dessous sont des projets tiers, non gérés ni validés par la DAO. Elles sont maintenues par des membres de la communauté ou des tiers. Utiles à l'écosystème mais sans garantie de suivi."
     },
+    "statusNote": {
+      "prefix": "Les liens affichés ici sont uniquement des liens valides et accessibles. Voir le détail sur la page",
+      "linkLabel": "status"
+    },
     "dashboardRealtokensDesc": "Application mobile, API et outils RealToken.",
     "sections": {
       "rmm": {
@@ -348,6 +352,7 @@
           { "title": "RealToken Asset Tracker", "description": "Application mobile pour suivre vos actifs RealToken.", "href": "https://mobile.realtoken.community/", "managedBy": "dao" },
           { "title": "Shareholder Vote – Assets", "description": "Application de vote sur les assets RealToken (votes actionnaires).", "href": "https://vote.realtoken.network/assets", "managedBy": "realt" },
           { "title": "RealToken API", "description": "Documentation et endpoints de l'API RealToken.", "href": "https://api.realtoken.community/", "managedBy": "dao" },
+          { "title": "RealToken Transfer", "description": "Transfert de tokens de wallet à wallet.", "href": "https://transfer.realtoken.community/", "managedBy": "dao" },
           { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications des changements sur un RealToken (loyer, prix du token, etc.).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "dao" },
           { "title": "Pitsbi", "description": "Dashboard et analytics RealT.", "href": "https://realt.pitsbi.io", "managedBy": "community" },
           { "title": "Cryptalloc RealtLab", "description": "Portfolio et outils RealToken.", "href": "https://www.cryptalloc.com/realtlab/", "managedBy": "community" },
@@ -422,6 +427,21 @@
     "title": "Cette page n'existe pas",
     "description": "L'URL demandée n'est pas disponible. Vous pouvez revenir a l'accueil ou utiliser le menu pour continuer votre navigation.",
     "goHome": "Retour a l'accueil"
+  },
+  "appStatus": {
+    "tag": "Applications",
+    "pageTitle": "Statut des applications",
+    "pageDescription": "Etat de disponibilite des URLs de l'Application Hub avec code HTTP et erreurs.",
+    "checkedAt": "Derniere verification",
+    "loading": "Chargement du rapport de statut...",
+    "summary": "OK: {ok} | KO: {ko} | Total: {total}",
+    "columns": {
+      "title": "Application",
+      "url": "URL",
+      "status": "Etat",
+      "http": "Code HTTP",
+      "error": "Erreur"
+    }
   },
   "footer": {
     "tagline": "Écosystème décentralisé d'actifs réels tokenisés.",

@@ -7,6 +7,7 @@ import BlogPost from './views/BlogPost.vue'
 import Faq from './views/Faq.vue'
 import Comite from './views/Comite.vue'
 import LiensUtiles from './views/LiensUtiles.vue'
+import ApplicationHubStatus from './views/ApplicationHubStatus.vue'
 import Reg from './views/Reg.vue'
 import Partenaires from './views/Partenaires.vue'
 import Confidentialite from './views/Confidentialite.vue'
@@ -60,6 +61,12 @@ const routes = [
     name: 'LiensUtiles',
     component: LiensUtiles,
     meta: { titleKey: 'liensUtiles.pageTitle', descriptionKey: 'liensUtiles.pageDescription' }
+  },
+  {
+    path: '/applications/application-hub/status',
+    name: 'ApplicationHubStatus',
+    component: ApplicationHubStatus,
+    meta: { titleKey: 'appStatus.pageTitle', descriptionKey: 'appStatus.pageDescription' }
   },
   {
     path: '/governance/reg',
