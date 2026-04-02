@@ -16,6 +16,8 @@ make dev-build   # Build
 make dev-run     # Run on port 5173
 make dev-kill    # Stop container
 make dev-logs    # Show container logs
+
+make cron-status # Read the current user's crontab (for ./scripts/manage-app-links-cron.sh status)
 ```
 
 ### Sitemap (SEO)
