@@ -32,11 +32,11 @@
           </thead>
           <tbody>
             <tr v-for="row in rows" :key="row.url">
-              <td>{{ row.title }}</td>
-              <td>
+              <td :data-label="$t('appStatus.columns.title')">{{ row.title }}</td>
+              <td :data-label="$t('appStatus.columns.url')">
                 <a :href="row.url" target="_blank" rel="noopener noreferrer">{{ row.url }}</a>
               </td>
-              <td>
+              <td :data-label="$t('appStatus.columns.status')">
                 <span class="pill-wrap" :data-tooltip="buildStatusTooltip(row)">
                   <span :class="['pill', row.displayOk ? 'ok' : 'ko']">
                     <span class="status-icon" aria-hidden="true">{{ row.displayOk ? '✓' : '✕' }}</span>
@@ -154,10 +154,13 @@ h1 { margin: 14px 0 10px; }
 .summary-item { display:inline-flex; align-items:center; gap:6px; font-weight:700; border-radius:999px; padding:4px 10px; }
 .summary-item-ok { background: rgba(34,197,94,.2); color:#86efac; }
 .summary-item-ko { background: rgba(239,68,68,.2); color:#fca5a5; }
-.table-wrap { overflow:auto; border:1px solid rgba(255,255,255,.12); border-radius:12px; }
-.status-table { width:100%; border-collapse: collapse; min-width: 640px; background: rgba(255,255,255,.03); }
+.table-wrap { overflow: hidden; border:1px solid rgba(255,255,255,.12); border-radius:12px; }
+.status-table { width:100%; border-collapse: collapse; table-layout: fixed; background: rgba(255,255,255,.03); }
 .status-table th, .status-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,.08); text-align:left; vertical-align: top; }
-.status-table a { color: var(--color-orange); }
+.status-table th:nth-child(1), .status-table td:nth-child(1) { width: 30%; }
+.status-table th:nth-child(2), .status-table td:nth-child(2) { width: 55%; }
+.status-table th:nth-child(3), .status-table td:nth-child(3) { width: 15%; text-align: center; }
+.status-table a { color: var(--color-orange); display: block; overflow-wrap: anywhere; word-break: break-word; }
 .pill-wrap { position: relative; display: inline-block; }
 .pill { display:inline-block; padding:4px 10px; border-radius:999px; font-size:.75rem; font-weight:700; }
 .pill.ok { background: rgba(34,197,94,.2); color:#86efac; }
@@ -195,4 +198,35 @@ h1 { margin: 14px 0 10px; }
 .pill-wrap:hover::after { opacity: 1; }
 .state { padding: 16px; border:1px solid rgba(255,255,255,.12); border-radius:10px; }
 .state.error { border-color: rgba(239,68,68,.4); color:#fecaca; }
+
+@media (max-width: 900px) {
+  .table-wrap { border: 0; }
+  .status-table,
+  .status-table thead,
+  .status-table tbody,
+  .status-table tr,
+  .status-table td { display: block; width: 100%; }
+  .status-table thead { display: none; }
+  .status-table tr {
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background: rgba(255,255,255,.03);
+    padding: 6px 0;
+  }
+  .status-table td {
+    border-bottom: 0;
+    padding: 8px 12px;
+    text-align: left !important;
+  }
+  .status-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.72rem;
+    opacity: 0.75;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}
 </style>
