@@ -168,6 +168,7 @@ const formatDate = (dateString) => {
   font-size: 1.05rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
+  text-align: justify;
 }
 
 .post-body :deep(h1),
