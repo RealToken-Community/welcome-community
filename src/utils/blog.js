@@ -60,6 +60,25 @@ function parseFrontmatter(content) {
   }
 }
 
+/**
+ * Remove the first markdown H1 to avoid duplicate title rendering
+ * when the page already displays the article title from frontmatter.
+ */
+function removeLeadingH1(markdown) {
+  if (!markdown) return markdown
+  const lines = markdown.split('\n')
+  const firstNonEmptyIndex = lines.findIndex((line) => line.trim().length > 0)
+  if (firstNonEmptyIndex === -1) return markdown
+  if (!/^#\s+/.test(lines[firstNonEmptyIndex].trim())) return markdown
+
+  const updated = [...lines]
+  updated.splice(firstNonEmptyIndex, 1)
+  if (updated[firstNonEmptyIndex] && updated[firstNonEmptyIndex].trim() === '') {
+    updated.splice(firstNonEmptyIndex, 1)
+  }
+  return updated.join('\n')
+}
+
 // Slugs canoniques : définis dans data/blog-slugs.js (sans dépendance) pour le script sitemap
 import { englishSlugs } from '../data/blog-slugs.js'
 export { englishSlugs }
@@ -115,11 +134,12 @@ export async function loadArticles(locale = 'fr') {
     const content = await loadArticleContent(contentSlug, locale)
     if (content) {
       const parsed = parseFrontmatter(content)
+      const cleanedContent = removeLeadingH1(parsed.content)
       articles.push({
         ...parsed.data,
         slug: englishSlug,
-        content: md.render(parsed.content),
-        rawContent: parsed.content
+        content: md.render(cleanedContent),
+        rawContent: cleanedContent
       })
     }
   }
@@ -133,11 +153,12 @@ export async function loadArticle(slug, locale = 'fr') {
   const content = await loadArticleContent(contentSlug, locale)
   if (!content) return null
   const parsed = parseFrontmatter(content)
+  const cleanedContent = removeLeadingH1(parsed.content)
   return {
     ...parsed.data,
     slug,
-    content: md.render(parsed.content),
-    rawContent: parsed.content
+    content: md.render(cleanedContent),
+    rawContent: cleanedContent
   }
 }
 
