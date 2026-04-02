@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-04-02T11:34:46.604Z",
-  "total": 25,
+  "checkedAt": "2026-04-02T11:44:25.960Z",
+  "total": 26,
   "links": [
     {
       "url": "https://rmm.realtoken.network/",
@@ -45,6 +45,15 @@
       "softAllowed": true,
       "status": 403,
       "method": "GET",
+      "error": null
+    },
+    {
+      "url": "https://scappa.battistu.com/",
+      "ok": true,
+      "visible": true,
+      "softAllowed": false,
+      "status": 200,
+      "method": "HEAD",
       "error": null
     },
     {
