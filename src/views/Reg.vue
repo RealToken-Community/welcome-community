@@ -35,7 +35,7 @@
             <div class="reg-meta">
               <h2 class="reg-name">{{ coin.name }}</h2>
               <p class="reg-symbol">{{ (coin.symbol || '').toUpperCase() }}</p>
-              <p v-if="coin.description?.en" class="reg-desc">{{ coin.description.en }}</p>
+              <p class="reg-desc">{{ $t('reg.staticDescription') }}</p>
               <div v-if="coin.categories?.length" class="reg-categories">
                 <span
                   v-for="cat in coin.categories.slice(0, 5)"
@@ -103,9 +103,11 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const COINGECKO_COIN_ID = 'realtoken-ecosystem-governance'
 const WHITEPAPER_FILENAME = 'reg-whitepaper-fr.pdf'
+useI18n()
 
 const loading = ref(true)
 const error = ref(null)
