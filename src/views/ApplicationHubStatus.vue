@@ -11,7 +11,7 @@
     <section class="status-section">
       <div class="status-toolbar">
         <p v-if="checkedAt" class="checked-at">
-          {{ $t('appStatus.checkedAt') }}: {{ checkedAt }}
+          {{ $t('appStatus.checkedAt') }}: {{ checkedAtFormatted }}
         </p>
         <p class="summary">
           {{ $t('appStatus.summary', { ok: okCount, ko: koCount, total: rows.length }) }}
@@ -54,7 +54,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const { tm } = useI18n()
+const { tm, locale } = useI18n()
 const loading = ref(true)
 const error = ref('')
 const checkedAt = ref('')
@@ -89,6 +89,27 @@ const rows = computed(() => {
 
 const okCount = computed(() => rows.value.filter((r) => r.displayOk).length)
 const koCount = computed(() => rows.value.filter((r) => !r.displayOk).length)
+const checkedAtFormatted = computed(() => formatCheckedAt(checkedAt.value))
+
+/**
+ * Format the status report timestamp for FR/EN display.
+ */
+function formatCheckedAt(value) {
+  if (!value) return ''
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value
+
+  const language = String(locale.value || 'en').toLowerCase()
+  const intlLocale = language.startsWith('fr') ? 'fr-FR' : 'en-US'
+  return new Intl.DateTimeFormat(intlLocale, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  }).format(date)
+}
 
 async function loadReport() {
   // Load the latest link-check report generated during build.
