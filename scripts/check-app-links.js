@@ -11,7 +11,8 @@ const rootDir = join(__dirname, '..')
 const frLocalePath = join(rootDir, 'src', 'locales', 'fr.json')
 const outPath = join(rootDir, 'public', 'app-links-status.json')
 
-const timeoutMs = 12000
+const timeoutMs = 20000
+const maxRetries = 2
 const GET_ONLY_DOMAINS = new Set([
   'dune.com',
   'www.dune.com'
@@ -95,18 +96,22 @@ async function checkUrl(url) {
     }
   }
 
-  const firstTry = await runAttempt()
-  const shouldRetry = firstTry.status === null || firstTry.status >= 500
-
-  if (!shouldRetry) return firstTry
-
-  // Single retry to reduce false negatives on transient network/server issues.
-  const secondTry = await runAttempt()
-  if (secondTry.ok || secondTry.visible || secondTry.status !== null) {
-    return secondTry
+  let lastResult = await runAttempt()
+  if (lastResult.ok || lastResult.visible || (lastResult.status !== null && lastResult.status < 500)) {
+    return lastResult
   }
 
-  return firstTry
+  // Retry transient failures (timeout/network/5xx) before marking KO.
+  for (let i = 0; i < maxRetries; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    const retryResult = await runAttempt()
+    if (retryResult.ok || retryResult.visible || (retryResult.status !== null && retryResult.status < 500)) {
+      return retryResult
+    }
+    lastResult = retryResult
+  }
+
+  return lastResult
 }
 
 async function main() {
