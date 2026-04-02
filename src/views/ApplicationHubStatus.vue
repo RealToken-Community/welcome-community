@@ -31,12 +31,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in rows" :key="row.url">
-              <td :data-label="$t('appStatus.columns.title')">{{ row.title }}</td>
-              <td :data-label="$t('appStatus.columns.url')">
+            <tr v-for="row in rows" :key="row.url" class="status-row">
+              <td class="td-title" :data-label="$t('appStatus.columns.title')">{{ row.title }}</td>
+              <td class="td-url" :data-label="$t('appStatus.columns.url')">
                 <a :href="row.url" target="_blank" rel="noopener noreferrer">{{ row.url }}</a>
               </td>
-              <td :data-label="$t('appStatus.columns.status')">
+              <td class="td-status" :data-label="$t('appStatus.columns.status')">
                 <span class="pill-wrap" :data-tooltip="buildStatusTooltip(row)">
                   <span :class="['pill', row.displayOk ? 'ok' : 'ko']">
                     <span class="status-icon" aria-hidden="true">{{ row.displayOk ? '✓' : '✕' }}</span>
@@ -204,29 +204,37 @@ h1 { margin: 14px 0 10px; }
   .status-table,
   .status-table thead,
   .status-table tbody,
-  .status-table tr,
   .status-table td { display: block; width: 100%; }
   .status-table thead { display: none; }
-  .status-table tr {
-    border: 1px solid rgba(255,255,255,.12);
+  .status-table .status-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title status"
+      "url status";
+    align-items: start;
+    gap: 8px 12px;
+    border: 1px solid rgba(255,255,255,.14);
     border-radius: 12px;
     margin-bottom: 10px;
-    background: rgba(255,255,255,.03);
-    padding: 6px 0;
+    background: rgba(255,255,255,.04);
+    padding: 10px 12px;
   }
   .status-table td {
-    border-bottom: 0;
-    padding: 8px 12px;
+    border: 0;
+    padding: 0;
     text-align: left !important;
   }
-  .status-table td::before {
-    content: attr(data-label);
-    display: block;
-    font-size: 0.72rem;
-    opacity: 0.75;
-    margin-bottom: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+  .status-table .td-title { grid-area: title; font-weight: 700; color: #fff; }
+  .status-table .td-url { grid-area: url; }
+  .status-table .td-status {
+    grid-area: status;
+    justify-self: end;
+    align-self: center;
+    padding-right: 20px;
+    margin-right: 8px;
   }
+  .status-table .td-url a { display: block; width: 100%; overflow-wrap: anywhere; word-break: break-word; }
+  .status-table .td-url { display: none; }
 }
 </style>
