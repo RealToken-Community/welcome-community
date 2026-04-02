@@ -17,7 +17,9 @@ make dev-run     # Run on port 5173
 make dev-kill    # Stop container
 make dev-logs    # Show container logs
 
-make cron-status # Read the current user's crontab (for ./scripts/manage-app-links-cron.sh status)
+make cron-install # Install daily app-links check cron (00:00 server time)
+make cron-status  # Read the current user's crontab (for ./scripts/manage-app-links-cron.sh status)
+make cron-remove  # Remove app-links check cron
 ```
 
 ### Sitemap (SEO)
