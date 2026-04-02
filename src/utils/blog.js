@@ -118,7 +118,12 @@ async function loadArticleContent(slug, locale) {
   try {
     const response = await fetch(`/articles/${locale}/${slug}.md`)
     if (!response.ok) return null
+    // If the server returns HTML fallback (index.html), this is not a markdown article.
+    const contentType = response.headers.get('content-type') || ''
+    if (contentType.includes('text/html')) return null
     const text = await response.text()
+    // A valid article always starts with frontmatter in this project.
+    if (!text.trimStart().startsWith('---')) return null
     return text
   } catch (error) {
     console.error(`Error loading article ${slug}:`, error)

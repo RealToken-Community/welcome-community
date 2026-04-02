@@ -69,6 +69,10 @@ function updateSeoHead(post) {
 const fetchArticle = async () => {
   const slug = route.params.slug
   article.value = await loadArticle(slug, locale.value)
+  if (!article.value) {
+    router.replace('/not-found')
+    return
+  }
   updateSeoHead(article.value)
 }
 

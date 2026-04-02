@@ -416,6 +416,13 @@
     "s3List": "Les tokens et actifs tokenisés (notamment dans le cadre de RealT ou de l'écosystème RealToken) ne constituent pas un investissement garanti ; leur valeur peut fluctuer.\nLes contenus du site ne constituent pas un conseil en investissement ni un conseil financier, juridique ou fiscal.\nEn raison de la nature décentralisée d'une DAO, la responsabilité peut être limitée et répartie entre les participants ; les décisions sont prises de manière collective et on-chain.\nPour les aspects financiers et tokenisés (vente, achat, détention de tokens), des obligations fiscales et, le cas échéant, des règles de l'AMF (Autorité des marchés financiers) peuvent s'appliquer ; il appartient à chaque utilisateur de se renseigner et de se conformer à la réglementation en vigueur.",
     "s3Disclaimer": "Les informations de cette page sont tenues à jour dans la mesure du possible. Pour toute question relative aux mentions légales, vous pouvez nous contacter à l'adresse indiquée dans la section éditeur."
   },
+  "notFound": {
+    "pageTitle": "Page introuvable",
+    "pageDescription": "La page demandée n'existe pas ou a été déplacée.",
+    "title": "Cette page n'existe pas",
+    "description": "L'URL demandée n'est pas disponible. Vous pouvez revenir a l'accueil ou utiliser le menu pour continuer votre navigation.",
+    "goHome": "Retour a l'accueil"
+  },
   "footer": {
     "tagline": "Écosystème décentralisé d'actifs réels tokenisés.",
     "applications": "Applications",

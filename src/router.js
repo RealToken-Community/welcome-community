@@ -11,6 +11,7 @@ import Reg from './views/Reg.vue'
 import Partenaires from './views/Partenaires.vue'
 import Confidentialite from './views/Confidentialite.vue'
 import MentionsLegales from './views/MentionsLegales.vue'
+import NotFound from './views/NotFound.vue'
 
 const routes = [
   {
@@ -95,7 +96,19 @@ const routes = [
   { path: '/faq', redirect: '/ressource/faq' },
   { path: '/devenir-partenaire', redirect: '/partners' },
   { path: '/confidentialite', redirect: '/privacy' },
-  { path: '/mentions-legales', redirect: '/legal-notice' }
+  { path: '/mentions-legales', redirect: '/legal-notice' },
+  {
+    path: '/not-found',
+    name: 'NotFoundPage',
+    component: NotFound,
+    meta: { titleKey: 'notFound.pageTitle', descriptionKey: 'notFound.pageDescription' }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound,
+    meta: { titleKey: 'notFound.pageTitle', descriptionKey: 'notFound.pageDescription' }
+  }
 ]
 
 const router = createRouter({

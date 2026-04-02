@@ -416,6 +416,13 @@
     "s3List": "Tokens and tokenised assets (including in the RealT or RealToken ecosystem) do not constitute a guaranteed investment; their value may fluctuate.\nThe contents of this site do not constitute investment, financial, legal or tax advice.\nDue to the decentralised nature of a DAO, liability may be limited and shared among participants; decisions are made collectively and on-chain.\nFor financial and tokenised aspects (sale, purchase, holding of tokens), tax obligations and, where applicable, rules of the AMF (Autorité des marchés financiers) or equivalent regulator may apply; each user is responsible for compliance with applicable law.",
     "s3Disclaimer": "The information on this page is kept up to date where possible. For any questions regarding this legal notice, you may contact us at the address given in the publisher section."
   },
+  "notFound": {
+    "pageTitle": "Page not found",
+    "pageDescription": "The requested page does not exist or has been moved.",
+    "title": "This page does not exist",
+    "description": "The requested URL is not available. You can go back to the homepage or use the menu to continue browsing.",
+    "goHome": "Back to homepage"
+  },
   "footer": {
     "tagline": "Decentralized ecosystem for tokenized real-world assets.",
     "applications": "Applications",
