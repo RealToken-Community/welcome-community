@@ -6,7 +6,12 @@ import LatestArticles from '../components/blog/LatestArticles.vue'
 const { t } = useI18n()
 
 const COINGECKO_REG_ID = 'realtoken-ecosystem-governance'
+const GOVERNOR_ADDRESS = '0x4a5327347f077e72d2aab19f68ba8a7f12ec5d63'
+const GNOSIS_RPC_URL = 'https://rpc.gnosischain.com'
+const PROPOSAL_CREATED_TOPIC = '0x7d84a6263ae0d98d3329bd7b46bb4e8d6f98cd35a7adb45c274c8b7fd5ebd5e0'
+const PROPOSAL_CANCELED_TOPIC = '0x789cf55be980739dad1d0699b93b58e806b51c9d96619bfa8fe0a28abaa7b30c'
 const regMarketCapUsd = ref(null)
+const tallyVotesCount = ref(null)
 
 function formatCompact(value) {
   if (value == null || typeof value !== 'number') return null
@@ -16,16 +21,80 @@ function formatCompact(value) {
   return value.toLocaleString()
 }
 
+/**
+ * Fetch DAO proposal count excluding canceled proposals.
+ */
+async function fetchGovernorVoteCount() {
+  const extractProposalId = (log) => {
+    const data = log?.data
+    if (typeof data !== 'string' || !data.startsWith('0x') || data.length < 66) return null
+    return data.slice(0, 66).toLowerCase()
+  }
+
+  const baseFilter = {
+    address: GOVERNOR_ADDRESS,
+    fromBlock: '0x0',
+    toBlock: 'latest'
+  }
+
+  const payload = {
+    jsonrpc: '2.0',
+    id: 1,
+    method: 'eth_getLogs'
+  }
+
+  const [createdRes, canceledRes] = await Promise.all([
+    fetch(GNOSIS_RPC_URL, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ ...payload, params: [{ ...baseFilter, topics: [PROPOSAL_CREATED_TOPIC] }] })
+    }),
+    fetch(GNOSIS_RPC_URL, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ ...payload, params: [{ ...baseFilter, topics: [PROPOSAL_CANCELED_TOPIC] }] })
+    })
+  ])
+
+  if (!createdRes.ok) throw new Error(`Governor created logs HTTP ${createdRes.status}`)
+  if (!canceledRes.ok) throw new Error(`Governor canceled logs HTTP ${canceledRes.status}`)
+
+  const createdData = await createdRes.json()
+  const canceledData = await canceledRes.json()
+  if (createdData?.error) throw new Error(createdData.error?.message || 'Governor created logs RPC error')
+  if (canceledData?.error) throw new Error(canceledData.error?.message || 'Governor canceled logs RPC error')
+
+  const createdLogs = Array.isArray(createdData?.result) ? createdData.result : []
+  const canceledLogs = Array.isArray(canceledData?.result) ? canceledData.result : []
+
+  const canceledProposalIds = new Set(
+    canceledLogs.map(extractProposalId).filter(Boolean)
+  )
+
+  const activeProposalCount = createdLogs
+    .map(extractProposalId)
+    .filter((proposalId) => proposalId && !canceledProposalIds.has(proposalId))
+    .length
+
+  return activeProposalCount
+}
+
 onMounted(async () => {
   try {
-    const res = await fetch(
+    const [regRes, votesCount] = await Promise.all([
+      fetch(
       `https://api.coingecko.com/api/v3/coins/${COINGECKO_REG_ID}?localization=false&tickers=false&community_data=false&developer_data=false`
-    )
-    if (!res.ok) return
-    const data = await res.json()
+      ),
+      fetchGovernorVoteCount().catch(() => null)
+    ])
+    if (typeof votesCount === 'number') tallyVotesCount.value = votesCount
+    if (!regRes.ok) return
+    const data = await regRes.json()
     const cap = data.market_data?.market_cap?.usd
     if (typeof cap === 'number') regMarketCapUsd.value = cap
-  } catch (_) {}
+  } catch (error) {
+    console.warn('Unable to load dynamic homepage stats:', error)
+  }
 })
 
 const aboutFeatures = computed(() => [
@@ -124,11 +193,12 @@ const steps = computed(() => [
 
 const stats = computed(() => {
   const regCap = regMarketCapUsd.value != null ? formatCompact(regMarketCapUsd.value) + ' USD' : t('stats.comingSoon')
+  const votes = typeof tallyVotesCount.value === 'number' ? tallyVotesCount.value.toLocaleString() : '38'
   return [
     { label: t('stats.assets'), value: '$128M' },
     { label: t('stats.members'), value: '6 200+' },
     { label: t('stats.regMarketcap'), value: regCap },
-    { label: t('stats.votes'), value: '38' }
+    { label: t('stats.votes'), value: votes }
   ]
 })
 </script>
