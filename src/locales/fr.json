@@ -141,7 +141,7 @@
     "assets": "Valeur totale des actifs partenaires dans l'écosystème",
     "members": "Détenteurs de REG",
     "regMarketcap": "Marketcap REG",
-    "votes": "Nombre de votes sur Tally",
+    "votes": "Nombre de propositions votées par la DAO",
     "comingSoon": "À venir",
     "inProgress": "En cours"
   },
