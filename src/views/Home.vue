@@ -238,7 +238,7 @@ const stats = computed(() => {
   const votes = typeof tallyVotesCount.value === 'number' ? tallyVotesCount.value.toLocaleString() : '38'
   const holders = typeof regHoldersCount.value === 'number' ? regHoldersCount.value.toLocaleString() : '6 200+'
   return [
-    { label: t('stats.assets'), value: '$128M' },
+    { label: t('stats.assets'), value: '+150M' },
     { label: t('stats.members'), value: holders },
     { label: t('stats.regMarketcap'), value: regCap },
     { label: t('stats.votes'), value: votes }
