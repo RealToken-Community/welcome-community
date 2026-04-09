@@ -1,0 +1,463 @@
+{
+  "nav": {
+    "application": "Application",
+    "ressources": "Resources",
+    "governance": "Governance",
+    "blog": "Blog",
+    "contact": "Contact us",
+    "menu": {
+      "applications": "Applications",
+      "applicationsRmm": "RMM",
+      "applicationsYam": "YAM",
+      "applicationsBridge": "Bridge",
+      "applicationsDashboard": "Realtoken Dashboard",
+      "applicationsWallet": "RealToken Wallet",
+      "projetsRwa": "RWA Projects",
+      "projetsRwaRealt": "RealT",
+      "governance": "Governance",
+      "governanceTally": "Tally (vote)",
+      "governanceReg": "The REG",
+      "governanceComites": "Committees",
+      "governanceForum": "Forum",
+      "resources": "Resources",
+      "resourcesFaq": "FAQ",
+      "resourcesWiki": "Wiki",
+      "resourcesBlog": "Blog",
+      "resourcesLiensUtiles": "Application Hub"
+    }
+  },
+  "hero": {
+    "tag": "On-chain real asset tokenization",
+    "title": "Build together a",
+    "titleSpan": "decentralized RWA ecosystem",
+    "lead": "RealToken DAO is a decentralized ecosystem that integrates all your real-world asset tokens such as real estate, factoring, or debt, by collaborating with different partners to decentralize the management of real-world assets.",
+    "ctaDashboard": "Discover the vision",
+    "ctaVision": "Token economy",
+    "trustSec": "Decentralized governance",
+    "trustSecDesc": "",
+    "trustLloyds": "Real assets (RWA)",
+    "trustLloydsDesc": "",
+    "trustChainlink": "24/7 liquidity",
+    "trustChainlinkDesc": ""
+  },
+  "about": {
+    "tag": "About",
+    "title": "Real asset tokenization: liquidity, exchange, available, accessible.",
+    "description": "RealToken DAO transforms access to real-world assets by making them accessible, tradable and available 24/7. Each token represents a verifiable share of a portfolio of real assets, with instant liquidity and decentralized governance.",
+    "features": {
+      "liquidity": {
+        "title": "Liquidity",
+        "description": "Access tokenized real-world assets, tradable 24/7 on decentralized markets."
+      },
+      "exchange": {
+        "title": "Exchange",
+        "description": "Trade your RealToken tokens transparently and securely on the ecosystem."
+      },
+      "available": {
+        "title": "Available",
+        "description": "Real assets accessible to all, fractionalized into verifiable digital shares."
+      },
+      "accessible": {
+        "title": "Accessible",
+        "description": "Access premium real-world assets without traditional barriers or intermediaries."
+      }
+    }
+  },
+  "application": {
+    "tag": "Application",
+    "title": "RealToken ecosystem tools.",
+    "openApp": "Go to application",
+    "rmm": {
+      "title": "RMM",
+      "description": "RealToken Money Market - Lending and borrowing protocol to borrow stablecoins against RWA assets, based on the Aave platform and adapted to RWA market needs."
+    },
+    "yam": {
+      "title": "YAM",
+      "description": "You and Me - Peer-to-peer secondary market with creation of buy and sell offers, adapted to RWA market needs."
+    },
+    "dex": {
+      "title": "DEX (soon)",
+      "description": "A decentralised exchange platform to further improve liquidity for real-world assets."
+    },
+    "nft": {
+      "title": "NFT (soon)",
+      "description": "These NFTs will be used to distribute the REG supply based on each participant's actions and contributions to the ecosystem."
+    }
+  },
+  "daoRole": {
+    "tag": "Role and scope",
+    "title": "The DAO's role",
+    "role1": {
+      "title": "RealToken management in DeFi",
+      "description": "Manage RealTokens within our applications (RMM, YAM, Bridge, Dashboard) to provide liquidity, trading and decentralized services to the ecosystem."
+    },
+    "role2": {
+      "title": "Ecosystem development",
+      "description": "Allocate treasury funds to develop the ecosystem: applications, liquidity, security, new features and infrastructure."
+    },
+    "role3": {
+      "title": "Coordination and technology sharing",
+      "description": "Coordinate services and partners, and make our technology available for real-world asset tokenization at large."
+    }
+  },
+  "governance": {
+    "tag": "Governance",
+    "title": "Decentralized governance for the community.",
+    "protocol": {
+      "title": "Decentralized protocol",
+      "description": "Transparent community governance where every REG holder can participate in important decisions.",
+      "link": "View REG on CoinGecko"
+    },
+    "forum": {
+      "title": "Forum",
+      "description": "Discussion and proposal space for the RealToken DAO community.",
+      "link": "Go to forum"
+    },
+    "tally": {
+      "title": "Tally (vote)",
+      "description": "On-chain voting platform for governance proposals and DAO decisions.",
+      "link": "Go to Tally"
+    }
+  },
+  "process": {
+    "tag": "How it works",
+    "title": "Join the RealToken ecosystem in three steps.",
+    "step1": {
+      "title": "Buy tokens from a partner",
+      "text": "Acquire your RealToken tokens from our certified partners and join the ecosystem."
+    },
+    "step2": {
+      "title": "Tokens available in the ecosystem (RMM, YAM)",
+      "text": "Your tokens are immediately available on RMM for trading and YAM for portfolio management."
+    },
+    "step3": {
+      "title": "Get a REG token and participate in governance",
+      "text": "Receive your REG tokens to actively participate in decentralized governance. Coming soon: NFTs to improve decentralized governance."
+    }
+  },
+  "stats": {
+    "tag": "Proof",
+    "title": "Verifiable indicators, in real time.",
+    "assets": "Total value of partner assets in the ecosystem",
+    "members": "Ecosystem members",
+    "regMarketcap": "REG marketcap",
+    "votes": "Number of votes on Tally",
+    "comingSoon": "Coming soon",
+    "inProgress": "In progress"
+  },
+  "cta": {
+    "tag": "Partners",
+    "title": "Integrate your token and shape the future of the RealToken ecosystem.",
+    "description": "Join the RealToken ecosystem as a partner. Integrate your tokens and benefit from the liquidity, governance and DAO infrastructure to develop your project.",
+    "buttonPartner": "Become a partner",
+    "buttonLearn": "Learn more"
+  },
+  "partenaires": {
+    "tag": "Partners",
+    "pageTitle": "Become a partner",
+    "pageDescription": "Integrate your token into the RealToken ecosystem and benefit from our market, lending and real asset tokenization infrastructure.",
+    "intro": "This page is for projects that want to join the RealToken ecosystem. Below are our acceptance criteria and what we offer.",
+    "criteriaTitle": "Acceptance criteria",
+    "criteriaDesc": "To join our ecosystem, your project must meet the following criterion:",
+    "criteriaBadge": "Required",
+    "criteriaText": "ERC-20 token: your asset or project must be represented by a token compliant with the ERC-20 standard on Ethereum or a compatible chain (e.g. Gnosis Chain). We have a partner who can represent your assets on the blockchain as tokens.",
+    "offerTitle": "What we offer",
+    "offerDesc": "As a partner, you can benefit from the following infrastructure:",
+    "offer1": "YAM: secondary market platform for peer-to-peer token trading, with creation of buy and sell offers.",
+    "offer2": "RMM: a lending and borrowing platform to use real assets as collateral and borrow stablecoins in exchange.",
+    "offer3": "A DEX (soon), which will improve overall liquidity for real-world assets.",
+    "offer4": "Thanks to our partner, we can support you through the real asset tokenization process to represent your assets on the blockchain.",
+    "seekTitle": "What we are looking for",
+    "seekIntro": "We are open to all types of real-world assets. We are notably looking for:",
+    "seekList": "Partners in bonds / fixed income\nPartners in patent tokenization\nPartners in music rights tokenization\nPartners in energy tokenization (nuclear, solar, etc.)\nPartners in tokenization of all types of real estate",
+    "ctaText": "Want to become a partner? Contact us to discuss your project.",
+    "ctaButton": "Contact us"
+  },
+  "logo": {
+    "name": "RealToken DAO",
+    "subtitle": "DeFi for Real-World Assets"
+  },
+  "comite": {
+    "tag": "Governance",
+    "pageTitle": "Committees",
+    "pageDescription": "The DAO is organized into committees to progressively delegate responsibilities to the community.",
+    "members": "Members",
+    "telegram": "Join Telegram",
+    "committees": {
+      "proposer": {
+        "title": "Proposer",
+        "description": "To help establish: proposals on the Forum and corresponding votes on Tally (onChain).",
+        "members": "Sigri, DRKTT and PhilP"
+      },
+      "security": {
+        "title": "Security Committee",
+        "description": "To ensure the security of the DAO protocols (at minimum, intervene in emergencies to stop a protocol).",
+        "members": "Benoist-Not-for-sale, Cogatos, Sigri, EzSwim, JoeD"
+      },
+      "votingPower": {
+        "title": "Voting Power Working Group",
+        "description": "To study and propose new versions of the Voting Power calculation algorithm based on REG holdings.",
+        "members": "Taodiem, Paul, PhilP, Yohann76, Eric, Battistu, DRKTT, Stouban, Teugos"
+      },
+      "liquidity": {
+        "title": "Liquidity Management Committee",
+        "description": "To manage the liquidity strategy implemented via RIP00003, and to study and propose new liquidity management strategies.",
+        "members": "Teugos, PhilP"
+      },
+      "marketing": {
+        "title": "Marketing and Communication Committee",
+        "description": "To study and propose marketing and communication actions to increase visibility and engagement within the Realtoken ecosystem.",
+        "members": "0xEzSwim, Yohann76, Paul, Virtual Madness, Teugos"
+      }
+    }
+  },
+  "faq": {
+    "tag": "FAQ",
+    "pageTitle": "Frequently asked questions",
+    "pageDescription": "Find answers to the most common questions about the RealToken ecosystem.",
+    "items": {
+      "q1": {
+        "question": "What is the RealToken DAO?",
+        "answer": "The RealToken DAO is a decentralized autonomous organization (DAO) dedicated to the tokenization of real-world assets (RWA), such as real estate but also art or infrastructure. It allows its members to participate in governance, invest in fractional assets, and contribute to a transparent and decentralized ecosystem."
+      },
+      "q2": {
+        "question": "What is the link between RealToken and RealT?",
+        "answer": "RealToken and RealT belong to the same real-world asset tokenization ecosystem, with distinct roles. RealT focuses on creating and managing the underlying assets (real estate tokens, issuance, compliance). The RealToken DAO focuses on the technological ecosystem and DeFi: tools (RMM, YAM, Bridge), community governance, and decisions on protocols, integrations, and allocations. In short: RealT manages the tokenized assets; the RealToken DAO manages the ecosystem's infrastructure and governance."
+      },
+      "q3": {
+        "question": "How can I participate in the DAO?",
+        "answer": "• Forum: join <a href='https://forum.realtoken.community' target='_blank' rel='noopener noreferrer'>the forum</a> to debate, follow decisions, and propose ideas (no token required). To submit a proposal, discuss your idea on the forum first, then draft a formal proposal.\n• REG: REG (governance token) can be obtained on exchange platforms such as <a href='https://app.1inch.io' target='_blank' rel='noopener noreferrer'>1inch</a> or via <a href='https://yam.realtoken.network' target='_blank' rel='noopener noreferrer'>YAM</a>. REG is also distributed based on participation in partner tokens. Active participation in the ecosystem (development, communication, etc.) can also be rewarded in REG. REG gives you voting power.\n• Tally: on <a href='https://tally.xyz/gov/realtoken-ecosystem-governance' target='_blank' rel='noopener noreferrer'>Tally</a>, connect your wallet to review proposals, vote, or delegate your vote."
+      },
+      "q4": {
+        "question": "What is an RWA (Real World Asset)?",
+        "answer": "An RWA is a real-world asset (e.g. an apartment, a work of art) represented as a token on a blockchain. This allows:\n• Fractional ownership (e.g. buying 10% of a building).\n• Easier trading (24/7 liquidity).\n• Automated management (rent, dividends) via smart contracts."
+      },
+      "q5": {
+        "question": "How are decisions made in the DAO?",
+        "answer": "Decisions are made through a decentralized voting process:\n• A member submits a proposal.\n• The community discusses on the forum and finalizes the proposal.\n• The vote is created on Tally.\n• REG token holders vote.\n• The proposal is implemented if the quorum is reached."
+      },
+      "q6": {
+        "question": "What are the risks associated with RWA and the DAO?",
+        "answer": "• Volatility: token values can fluctuate.\n• Regulation: legal frameworks evolve (e.g. tax, compliance).\n• Technology: bugs in smart contracts (hence the importance of audits).\n• Governance: risk of concentration of power if a few members hold many tokens.\n• Advice: diversify your investments and follow DAO updates."
+      },
+      "q7": {
+        "question": "How can I propose a project or idea to the DAO?",
+        "answer": "• Discuss the idea on <a href='https://t.me/realtokendao_official' target='_blank' rel='noopener noreferrer'>Telegram</a> first to assess relevance and feasibility.\n• Join <a href='https://forum.realtoken.community/' target='_blank' rel='noopener noreferrer'>the forum</a> and write a proposal with: a clear title; a detailed description (objectives, budget, timeline). See <a href='https://forum.realtoken.community/d/2-realtoken-dao-official-guidelines' target='_blank' rel='noopener noreferrer'>the template</a>.\n• Submit the proposal for a vote via <a href='https://tally.xyz/gov/realtoken-ecosystem-governance' target='_blank' rel='noopener noreferrer'>Tally</a>."
+      },
+      "q8": {
+        "question": "Where can I find help or ask questions?",
+        "answer": "• <a href='https://t.me/realtokendao_official' target='_blank' rel='noopener noreferrer'>Telegram</a>: the community is welcoming; post in the language of your choice and we'll help you.\n• <a href='https://forum.realtoken.community/' target='_blank' rel='noopener noreferrer'>Forum</a>: for more thought-out questions and discussions.\n• By email (<a href='mailto:marketing{'@'}realtoken.community'>marketing{'@'}realtoken.community</a>): for partnership requests or any other inquiry."
+      },
+      "q9": {
+        "question": "Is the DAO open to crypto beginners?",
+        "answer": "Yes! RealToken aims to democratize access to RWA. Resources are available: beginner's guide (blog articles), community (experienced members help newcomers on Telegram)."
+      }
+    }
+  },
+  "reg": {
+    "tag": "Governance",
+    "pageTitle": "The REG",
+    "pageDescription": "RealToken Ecosystem Governance (REG) is the governance token of the RealToken ecosystem. Discover key information and download the whitepaper.",
+    "staticDescription": "The REG (RealToken Ecosystem Governance) is the governance token for the RealToken ecosystem, created by RealT.co.",
+    "loading": "Loading REG data…",
+    "error": "Unable to load data from CoinGecko.",
+    "price": "Price",
+    "marketCap": "Market cap",
+    "volume24h": "24h volume",
+    "circulatingSupply": "Circulating supply",
+    "whitepaperTitle": "Whitepaper",
+    "whitepaperDescription": "Download the REG whitepaper (French version) to learn more about the token's economy and governance.",
+    "downloadWhitepaper": "Download whitepaper (PDF)"
+  },
+  "liensUtiles": {
+    "tag": "Applications",
+    "pageTitle": "Application Hub",
+    "pageDescription": "Applications, documentation and resources of the RealToken ecosystem.",
+    "openApp": "Open app",
+    "managedBy": {
+      "realt": "Managed by RealT",
+      "dao": "Managed by the DAO",
+      "daoRealt": "Managed by the DAO & RealT",
+      "community": "Community initiative"
+    },
+    "whoManages": {
+      "tag": "Application Hub",
+      "title": "Who manages these applications?",
+      "dao": {
+        "title": "Managed by the DAO",
+        "description": "Applications and tools developed and maintained by the DAO. The community pilots the roadmap and resources through REG votes. One condition: the DAO must have possession of the code (repository: <a href=\"https://github.com/RealToken-Community\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub RealToken Community</a>).",
+        "domainLabel": "Domain: realtoken.community"
+      },
+      "realt": {
+        "title": "Managed by RealT",
+        "description": "Some applications are managed by RealT because the ecosystem is in the process of decentralization. From a legal standpoint, some applications still require a centralized entity to operate them.",
+        "domainLabel": "Domain: realtoken.network"
+      },
+      "community": {
+        "title": "Community initiative",
+        "description": "Projects and tools created by community members or third parties, outside the DAO. They are maintained by third parties, with no formal link or guarantee of ongoing support, but can still be useful to the ecosystem.",
+        "domainLabel": "Domain: Free"
+      }
+    },
+    "communitySection": {
+      "tag": "Resources",
+      "title": "Community initiatives",
+      "disclaimer": "The applications below are third-party projects, not managed or endorsed by the DAO. They are maintained by community members or third parties. Useful to the ecosystem but with no guarantee of ongoing support."
+    },
+    "statusNote": {
+      "prefix": "Visible links are only valid and reachable links. See details on the",
+      "linkLabel": "status page"
+    },
+    "dashboardRealtokensDesc": "Mobile app, API and RealToken tools.",
+    "sections": {
+      "rmm": {
+        "tag": "RMM",
+        "title": "RMM",
+        "main": {
+          "title": "RMM",
+          "description": "Use your RealTokens as collateral to borrow in return.",
+          "href": "https://rmm.realtoken.network/",
+          "linkText": "Open RMM",
+          "managedBy": "daoRealt"
+        },
+        "tools": [
+          { "title": "Rent to Repay", "description": "Automate debt repayment when receiving rent.", "href": "https://github.com/RealToken-Community/DEVCONTEST-rent2repay", "managedBy": "dao" },
+          { "title": "RMM Analytics – Gain or Loss", "description": "Analyze interest earned or paid by a wallet on RMM.", "href": "https://analytics.rmm.realtoken.community/", "managedBy": "dao" },
+          { "title": "Bot Telegram – RMM liquidity notifications", "description": "Get notified when liquidity is available on RMM.", "href": "https://t.me/rmm_available_liquidity", "managedBy": "community" },
+          { "title": "Dune RMM Dashboard", "description": "RMM analytics and dashboards on Dune.", "href": "https://dune.com/sigri44/realtoken-rmm", "managedBy": "community" },
+          { "title": "Scappa", "description": "Find the best offers to repay or exit RMM.", "href": "https://scappa.battistu.com/", "managedBy": "community" }
+        ]
+      },
+      "yam": {
+        "tag": "YAM",
+        "title": "YAM",
+        "main": {
+          "title": "YAM",
+          "description": "Buy and sell RealTokens peer-to-peer.",
+          "href": "https://yam.realtoken.network",
+          "linkText": "Open YAM",
+          "managedBy": "daoRealt"
+        },
+        "tools": [
+          { "title": "YAM Transaction Report Generator", "description": "Generate a PDF of all your transactions over a given period.", "href": "https://yam-report.realtoken.community/", "managedBy": "dao" },
+          { "title": "YAM Offer Viewer by ID", "description": "Alternative to main YAM to buy an offer directly by ID.", "href": "https://offer-view.yam.realtoken.community/", "managedBy": "dao" },
+          { "title": "Bot Telegram – YAM Sale Notify Bot", "description": "Get notified when one of your offers published on YAM is sold.", "href": "https://t.me/yam_sale_notify_bot", "managedBy": "dao" }
+        ]
+      },
+      "realtokens": {
+        "tag": "Realtokens",
+        "title": "Realtokens",
+        "tools": [
+          { "title": "Bridge", "description": "Transfer RealTokens/REG between chains (L2, etc.).", "href": "https://bridge.realtoken.network/", "managedBy": "realt" },
+          { "title": "Realtoken Dashboard", "description": "RealToken dashboard: overview of assets and the ecosystem.", "href": "https://dashboard.realtoken.community/", "managedBy": "dao" },
+          { "title": "RealToken Asset Tracker", "description": "Mobile app to track your RealToken assets.", "href": "https://mobile.realtoken.community/", "managedBy": "dao" },
+          { "title": "Shareholder Vote – Assets", "description": "Vote on RealToken assets (shareholder votes).", "href": "https://vote.realtoken.network/assets", "managedBy": "realt" },
+          { "title": "RealToken API", "description": "API documentation and endpoints for RealToken data.", "href": "https://api.realtoken.community/", "managedBy": "dao" },
+          { "title": "RealToken Transfer", "description": "Transfer tokens from one wallet to another.", "href": "https://transfer.realtoken.community/", "managedBy": "dao" },
+          { "title": "Bot Telegram – RealToken Update Alerts", "description": "Notifications of changes on a RealToken (rent, token price, etc.).", "href": "https://t.me/RealToken_Alerts_Bot", "managedBy": "dao" },
+          { "title": "Pitsbi", "description": "RealT dashboard and analytics.", "href": "https://realt.pitsbi.io", "managedBy": "community" },
+          { "title": "Cryptalloc RealtLab", "description": "Portfolio and RealToken tools.", "href": "https://www.cryptalloc.com/realtlab/", "managedBy": "community" },
+          { "title": "RealT Rent Tracker", "description": "Track rent payments for your RealTokens.", "href": "https://ehpst.duckdns.org/realt_rent_tracker/", "managedBy": "community" },
+          { "title": "RealT community documentation", "description": "Community tutorials and guides (GitBook).", "href": "https://community-realt.gitbook.io/tuto-community/", "managedBy": "dao" }
+        ]
+      },
+      "reg": {
+        "tag": "REG",
+        "title": "REG Ecosystem",
+        "main": {
+          "title": "REG",
+          "description": "Governance token of the RealToken ecosystem. Claim, vote, and participate in the DAO.",
+          "href": "https://claim.realtoken.network/reg",
+          "linkText": "Claim REG",
+          "managedBy": "dao"
+        },
+        "tools": [
+          { "title": "DAO Documentation", "description": "Wiki to better understand the DAO and its organization.", "href": "https://wiki.realtoken.community/", "managedBy": "dao" },
+          { "title": "RealToken Wallet", "description": "Wallet to hold and manage your REG and RealTokens.", "href": "https://wallet.realtoken.network/", "managedBy": "daoRealt" },
+          { "title": "Dune DAO Dashboard", "description": "RealToken DAO analytics and metrics.", "href": "https://dune.com/teugos/realtoken-dao-dashboard", "managedBy": "community" },
+          { "title": "Incentive Vault", "description": "DAO incentive program and vault.", "href": "https://vote.realtoken.network/dao/incentive", "managedBy": "dao" }
+        ]
+      }
+    }
+  },
+  "blog": {
+    "tag": "Blog",
+    "title": "Latest articles",
+    "description": "Discover our latest news and guides about the RealToken ecosystem",
+    "pageTitle": "RealToken Blog",
+    "pageDescription": "Explore all our articles on real estate tokenization, decentralized governance and the RealToken ecosystem",
+    "viewAll": "View all articles",
+    "backToBlog": "Back to blog",
+    "loading": "Loading articles..."
+  },
+  "confidentialite": {
+    "tag": "Legal",
+    "pageTitle": "Privacy policy",
+    "pageDescription": "How RealToken DAO collects, uses and protects your personal data.",
+    "s1Title": "Scope and purpose",
+    "s1Intro": "This privacy policy is required when the site or related services (governance platforms, sign-ups, newsletters) collect personal data. It applies to processing carried out by RealToken DAO and to data that may be collected when using the site, voting tools (e.g. wallet addresses for governance) or communications (e.g. email addresses for sign-ups or newsletters).",
+    "s2Title": "Data collected",
+    "s2List": "Identification data (name, pseudonym)\nEmail address\nConnection data (IP addresses, logs)\nPseudonymous blockchain data (wallet addresses, transaction or voting history when linked to use of the site or services)",
+    "s3Title": "Purposes and legal basis",
+    "s3List": "Managing votes and participation in DAO governance (legitimate interest or pre-contractual measures)\nSending newsletters and information (consent)\nImproving services and the site (legitimate interest)\nCompliance with legal obligations (legal obligation)",
+    "s4Title": "Recipients and retention",
+    "s4Content": "Data may be shared with technical providers (hosting, voting tools, analytics) strictly for their assigned tasks. Retention periods are set according to each purpose (e.g. consent duration for newsletters, legal duration for billing or evidence). Pseudonymous blockchain data may be kept as long as needed for governance.",
+    "s5Title": "Your rights",
+    "s5Content": "Under applicable data protection laws, you have the right to access, rectify, erase, restrict processing, data portability and to object. To exercise these rights or for any question about your data, you may contact us at the address given in the legal notice. You also have the right to lodge a complaint with your supervisory authority.",
+    "s6Title": "Security measures",
+    "s6Content": "Technical and organisational measures are in place to protect your data: encryption of exchanges (HTTPS), secure access, pseudonymisation where possible. For blockchain services, on-chain data is by nature public or pseudonymous; we do not store identifying personal data on-chain without necessity and we limit possible correlation.",
+    "s7Title": "DAO, blockchain and GDPR",
+    "s7Content": "In a DAO and blockchain context, responsibility for processing may be shared (nodes, participants, interfaces). We strive to ensure compliance with applicable regulations by identifying data controllers, limiting personal data exposed on-chain and favouring anonymisation or pseudonymisation where the purpose allows."
+  },
+  "mentions": {
+    "tag": "Legal",
+    "pageTitle": "Legal notice",
+    "pageDescription": "Legal information about the site publisher and disclaimers regarding DAO and tokenised services.",
+    "s1Title": "Site publisher (LCEN)",
+    "s1Intro": "In accordance with French law no. 2004-575 of 21 June 2004 on confidence in the digital economy (LCEN), the following identifies the publisher and host of the site.",
+    "s1List": "Name or designation: RealToken DAO (decentralised organisation)\nEmail: marketing{'@'}realtoken.community\nDirector of publication: DAO marketing committee",
+    "s2Title": "Hosting",
+    "s2Content": "The site is hosted by [host name], [address]. For any question regarding hosting, please contact the host or the site publisher.",
+    "s3Title": "Disclaimers and risks",
+    "s3List": "Tokens and tokenised assets (including in the RealT or RealToken ecosystem) do not constitute a guaranteed investment; their value may fluctuate.\nThe contents of this site do not constitute investment, financial, legal or tax advice.\nDue to the decentralised nature of a DAO, liability may be limited and shared among participants; decisions are made collectively and on-chain.\nFor financial and tokenised aspects (sale, purchase, holding of tokens), tax obligations and, where applicable, rules of the AMF (Autorité des marchés financiers) or equivalent regulator may apply; each user is responsible for compliance with applicable law.",
+    "s3Disclaimer": "The information on this page is kept up to date where possible. For any questions regarding this legal notice, you may contact us at the address given in the publisher section."
+  },
+  "notFound": {
+    "pageTitle": "Page not found",
+    "pageDescription": "The requested page does not exist or has been moved.",
+    "title": "This page does not exist",
+    "description": "The requested URL is not available. You can go back to the homepage or use the menu to continue browsing.",
+    "goHome": "Back to homepage"
+  },
+  "appStatus": {
+    "tag": "Applications",
+    "pageTitle": "Applications status",
+    "pageDescription": "Availability report for Application Hub URLs with HTTP code and error details.",
+    "checkedAt": "Last check",
+    "loading": "Loading status report...",
+    "summary": "OK: {ok} | KO: {ko} | Total: {total}",
+    "columns": {
+      "title": "Application",
+      "url": "URL",
+      "status": "Status",
+      "http": "HTTP code",
+      "error": "Error"
+    }
+  },
+  "footer": {
+    "tagline": "Decentralized ecosystem for tokenized real-world assets.",
+    "applications": "Applications",
+    "governance": "Governance",
+    "resources": "Resources",
+    "legal": "Legal",
+    "blog": "Blog",
+    "wiki": "Wiki",
+    "forum": "Forum",
+    "faq": "FAQ",
+    "privacy": "Privacy",
+    "terms": "Terms of use",
+    "copyright": "© 2026 RealToken DAO. All rights reserved.",
+    "followUs": "Follow us"
+  }
+}
+

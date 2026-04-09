@@ -53,3 +53,4 @@ jobs:
               docker compose --file docker-compose-${{ github.ref_name }}.yml pull
               docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWD }} ${DOCKER_REGISTRY}
               docker compose --project-name ${{ github.ref_name }}-welcome --file docker-compose-${{ github.ref_name }}.yml up -d --build'
+
