@@ -139,9 +139,9 @@
     "tag": "Proof",
     "title": "Verifiable indicators, in real time.",
     "assets": "Total value of partner assets in the ecosystem",
-    "members": "Ecosystem members",
+    "members": "REG holders",
     "regMarketcap": "REG marketcap",
-    "votes": "Number of votes on Tally",
+    "votes": "Number of proposals voted by the DAO",
     "comingSoon": "Coming soon",
     "inProgress": "In progress"
   },
