@@ -107,8 +107,6 @@ const formatDate = (dateString) => {
 
 .post-hero-image {
   width: 100%;
-  max-height: 360px;
-  overflow: hidden;
   border-radius: 16px;
   margin-bottom: 32px;
   background: rgba(0, 0, 0, 0.2);
@@ -116,9 +114,10 @@ const formatDate = (dateString) => {
 
 .post-hero-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
+  border-radius: 16px;
 }
 
 .post-header-content {
