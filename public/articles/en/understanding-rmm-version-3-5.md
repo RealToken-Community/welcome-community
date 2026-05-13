@@ -31,7 +31,22 @@ This article **summarizes** the [proposal on the RealToken forum](https://forum.
 
 ## [RIP00043](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/640910280800835192023262285687656568134775170449659841348595080639880745966) vote: first Phase 1 parameters
 
-After [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814), the DAO voted an **initial parameter set** for **Phase 1** of the RMM v3.5 rollout, detailed in the [proposal on the forum](https://forum.realtoken.community/d/127). Those settings can still be **changed** by **further DAO votes** depending on how the program performs.
+After [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814), the DAO voted an **initial parameter set** for **Phase 1** of the RMM v3.5 rollout, detailed in the [proposal on the forum](https://forum.realtoken.community/d/127).
+
+The Phase 1 parameters were approved by the DAO. They may be updated in future votes as the program progresses.
+
+<table>
+<thead>
+<tr><th>Parameter</th><th>Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>GlobalMintCap</strong></td><td>~57,865 armmUSDC / ~48,330 armmXDAI</td><td>Cap on mintable dREUSD — ~50% of DAO treasury per stablecoin</td></tr>
+<tr><td><strong>reusdFactor</strong></td><td>50%</td><td>DAO top-up rate — 1:1 match</td></tr>
+<tr><td><strong>regFactor</strong></td><td>50%</td><td>REG lock rate — 50 REG per $100 converted</td></tr>
+<tr><td><strong>userMintCap</strong></td><td>100 → 1,600 REUSD</td><td>Per-wallet cap, doubling every 15 days over ~2.5 months</td></tr>
+<tr><td><strong>Phases 1+2 duration</strong></td><td>Minimum 5 months</td><td>Active migration window from launch</td></tr>
+</tbody>
+</table>
 
 ### DAO budget (global envelope)
 
@@ -69,25 +84,28 @@ In Phase 1, borrowers can **choose** DAO-assisted repayment: part of **stablecoi
 - **Long term**: grow **DAO revenue** on REUSD borrowing (the proposal uses an illustrative **~10×** multiple on the same interest volume because the DAO would capture a far larger share on REUSD debt than on classic external-supplier stablecoin pools—see the full economics section in the proposal).
 - **Design themes**: optional, **progressive** (3 stages), **incentives**, **REG utility**, **modular votes**.
 
-## REUSD is not “just another stablecoin”
-
-**REUSD** is an ecosystem **debt instrument**, not a generic stablecoin. On RMM, roles differ: stablecoins **deposit & borrow**; RealTokens as **collateral**; REUSD **borrow-only** in the sense described in the proposal—not the same UX as parking USDC liquidity—see the proposal’s role table.
-
-**Temporal meaning of “REUSD”** (per proposal terminology):
-
-- **Stage 1**: mainly **debt** from DAO-backed participation (**dREUSD**); **no** mint of transferable REUSD like today’s circulating token for this mechanism.
-- **Stage 2**: **debt** plus existing **REUSD** in circulation; no new broad emissions as in stage 1 framing.
-- **Stage 3**: term can cover **token** and **debt**; new **dREUSD** behaves like other RMM debt accounting (parallel to USDC / xDAI debt tokens).
-
 ## The three RMM v3.5 stages
 
-**Stage 1**, incentivized migration, lets users repay stablecoins through an optional Manager path: a DAO-funded top-up at the **voted participation rate** (**100%** in the first Phase 1 package under [**RIP00043**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/640910280800835192023262285687656568134775170449659841348595080639880745966)), **0% dREUSD** for that phase, and **REG locks** for caps. It bridges REUSD from **phase 1** toward **phase 2**.
+The program rolls out in **three stages** (incentivized migration → stabilization → full RMM). On-chain, **phases** 1–3 toggle specific capabilities (migration, dREUSD repayment, REUSD borrowing). The table below summarizes **what each phase allows**; the paragraphs after it spell out the **user journey** and how that maps to the REUSD roadmap.
 
-**Stage 2** focuses on liquidity and stabilization: pools, arbitrage, a target peg near **1 REUSD ≈ 1 USD**, **voted** interest on dREUSD, and **REUSD-denominated repayment** when ready. This is **active REUSD phase 2**.
+<table>
+<thead>
+<tr><th>Phase</th><th>What happens</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Phase 1</strong> <em>(active now)</em></td><td>Stablecoin debt migration + REG lock. dREUSD at 0%. No dREUSD repayment yet.</td></tr>
+<tr><td><strong>Phase 2</strong></td><td>Migration continues. dREUSD repayment enabled (stablecoin or REUSD). Proportional REG unlock.</td></tr>
+<tr><td><strong>Phase 3</strong></td><td>End of migration. Direct REUSD borrowing against collateral. Full RMM v3.5.</td></tr>
+</tbody>
+</table>
 
-**Stage 3** is full RMM v3.5: **direct REUSD borrowing**, minting for new use cases, and deeper markets once **REUSD phase 2** is mature.
+Phases 1 and 2 together define the **active migration window**—a **minimum of five months** from launch. Phase 3 turns on when **REUSD ecosystem phase 2** is **mature**.
 
-If stages 1 and 2 succeed, stage 3 is described as the **natural** continuation.
+**Stage 1 — incentivized migration.** Repay stablecoins with an optional **Manager** path: DAO-funded top-up at the **voted participation rate** (**100%** in the first Phase 1 package under [**RIP00043**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/640910280800835192023262285687656568134775170449659841348595080639880745966)), **0% dREUSD** for that phase, and **REG locks** for caps. This matches **Phase 1** in the table and starts the transition toward **REUSD phase 2** in roadmap terms.
+
+**Stage 2 — liquidity and stabilization.** Pools, arbitrage, a target peg near **1 REUSD ≈ 1 USD**, **voted** dREUSD rates, and **REUSD-denominated repayment** when the stack is ready: **Phase 2** in the table and **active REUSD phase 2** in the proposal.
+
+**Stage 3 — full RMM v3.5.** **Direct REUSD borrowing**, minting for **new use cases**, and **deeper markets**: **Phase 3** in the table, once REUSD phase 2 is **mature**. If stages 1 and 2 succeed, stage 3 is the **natural** next step.
 
 ## Benefits of RMM v3.5
 
