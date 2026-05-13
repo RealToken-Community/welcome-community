@@ -36,6 +36,8 @@ const blocks = computed(() => {
     { type: 'h2', textKey: 'mentions.s1bTitle' },
     { type: 'p', textKey: 'mentions.s1bContent' },
     { type: 'p', textKey: 'mentions.s1bContent2' },
+    { type: 'p', textKey: 'mentions.s1bContent3' },
+    { type: 'p', textKey: 'mentions.s1bContent4' },
     { type: 'h2', textKey: 'mentions.s2Title' },
     { type: 'p', textKey: 'mentions.s2Content' },
     { type: 'h2', textKey: 'mentions.s3Title' },
