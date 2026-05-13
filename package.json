@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.js && node scripts/check-app-links.js && vite build",
+    "build": "node scripts/generate-sitemap.js && node scripts/check-app-links.js && vite build && node scripts/inject-blog-social-meta.js",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.js",
     "check:app-links": "node scripts/check-app-links.js"
