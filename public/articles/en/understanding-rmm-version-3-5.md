@@ -101,6 +101,83 @@ If stages 1 and 2 succeed, stage 3 is described as the **natural** continuation.
 
 **More DAO revenue on REUSD.** As **REUSD** / **dREUSD** debt grows and accrues interest under voted terms, the DAO can **capture a larger share of interest** on that leg than on classic stablecoin pools (see the original proposal economics, on the order of **~10×** on the same illustrative interest volume).
 
+## Step by step: How to migrate your debt
+
+### 1. Open the Dashboard
+
+Go to the **Dashboard** tab on [rmm.realtoken.network](https://rmm.realtoken.network/). A new **“REUSD program”** panel appears.
+
+The panel shows:
+
+- Your available REUSD debt quota (decreases as you convert)
+- Your REG balance in the wallet (available to lock)
+- REG already locked in the program
+- A **Convert stablecoin debt** button
+- A **Withdraw REG** button *(inactive in Phase 1)*
+
+### 2. Set up your conversion
+
+Click **Convert stablecoin debt** and fill in:
+
+- **Asset** — the stablecoin for your loan (e.g. USDC, xDAI)
+- **Repayment amount** — the total including the DAO top-up
+
+The UI shows a breakdown of what will be taken from your wallet:
+
+<table>
+<thead>
+<tr><th>Item</th><th>Amount</th></tr>
+</thead>
+<tbody>
+<tr><td>Stablecoins taken from your wallet</td><td>Total ÷ 2</td></tr>
+<tr><td>REG locked</td><td>Stablecoins repaid ÷ 2</td></tr>
+<tr><td>DAO contribution (stablecoin)</td><td>Total ÷ 2</td></tr>
+</tbody>
+</table>
+
+> If a limit is hit (quota, budget, REG balance), an explanatory message appears in the interface.
+
+### 3. Approve and execute
+
+Approve REG and stablecoin spending from your wallet, then confirm the transaction.
+
+## For technical readers
+
+### REUSDPoolManager smart contract
+
+The core of the program is the `REUSDPoolManager` contract, deployed on Gnosis Chain:
+
+[0x371a02f425cfa011969085ff6ec4f8e53bd77360](https://gnosisscan.io/address/0x371a02f425cfa011969085ff6ec4f8e53bd77360)
+
+Four main functions, each active depending on the phase:
+
+<table>
+<thead>
+<tr><th>Function</th><th>Description</th><th>Active phases</th></tr>
+</thead>
+<tbody>
+<tr><td><code>repayDebtWithStable</code></td><td>Repay stablecoin debt with DAO subsidy + REG lock</td><td>1 &amp; 2</td></tr>
+<tr><td><code>repayReusdWithStable</code></td><td>Repay dREUSD (in stablecoin or REUSD) + proportional REG unlock</td><td>2 &amp; 3</td></tr>
+<tr><td><code>borrowReusd</code></td><td>Borrow REUSD against collateral</td><td>Phase 3 only</td></tr>
+<tr><td><code>withdrawReg</code></td><td>Withdraw locked REG</td><td>1, 2 &amp; 3</td></tr>
+</tbody>
+</table>
+
+### REUSD reserve and related tokens
+
+<table>
+<thead>
+<tr><th>Token</th><th>Address</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>REUSD reserve</strong></td><td><a href="https://gnosisscan.io/address/0x3390742Ac0DCe14EA6Fcbd5Ae02e2303C5D62Ad9" target="_blank" rel="noopener noreferrer"><code>0x3390742Ac0DCe14EA6Fcbd5Ae02e2303C5D62Ad9</code></a></td><td>Main reserve</td></tr>
+<tr><td><strong>aToken REUSD</strong> (deposit)</td><td><a href="https://gnosisscan.io/address/0xd04C3b20F08B1D51F7429b2205491183A7b3583F" target="_blank" rel="noopener noreferrer"><code>0xd04C3b20F08B1D51F7429b2205491183A7b3583F</code></a></td><td>Deposits and withdrawals blocked</td></tr>
+<tr><td><strong>variableDebtToken</strong> (dREUSD)</td><td><a href="https://gnosisscan.io/address/0x00EDDAE5C334bfe4E929c775Aaa7aee1A116E077" target="_blank" rel="noopener noreferrer"><code>0x00EDDAE5C334bfe4E929c775Aaa7aee1A116E077</code></a></td><td>Mint reserved to REUSDManager; active burn for repayment and liquidation</td></tr>
+<tr><td><strong>stableDebtToken</strong></td><td><a href="https://gnosisscan.io/address/0xF4c85940709aF241316D806b7B07729e9de31071" target="_blank" rel="noopener noreferrer"><code>0xF4c85940709aF241316D806b7B07729e9de31071</code></a></td><td>Disabled</td></tr>
+<tr><td><strong>InterestRate contract</strong></td><td><a href="https://gnosisscan.io/address/0x134340085739211A56fC467092058c79B3475F8B" target="_blank" rel="noopener noreferrer"><code>0x134340085739211A56fC467092058c79B3475F8B</code></a></td><td>Initialized at 0%</td></tr>
+</tbody>
+</table>
+
 ## Resources
 
 - [**RIP00040** on Tally](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814)

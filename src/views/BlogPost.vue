@@ -245,6 +245,35 @@ const formatDate = (dateString) => {
   font-style: italic;
 }
 
+.post-body :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+}
+
+.post-body :deep(th),
+.post-body :deep(td) {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-body :deep(th) {
+  background: rgba(255, 140, 66, 0.12);
+  color: #fff;
+  font-weight: 600;
+}
+
+.post-body :deep(tbody tr:nth-child(even)) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.post-body :deep(thead th) {
+  border-color: rgba(255, 140, 66, 0.25);
+}
+
 .post-footer {
   margin-top: 64px;
   padding-top: 32px;

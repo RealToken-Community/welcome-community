@@ -101,6 +101,83 @@ Si les étapes 1 et 2 réussissent, l’étape 3 est présentée comme le prolon
 
 **Plus de revenus pour la DAO sur le REUSD.** Lorsque la dette en **REUSD** / **dREUSD** sera plus active et rémunérée selon les paramètres votés, la DAO peut **capturer une part plus élevée des intérêts** sur cette composante que sur les pools stablecoins classiques (voir le cadrage économique de la proposition d’origine, avec l’ordre de grandeur d’un facteur d’environ **×10** sur un même volume d’intérêts illustratif).
 
+## Étape par étape : Comment migrer votre dette
+
+### 1. Ouvrir le Dashboard
+
+Rendez-vous sur l’onglet **Dashboard** de [rmm.realtoken.network](https://rmm.realtoken.network/). Un nouveau panneau **« Programme REUSD »** apparaît.
+
+Le panneau affiche :
+
+- Votre quota de dette REUSD disponible (diminue au fil des conversions)
+- Votre solde de REG dans le wallet (disponibles pour le blocage)
+- Les REG déjà bloqués dans le programme
+- Un bouton **Convertir la dette stablecoin**
+- Un bouton **Retirer les REG** *(inactif en Phase 1)*
+
+### 2. Configurer votre conversion
+
+Cliquez sur **Convertir la dette stablecoin** et renseignez :
+
+- **L’actif** — le stablecoin de votre emprunt (ex. USDC, xDAI)
+- **Le montant remboursé** — le total incluant l’abondement DAO
+
+L’interface affiche une décomposition de ce qui sera prélevé sur votre wallet :
+
+<table>
+<thead>
+<tr><th>Quoi</th><th>Montant</th></tr>
+</thead>
+<tbody>
+<tr><td>Stablecoins prélevés sur votre wallet</td><td>Total ÷ 2</td></tr>
+<tr><td>REG bloqués</td><td>Stablecoins remboursés ÷ 2</td></tr>
+<tr><td>Contribution DAO (stablecoin)</td><td>Total ÷ 2</td></tr>
+</tbody>
+</table>
+
+> Si une limite est atteinte (quota, budget, solde REG), un message explicatif apparaît dans l’interface.
+
+### 3. Approuver et exécuter
+
+Approuvez le prélèvement de REG et de stablecoins sur votre wallet, puis confirmez la transaction.
+
+## Pour les plus techniques
+
+### Smart Contract REUSDPoolManager
+
+Le cœur du programme est le contrat `REUSDPoolManager`, déployé sur Gnosis Chain :
+
+[0x371a02f425cfa011969085ff6ec4f8e53bd77360](https://gnosisscan.io/address/0x371a02f425cfa011969085ff6ec4f8e53bd77360)
+
+Quatre fonctions principales, chacune active selon les phases :
+
+<table>
+<thead>
+<tr><th>Fonction</th><th>Description</th><th>Phases actives</th></tr>
+</thead>
+<tbody>
+<tr><td><code>repayDebtWithStable</code></td><td>Remboursement de dette stablecoin avec subvention DAO + blocage REG</td><td>1 &amp; 2</td></tr>
+<tr><td><code>repayReusdWithStable</code></td><td>Remboursement de dREUSD (en stablecoin ou REUSD) + déblocage REG proportionnel</td><td>2 &amp; 3</td></tr>
+<tr><td><code>borrowReusd</code></td><td>Emprunt de REUSD contre collatéral</td><td>3 uniquement</td></tr>
+<tr><td><code>withdrawReg</code></td><td>Retrait des REG bloqués</td><td>1, 2 &amp; 3</td></tr>
+</tbody>
+</table>
+
+### Réserve REUSD et tokens associés
+
+<table>
+<thead>
+<tr><th>Token</th><th>Adresse</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Réserve REUSD</strong></td><td><a href="https://gnosisscan.io/address/0x3390742Ac0DCe14EA6Fcbd5Ae02e2303C5D62Ad9" target="_blank" rel="noopener noreferrer"><code>0x3390742Ac0DCe14EA6Fcbd5Ae02e2303C5D62Ad9</code></a></td><td>Réserve principale</td></tr>
+<tr><td><strong>aToken REUSD</strong> (dépôt)</td><td><a href="https://gnosisscan.io/address/0xd04C3b20F08B1D51F7429b2205491183A7b3583F" target="_blank" rel="noopener noreferrer"><code>0xd04C3b20F08B1D51F7429b2205491183A7b3583F</code></a></td><td>Dépôts et retraits bloqués</td></tr>
+<tr><td><strong>variableDebtToken</strong> (dREUSD)</td><td><a href="https://gnosisscan.io/address/0x00EDDAE5C334bfe4E929c775Aaa7aee1A116E077" target="_blank" rel="noopener noreferrer"><code>0x00EDDAE5C334bfe4E929c775Aaa7aee1A116E077</code></a></td><td>Mint réservé au REUSDManager ; burn actif pour remboursement et liquidation</td></tr>
+<tr><td><strong>stableDebtToken</strong></td><td><a href="https://gnosisscan.io/address/0xF4c85940709aF241316D806b7B07729e9de31071" target="_blank" rel="noopener noreferrer"><code>0xF4c85940709aF241316D806b7B07729e9de31071</code></a></td><td>Désactivé</td></tr>
+<tr><td><strong>Contrat InterestRate</strong></td><td><a href="https://gnosisscan.io/address/0x134340085739211A56fC467092058c79B3475F8B" target="_blank" rel="noopener noreferrer"><code>0x134340085739211A56fC467092058c79B3475F8B</code></a></td><td>Initialisé à 0 %</td></tr>
+</tbody>
+</table>
+
 ## Ressources
 
 - [Vote **RIP00040** sur Tally](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814)
