@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { loadArticle } from '../utils/blog.js'
@@ -43,6 +43,8 @@ const { locale } = useI18n()
 const article = ref(null)
 const DEFAULT_TITLE = 'RealToken Blog | RealToken DAO'
 const DEFAULT_DESCRIPTION = 'Explore all our articles on real estate tokenization, decentralized governance and the RealToken ecosystem.'
+/** Marque les meta OG / Twitter injectées par cette page pour les retirer au démontage. */
+const BLOG_SOCIAL_META_ATTR = 'data-blog-social-meta'
 
 function upsertMetaDescription(content) {
   let descriptionTag = document.querySelector('meta[name="description"]')
@@ -54,7 +56,21 @@ function upsertMetaDescription(content) {
   descriptionTag.setAttribute('content', content)
 }
 
+/** Retire les balises Open Graph / Twitter Card ajoutées pour un billet (évite qu’elles restent sur les autres pages). */
+function removeBlogSocialMeta() {
+  document.querySelectorAll(`meta[${BLOG_SOCIAL_META_ATTR}]`).forEach((el) => el.remove())
+}
+
+/** Ajoute une meta dans le head, marquée pour nettoyage ultérieur. */
+function appendTrackedMeta(attrs) {
+  const meta = document.createElement('meta')
+  Object.entries(attrs).forEach(([key, value]) => meta.setAttribute(key, value))
+  meta.setAttribute(BLOG_SOCIAL_META_ATTR, '1')
+  document.head.appendChild(meta)
+}
+
 function updateSeoHead(post) {
+  removeBlogSocialMeta()
   if (!post) {
     document.title = DEFAULT_TITLE
     upsertMetaDescription(DEFAULT_DESCRIPTION)
@@ -64,7 +80,29 @@ function updateSeoHead(post) {
   const description = post.description?.trim() ? post.description : DEFAULT_DESCRIPTION
   document.title = title
   upsertMetaDescription(description)
+
+  if (typeof window === 'undefined') return
+  const pageUrl = `${window.location.origin}${route.path}`
+  appendTrackedMeta({ property: 'og:title', content: title })
+  appendTrackedMeta({ property: 'og:description', content: description })
+  appendTrackedMeta({ property: 'og:type', content: 'article' })
+  appendTrackedMeta({ property: 'og:url', content: pageUrl })
+  appendTrackedMeta({ property: 'og:site_name', content: 'RealToken DAO' })
+  appendTrackedMeta({ name: 'twitter:title', content: title })
+  appendTrackedMeta({ name: 'twitter:description', content: description })
+  if (post.imageHeader?.trim()) {
+    const imageUrl = `${window.location.origin}/ArticleImg/${encodeURIComponent(post.imageHeader.trim())}`
+    appendTrackedMeta({ property: 'og:image', content: imageUrl })
+    appendTrackedMeta({ name: 'twitter:card', content: 'summary_large_image' })
+    appendTrackedMeta({ name: 'twitter:image', content: imageUrl })
+  } else {
+    appendTrackedMeta({ name: 'twitter:card', content: 'summary' })
+  }
 }
+
+onUnmounted(() => {
+  removeBlogSocialMeta()
+})
 
 const fetchArticle = async () => {
   const slug = route.params.slug
@@ -107,8 +145,6 @@ const formatDate = (dateString) => {
 
 .post-hero-image {
   width: 100%;
-  max-height: 360px;
-  overflow: hidden;
   border-radius: 16px;
   margin-bottom: 32px;
   background: rgba(0, 0, 0, 0.2);
@@ -116,9 +152,10 @@ const formatDate = (dateString) => {
 
 .post-hero-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
+  border-radius: 16px;
 }
 
 .post-header-content {
@@ -244,6 +281,35 @@ const formatDate = (dateString) => {
   margin: 1.5em 0;
   color: rgba(255, 255, 255, 0.7);
   font-style: italic;
+}
+
+.post-body :deep(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+}
+
+.post-body :deep(th),
+.post-body :deep(td) {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-body :deep(th) {
+  background: rgba(255, 140, 66, 0.12);
+  color: #fff;
+  font-weight: 600;
+}
+
+.post-body :deep(tbody tr:nth-child(even)) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.post-body :deep(thead th) {
+  border-color: rgba(255, 140, 66, 0.25);
 }
 
 .post-footer {
