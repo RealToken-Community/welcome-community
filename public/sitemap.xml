@@ -81,4 +81,10 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://realtoken.community/ressource/blog/understanding-rmm-version-3-5</loc>
+    <lastmod>2026-05-13</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

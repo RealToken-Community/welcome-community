@@ -97,7 +97,9 @@ const slugEquivalents = {
   'participation-gouvernance-realtoken-dao': { en: 'realtoken-dao-governance-participation' },
   'realtoken-dao-governance-participation': { fr: 'participation-gouvernance-realtoken-dao' },
   'avenir-rwa-diversification-communautaire': { en: 'future-rwa-community-roadmap-diversification' },
-  'future-rwa-community-roadmap-diversification': { fr: 'avenir-rwa-diversification-communautaire' }
+  'future-rwa-community-roadmap-diversification': { fr: 'avenir-rwa-diversification-communautaire' },
+  'understanding-rmm-version-3-5': { fr: 'comprendre-version-3-5-rmm' },
+  'comprendre-version-3-5-rmm': { en: 'understanding-rmm-version-3-5' }
 }
 
 /** Retourne le slug à utiliser pour une locale (équivalent du même article dans l'autre langue si besoin) */
