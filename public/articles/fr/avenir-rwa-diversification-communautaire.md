@@ -1,5 +1,5 @@
 ---
-title: "L'Avenir des RWA : Une Feuille de Route Communautaire pour la Diversification"
+title: "Diversification des RWA : une feuille de route communautaire"
 date: "2026-03-12"
 description: "Comment la communauté RealToken DAO explore la diversification des RWA—critères axés sur la recherche, pistes à l'étude et fondations techniques pour le RMM."
 tags: ["rwa", "dao", "gouvernance", "diversification", "rmm"]
@@ -7,7 +7,7 @@ author: "Equipe Realtoken DAO"
 imageHeader: "future-rwa-roadmap-diversification.png"
 ---
 
-# L'Avenir des RWA : Une Feuille de Route Communautaire pour la Diversification
+# Diversification des RWA : une feuille de route communautaire
 
 ## Introduction
 
