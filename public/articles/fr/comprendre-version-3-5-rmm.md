@@ -13,13 +13,17 @@ Cet article **condense** la [proposition sur le forum RealToken](https://forum.r
 
 ## Contexte : pourquoi en parler maintenant ?
 
-**Chronologie indicative** : depuis le **16 janvier 2026**, débat sur la **crise de liquidité** du RMM ; **5 mars 2026**, publication de la proposition v3.5 ; **17–18 mars 2026**, vote [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814) sur le lancement du développement ; discussions sur le forum depuis le **28 mars 2026** autour des paramètres ; **11 avril 2026**, ouverture du vote [**RIP00043**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/640910280800835192023262285687656568134775170449659841348595080639880745966) sur une première mouture des paramètres de **phase 1** (durée du vote et calendrier d’application à prendre sur la [proposition sur le forum](https://forum.realtoken.community/d/127)).
+**Chronologie indicative** :
+
+- **16 janvier 2026** : débat sur la **crise de liquidité** du RMM.
+- **5 mars 2026** : publication de la proposition v3.5.
+- **17–18 mars 2026** : vote [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814) sur le lancement du développement.
+- **Depuis le 28 mars 2026** : discussions sur le forum autour des paramètres.
+- **11 avril 2026** : ouverture du vote [**RIP00043**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/640910280800835192023262285687656568134775170449659841348595080639880745966) sur une première mouture des paramètres de **phase 1**.
 
 **Situation du RMM v3** (à la date des débats) : utilisation **~100 %**, taux d’emprunt en stablecoins **supérieurs à 30 %** annuel, ordre de grandeur **~14,4 M$ empruntés** pour **~48 M$ de TVL**, **déposants bloqués** sur les retraits en stablecoins. La DAO capte une **part des intérêts** sur les emprunts (paramètre de protocole), mais la saturation pénalise emprunteurs, déposants et croissance.
 
 **Objet du vote** [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814) : la communauté a validé le principe que **RealT développe** des **fonctionnalités optionnelles** pour **réduire la surutilisation** du RMM, décrites dans la **proposition sur le forum**, avec **mise en œuvre par phases**. Ce vote **autorise le développement** ; il pose le **cadre** du RMM v3.5.
-
-**Budget développement** : selon la proposition initiale, **aucun coût** pour la communauté sur ce volet de développement — **RealT** porte les dépenses correspondantes.
 
 ## En une phrase : qu’est-ce que le RMM v3.5 ?
 

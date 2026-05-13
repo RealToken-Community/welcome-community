@@ -13,13 +13,17 @@ This article **summarizes** the [proposal on the RealToken forum](https://forum.
 
 ## Context: why it matters now
 
-**Indicative timeline**: from **16 January 2026**, debate on the RMM **liquidity crisis**; **5 March 2026**, publication of the v3.5 proposal; **17–18 March 2026**, [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814) vote on **starting development**; forum discussion from **28 March 2026** on parameters; **11 April 2026**, [**RIP00043**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/640910280800835192023262285687656568134775170449659841348595080639880745966) vote opens on a first set of **Phase 1** parameters (exact vote window and on-chain schedule—see the [proposal on the forum](https://forum.realtoken.community/d/127)).
+**Indicative timeline**:
+
+- **16 January 2026**: debate on the RMM **liquidity crisis**.
+- **5 March 2026**: publication of the v3.5 proposal.
+- **17–18 March 2026**: [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814) vote on **starting development**.
+- **From 28 March 2026**: forum discussion on parameters.
+- **11 April 2026**: [**RIP00043**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/640910280800835192023262285687656568134775170449659841348595080639880745966) vote opens on a first set of **Phase 1** parameters.
 
 **RMM v3 situation** (as framed in the debate): utilization near **100%**, stablecoin borrow rates **above 30%** APR, roughly **$14.4M borrowed** vs **~$48M TVL**, **depositors unable** to withdraw stablecoins. The DAO earns a **share of borrow interest** (protocol parameter), but saturation hurts borrowers, depositors, and growth.
 
 [**RIP00040**](https://www.tally.xyz/gov/realtoken-ecosystem-governance/proposal/1401729377552517862159119104352447734711165592875340838992095449427178715814): the community approved **RealT developing** **optional** features to ease RMM **over-use**, described in the **proposal on the forum**, rolled out **in phases**. That vote **green-lights development** and sets the **overall framework** for RMM v3.5.
-
-**Development budget**: per the original proposal, **no community cost** for that development line—**RealT** funds it.
 
 ## One-liner: what is RMM v3.5?
 
