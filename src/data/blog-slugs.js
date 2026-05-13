@@ -9,5 +9,6 @@ export const englishSlugs = [
   'birth-of-realtoken-dao',
   'realtoken-dao-scope',
   'realtoken-dao-governance-participation',
-  'future-rwa-community-roadmap-diversification'
+  'future-rwa-community-roadmap-diversification',
+  'understanding-rmm-version-3-5'
 ]
